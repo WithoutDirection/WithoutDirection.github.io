@@ -25,22 +25,13 @@
     top: 100px !important;
   }
 }
-.top-img {
-  height: 250px;
-  margin: -50px -40px 50px;
-  border-top-left-radius: inherit;
-  border-top-right-radius: inherit;
-  background-position: center;
-  background-size: cover;
-  transitions: all 0.3s;
-}
 @media screen and (max-width: 768px) {
-  .top-img {
+  #page-header {
     height: 230px;
     margin: -36px -14px 36px;
   }
 }
-[data-theme='dark'] .top-img {
+[data-theme='dark'] #page-header {
   filter: brightness(0.8);
 }
 #footer:before {
@@ -63,7 +54,6 @@
   filter: brightness(0.5);
 }
 body {
-  background-img: url("/img/forest.webp");
   background-size: cover;
   background-position: center center;
   background-attachment: fixed;
