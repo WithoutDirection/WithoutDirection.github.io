@@ -6,7 +6,7 @@
   <link href="http://withoutdirection.github.io/atom.xml" rel="self"/>
   
   <link href="http://withoutdirection.github.io/"/>
-  <updated>2025-02-18T04:16:17.180Z</updated>
+  <updated>2025-03-15T17:14:56.965Z</updated>
   <id>http://withoutdirection.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>交大資工-大四紀錄</title>
+    <link href="http://withoutdirection.github.io/2025/03/16/Record-of-senior-in-NYCU/"/>
+    <id>http://withoutdirection.github.io/2025/03/16/Record-of-senior-in-NYCU/</id>
+    <published>2025-03-15T16:09:58.726Z</published>
+    <updated>2025-03-15T17:14:56.965Z</updated>
+    
+    <content type="html"><![CDATA[<hr><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>對於自己的大學生活很沒有實感<br>以此記錄自己到底做了甚麼<br>也順便藉由設立一些目標來督促自己</p><hr><h2 id="第四周"><a href="#第四周" class="headerlink" title="第四周"></a>第四周</h2><p><code>第一周架好Hexo跟環境設定，結果拖了兩周才開始記錄zz</code></p><ol><li><p>課業</p> <details> <summary>作業開始爆炸</summary><ul><li>資料科學與程式實務<ul><li>Hw0 anouncement:  <ul><li>簡單資訊呈現</li></ul></li><li>Hw1 anouncement:<ul><li>PMF sampling and drafting</li><li>PDF sampling and drafting</li></ul></li></ul></li><li>電腦安全總整<ul><li>Hw1 in progress:<ul><li>MITM attack</li><li>TLS hijacking</li></ul></li><li>Cryptography tool slide:<ul><li>對稱訊息加密</li><li>公開金鑰加密</li><li>數位簽章</li><li>Hash function</li><li>DES AES history</li></ul></li><li>Internet security protocol slide:<ul><li>SSL&#x2F;TLS</li><li>S&#x2F;MIME</li><li>DKIM</li><li>IPSec</li></ul></li></ul></li><li>計算機網路管理<ul><li>Hw1 complete:<ul><li>Router setting</li><li>Agent setting</li></ul></li></ul></li><li>基因演算法與管理科學應用<ul><li>GA basic 01 complete:<ul><li>GA basic concept</li><li>GA basic code</li></ul></li></ul></li><li>資料庫管理</li><li>前端網頁系統開發概論<ul><li>Hw1 announcement<ul><li>basic HTML page generating concating with CSS</li><li>VM setting</li></ul></li></ul></li></ul> </details> </li><li><p>日常</p><ul><li><p>調酒</p><ul><li>蜂蠟洗(waxwashed)<br>  隔水加熱將蠟融掉後加入基酒等蠟析出<br>  <em>實測比例: 50g蜂蠟&#x2F;300ml基酒</em><br>  影響: 味道變得更溫和，尾段口感變厚<br>  測試: 以蜂蠟洗過的Beefeather 製作 Negroni，經測試後發現銜接Campari的味道較原來的不突兀</li></ul></li><li><p>自煮</p><ul><li>炒雞蛋麵<br>  將雞蛋麵、小白菜、豬梅花肉绰熟後滑蛋炒<br>  結果: 有點焦，考慮下次要麵煮半熟且油多一點</li></ul></li><li><p>家教</p><ul><li>進度: 期中考進度結束，準備開始複習</li><li>思考以實體桌遊方式給大家增加寫題目的熱情</li></ul></li></ul></li><li><p>目標</p><ul><li><input disabled="" type="checkbox"> 完成資料科學與程式實務Hw1，參與助教課</li><li><input disabled="" type="checkbox"> 完成前端網頁系統概論Hw1，聽完前幾周的Recording</li><li><input disabled="" type="checkbox"> 完成蜂蠟洗的威士忌，並加入第三風味作為女朋友的生日禮物</li><li><input disabled="" type="checkbox"> 想一下家教的桌遊要如何設計，並與家長討論</li></ul></li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;hr&gt;
+&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;對於自己的大學生活很沒有實感&lt;br&gt;以此記錄自己到底做了甚麼&lt;br&gt;也順便藉由設立一些目標來督促自己&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 i</summary>
+      
+    
+    
+    
+    
+    <category term="大學生活" scheme="http://withoutdirection.github.io/tags/%E5%A4%A7%E5%AD%B8%E7%94%9F%E6%B4%BB/"/>
+    
+    <category term="資工" scheme="http://withoutdirection.github.io/tags/%E8%B3%87%E5%B7%A5/"/>
+    
+  </entry>
   
   <entry>
     <title>EEG Undergraduate Research</title>
