@@ -1,0 +1,921 @@
+<!DOCTYPE html><html lang="zh-tw" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>NA 期中大抄 | 烏鴉囈語</title><meta name="author" content="烏鴉先生"><meta name="copyright" content="烏鴉先生"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="TCP/IP Protocol Model (Four-Layer Architecture)Layers Overview Link Layer: Handles hardware transmission details, like how data packets are sent over physical media (e.g., Ethernet). Network Laye">
+<meta property="og:type" content="article">
+<meta property="og:title" content="NA 期中大抄">
+<meta property="og:url" content="http://withoutdirection.github.io/2025/04/19/NA-midterm/index.html">
+<meta property="og:site_name" content="烏鴉囈語">
+<meta property="og:description" content="TCP/IP Protocol Model (Four-Layer Architecture)Layers Overview Link Layer: Handles hardware transmission details, like how data packets are sent over physical media (e.g., Ethernet). Network Laye">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="http://withoutdirection.github.io/img/crow.webp">
+<meta property="article:published_time" content="2025-04-18T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-04-19T13:59:55.863Z">
+<meta property="article:author" content="烏鴉先生">
+<meta property="article:tag" content="NA">
+<meta property="article:tag" content="期中考">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://withoutdirection.github.io/img/crow.webp"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "NA 期中大抄",
+  "url": "http://withoutdirection.github.io/2025/04/19/NA-midterm/",
+  "image": "http://withoutdirection.github.io/img/crow.webp",
+  "datePublished": "2025-04-18T16:00:00.000Z",
+  "dateModified": "2025-04-19T13:59:55.863Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "烏鴉先生",
+      "url": "https://withoutdirection.github.io"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://withoutdirection.github.io/2025/04/19/NA-midterm/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"><link rel="preconnect" href="//busuanzi.ibruce.info"><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          const hour = new Date().getHours()
+          const isNight = hour <= 6 || hour >= 17
+          if (theme === undefined) isNight ? activateDarkMode() : activateLightMode()
+          else theme === 'light' ? activateLightMode() : activateDarkMode()
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Failed',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'NA 期中大抄',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="/css/modify.css"><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="烏鴉囈語" type="application/atom+xml">
+</head><body><div id="web_bg" style="background-image: url(img/forest.webp);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/crow.webp" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"></div><div class="site-data text-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">3</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">5</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">1</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首頁</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 檔案</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 標籤</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> about</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background: 縮略圖;"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="/img/logo.webp" alt="Logo"><span class="site-name">烏鴉囈語</span></a><a class="nav-page-title" href="/"><span class="site-name">NA 期中大抄</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首頁</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 檔案</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 標籤</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> about</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">NA 期中大抄</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2025-04-18T16:00:00.000Z" title="Created 2025-04-19 00:00:00">2025-04-19</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2025-04-19T13:59:55.863Z" title="Updated 2025-04-19 21:59:55">2025-04-19</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E8%B3%87%E5%B7%A5/">資工</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><div class="top-img" style="background-image: url(undefined);"></div><article class="container post-content" id="article-container"><h1 id="TCP-IP-Protocol-Model-Four-Layer-Architecture"><a href="#TCP-IP-Protocol-Model-Four-Layer-Architecture" class="headerlink" title="TCP/IP Protocol Model (Four-Layer Architecture)"></a>TCP/IP Protocol Model (Four-Layer Architecture)</h1><h2 id="Layers-Overview"><a href="#Layers-Overview" class="headerlink" title="Layers Overview"></a>Layers Overview</h2><ul>
+<li><strong>Link Layer:</strong> Handles hardware transmission details, like how data packets are sent over physical media (e.g., Ethernet).</li>
+<li><strong>Network Layer:</strong> Uses IP to manage how packets travel from one host to another (routing).</li>
+<li><strong>Transport Layer:</strong> Includes protocols like TCP or UDP, managing reliable or unreliable data transfer between two hosts.</li>
+<li><strong>Application Layer:</strong> Deals with specific applications, such as HTTP, DNS, and FTP.</li>
+</ul>
+<h3 id="OSI-Model-Comparison"><a href="#OSI-Model-Comparison" class="headerlink" title="OSI Model Comparison"></a>OSI Model Comparison</h3><ul>
+<li>TCP/IP merges the Data Link and Physical layers into the “Link Layer.”</li>
+<li>The Application Layer of TCP/IP covers OSI’s Application, Presentation, and Session layers.</li>
+</ul>
+<hr>
+<h2 id="Network-Addressing"><a href="#Network-Addressing" class="headerlink" title="Network Addressing"></a>Network Addressing</h2><h3 id="MAC-Address-Hardware-Layer"><a href="#MAC-Address-Hardware-Layer" class="headerlink" title="MAC Address (Hardware Layer)"></a>MAC Address (Hardware Layer)</h3><ul>
+<li>48-bit unique identifier (e.g., <code>00:1A:2B:3C:4D:5E</code>).</li>
+<li>Fixed on network cards, globally unique.</li>
+</ul>
+<h3 id="IP-Address-Logical-Address"><a href="#IP-Address-Logical-Address" class="headerlink" title="IP Address (Logical Address)"></a>IP Address (Logical Address)</h3><ul>
+<li>IPv4: 32-bit (e.g., <code>192.168.1.1</code>).</li>
+<li>Divided into network and host parts, separated using a subnet mask.</li>
+</ul>
+<h3 id="Port-Numbers"><a href="#Port-Numbers" class="headerlink" title="Port Numbers"></a>Port Numbers</h3><ul>
+<li>16-bit (e.g., TCP port 80 for HTTP).</li>
+<li>Allows programs on a host to distinguish each other.</li>
+</ul>
+<hr>
+<h2 id="Link-Layer-and-Ethernet"><a href="#Link-Layer-and-Ethernet" class="headerlink" title="Link Layer and Ethernet"></a>Link Layer and Ethernet</h2><ul>
+<li>Uses CSMA/CD (Carrier Sense Multiple Access with Collision Detection).</li>
+<li><strong>Frame Format:</strong> Source MAC, Destination MAC, Type, Data, CRC.</li>
+<li><strong>MTU:</strong> 1500 bytes (maximum payload per Ethernet frame).</li>
+<li>If the payload exceeds the MTU, IP layer performs <strong>fragmentation</strong>.</li>
+</ul>
+<hr>
+<h2 id="Network-Layer-IP-Concepts"><a href="#Network-Layer-IP-Concepts" class="headerlink" title="Network Layer &amp; IP Concepts"></a>Network Layer &amp; IP Concepts</h2><ul>
+<li><strong>IP:</strong> Unreliable, connectionless packet transmission.</li>
+<li><strong>IP Header Includes:</strong> TTL, Protocol (TCP=6, UDP=17), Fragmentation Fields.</li>
+<li><strong>CIDR:</strong> Classless addressing replacing Class A/B/C, supports better subnetting.</li>
+</ul>
+<hr>
+<h2 id="Address-Resolution-Protocols"><a href="#Address-Resolution-Protocols" class="headerlink" title="Address Resolution Protocols"></a>Address Resolution Protocols</h2><h3 id="ARP-Address-Resolution-Protocol"><a href="#ARP-Address-Resolution-Protocol" class="headerlink" title="ARP (Address Resolution Protocol)"></a>ARP (Address Resolution Protocol)</h3><ul>
+<li>Resolves IP to MAC address in LAN.</li>
+<li>Uses broadcast ARP requests and targeted replies.</li>
+<li>Maintains a temporary ARP cache.</li>
+</ul>
+<h3 id="RARP-Reverse-ARP"><a href="#RARP-Reverse-ARP" class="headerlink" title="RARP (Reverse ARP)"></a>RARP (Reverse ARP)</h3><ul>
+<li>Obsolete, used by diskless devices to obtain IP from MAC.</li>
+</ul>
+<hr>
+<h2 id="ICMP-Internet-Control-Message-Protocol"><a href="#ICMP-Internet-Control-Message-Protocol" class="headerlink" title="ICMP (Internet Control Message Protocol)"></a>ICMP (Internet Control Message Protocol)</h2><ul>
+<li>Used for error reporting and diagnostics.</li>
+<li><strong>Examples:</strong><ul>
+<li>Ping (Echo Request/Reply)</li>
+<li>Traceroute (uses TTL &amp; Time Exceeded messages)</li>
+<li>Destination Unreachable, Redirect, Time Exceeded</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="Transport-Layer-Protocols"><a href="#Transport-Layer-Protocols" class="headerlink" title="Transport Layer Protocols"></a>Transport Layer Protocols</h2><h3 id="UDP-User-Datagram-Protocol"><a href="#UDP-User-Datagram-Protocol" class="headerlink" title="UDP (User Datagram Protocol)"></a>UDP (User Datagram Protocol)</h3><ul>
+<li>Connectionless and unreliable.</li>
+<li>Low overhead, used in VoIP, DNS, streaming.</li>
+</ul>
+<h3 id="TCP-Transmission-Control-Protocol"><a href="#TCP-Transmission-Control-Protocol" class="headerlink" title="TCP (Transmission Control Protocol)"></a>TCP (Transmission Control Protocol)</h3><ul>
+<li>Reliable, ordered, flow-controlled data transmission.</li>
+<li><strong>Three-Way Handshake:</strong> SYN → SYN+ACK → ACK</li>
+<li>Provides retransmission, flow control, and sequencing.</li>
+</ul>
+<hr>
+<h2 id="Encapsulation-Decapsulation"><a href="#Encapsulation-Decapsulation" class="headerlink" title="Encapsulation &amp; Decapsulation"></a>Encapsulation &amp; Decapsulation</h2><ul>
+<li><strong>Encapsulation (Sender):</strong> Application Data + Transport Header + IP Header + MAC Header</li>
+<li><strong>Decapsulation (Receiver):</strong> Remove headers layer by layer to extract original data.</li>
+</ul>
+<hr>
+<h2 id="IP-Header-Details"><a href="#IP-Header-Details" class="headerlink" title="IP Header Details"></a>IP Header Details</h2><ul>
+<li><strong>TOS (Type of Service):</strong> Includes DSCP &amp; ECN for QoS and congestion handling.</li>
+<li><strong>Fragment Offset &amp; Flags:</strong> Used in fragmentation.</li>
+<li><strong>Protocol Field:</strong> Identifies upper-layer protocol (TCP=6, UDP=17).</li>
+</ul>
+<hr>
+<h1 id="Routing-Fundamentals"><a href="#Routing-Fundamentals" class="headerlink" title="Routing Fundamentals"></a>Routing Fundamentals</h1><h3 id="Static-vs-Dynamic-Routing"><a href="#Static-vs-Dynamic-Routing" class="headerlink" title="Static vs Dynamic Routing"></a>Static vs Dynamic Routing</h3><ul>
+<li><strong>Static Routing:</strong> Manually set, best for simple networks.</li>
+<li><strong>Dynamic Routing:</strong> Adapts automatically to network changes using routing protocols.</li>
+</ul>
+<h3 id="Routing-Table-Protocols"><a href="#Routing-Table-Protocols" class="headerlink" title="Routing Table &amp; Protocols"></a>Routing Table &amp; Protocols</h3><ul>
+<li>Maintains best routes to destinations.</li>
+<li>Protocols exchange info about reachability, link status, metrics.</li>
+</ul>
+<h3 id="Common-Metrics"><a href="#Common-Metrics" class="headerlink" title="Common Metrics"></a>Common Metrics</h3><ul>
+<li>Hop Count</li>
+<li>Bandwidth</li>
+<li>Delay</li>
+<li>Load</li>
+<li>Reliability</li>
+</ul>
+<hr>
+<h2 id="Routing-Protocols-and-Autonomous-Systems"><a href="#Routing-Protocols-and-Autonomous-Systems" class="headerlink" title="Routing Protocols and Autonomous Systems"></a>Routing Protocols and Autonomous Systems</h2><h3 id="Autonomous-Systems-AS"><a href="#Autonomous-Systems-AS" class="headerlink" title="Autonomous Systems (AS)"></a>Autonomous Systems (AS)</h3><ul>
+<li>Group of networks under common control.</li>
+<li>Identified by an ASN.</li>
+</ul>
+<h3 id="Protocol-Scope"><a href="#Protocol-Scope" class="headerlink" title="Protocol Scope"></a>Protocol Scope</h3><ul>
+<li><strong>IGP (Interior):</strong> RIP, IGRP, OSPF, EIGRP</li>
+<li><strong>EGP (Exterior):</strong> BGP</li>
+</ul>
+<h3 id="Protocol-Types"><a href="#Protocol-Types" class="headerlink" title="Protocol Types"></a>Protocol Types</h3><ol>
+<li><p><strong>Distance Vector:</strong></p>
+<ul>
+<li>Sends full routing table to neighbors.</li>
+<li>E.g., RIP, IGRP, BGP (Path Vector style).</li>
+</ul>
+</li>
+<li><p><strong>Link State:</strong></p>
+<ul>
+<li>Broadcasts link state info to build full topology.</li>
+<li>E.g., OSPF, IS-IS</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="Routing-Protocol-Comparison-Table"><a href="#Routing-Protocol-Comparison-Table" class="headerlink" title="Routing Protocol Comparison Table"></a>Routing Protocol Comparison Table</h2><table>
+<thead>
+<tr>
+<th>Protocol</th>
+<th>Type</th>
+<th>Scope</th>
+<th>Transport</th>
+<th>Port</th>
+<th>CIDR</th>
+<th>Convergence</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>RIP</td>
+<td>Distance Vector</td>
+<td>IGP</td>
+<td>UDP</td>
+<td>520</td>
+<td>v2 Yes</td>
+<td>Slow</td>
+<td>Simple, 15 hop limit</td>
+</tr>
+<tr>
+<td>IGRP</td>
+<td>Distance Vector</td>
+<td>IGP</td>
+<td>UDP (Cisco)</td>
+<td>N/A</td>
+<td>No</td>
+<td>Slow</td>
+<td>Complex metric</td>
+</tr>
+<tr>
+<td>OSPF</td>
+<td>Link State</td>
+<td>IGP</td>
+<td>IP (89)</td>
+<td>N/A</td>
+<td>Yes</td>
+<td>Fast</td>
+<td>Supports areas &amp; CIDR</td>
+</tr>
+<tr>
+<td>BGP-4</td>
+<td>Path Vector</td>
+<td>EGP</td>
+<td>TCP</td>
+<td>179</td>
+<td>Yes</td>
+<td>Slow</td>
+<td>Best path selection</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="routed-Daemon-Unix-Routing-Daemon"><a href="#routed-Daemon-Unix-Routing-Daemon" class="headerlink" title="routed Daemon (Unix Routing Daemon)"></a>routed Daemon (Unix Routing Daemon)</h2><ul>
+<li>Supports RIP v1/v2.</li>
+<li>Can:<ul>
+<li>Auto-discover neighbors.</li>
+<li>Read static routes from <code>/etc/gateways</code>.</li>
+</ul>
+</li>
+<li>Modes:<ul>
+<li>Server Mode: Actively broadcasts.</li>
+<li>Quiet Mode: Passive listener.</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="Dynamic-Host-Configuration-Protocol-DHCP-NAT-Network-Address-Translation"><a href="#Dynamic-Host-Configuration-Protocol-DHCP-NAT-Network-Address-Translation" class="headerlink" title="Dynamic Host Configuration Protocol (DHCP) &amp; NAT (Network Address Translation)"></a>Dynamic Host Configuration Protocol (DHCP) &amp; NAT (Network Address Translation)</h1><h3 id="Architecture"><a href="#Architecture" class="headerlink" title="Architecture"></a>Architecture</h3><ul>
+<li>Client-Server model.</li>
+<li>Uses UDP (Server: 67, Client: 68).</li>
+<li>DHCP Relay forwards requests across subnets.</li>
+</ul>
+<h3 id="Allocation-Types"><a href="#Allocation-Types" class="headerlink" title="Allocation Types"></a>Allocation Types</h3><table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Dynamic</td>
+<td>Temporary, lease-based IPs (common for mobile devices)</td>
+</tr>
+<tr>
+<td>Automatic</td>
+<td>Like dynamic, but tends to assign same IP repeatedly</td>
+</tr>
+<tr>
+<td>Manual</td>
+<td>Fixed IP bound to MAC (used for printers, servers)</td>
+</tr>
+</tbody></table>
+<h3 id="DORA-Process"><a href="#DORA-Process" class="headerlink" title="DORA Process"></a>DORA Process</h3><ol>
+<li><strong>Discover</strong> → 2. <strong>Offer</strong> → 3. <strong>Request</strong> → 4. <strong>Acknowledge</strong></li>
+</ol>
+<h3 id="Lease-Lifecycle"><a href="#Lease-Lifecycle" class="headerlink" title="Lease Lifecycle"></a>Lease Lifecycle</h3><ul>
+<li>Renewal: Halfway point of lease time.</li>
+<li>Rebinding: After renewal fails.</li>
+<li>Release: Client sends explicit termination.</li>
+</ul>
+<h3 id="FreeBSD-DHCP-ISC-DHCP"><a href="#FreeBSD-DHCP-ISC-DHCP" class="headerlink" title="FreeBSD DHCP (ISC DHCP)"></a>FreeBSD DHCP (ISC DHCP)</h3><ul>
+<li>Config: <code>/usr/local/etc/dhcpd.conf</code></li>
+<li>Lease DB: <code>/var/db/dhcpd.leases</code></li>
+<li>Startup: <code>/etc/rc.conf</code> with <code>dhcpd_enable="YES"</code></li>
+</ul>
+<hr>
+<h2 id="Network-Address-Translation-NAT"><a href="#Network-Address-Translation-NAT" class="headerlink" title="Network Address Translation (NAT)"></a>Network Address Translation (NAT)</h2><h3 id="Purpose"><a href="#Purpose" class="headerlink" title="Purpose"></a>Purpose</h3><ul>
+<li>Hides internal IPs, conserves public IPs.</li>
+<li>Modifies IP headers to route between networks.</li>
+</ul>
+<h3 id="NAPT-Port-Translation"><a href="#NAPT-Port-Translation" class="headerlink" title="NAPT (Port Translation)"></a>NAPT (Port Translation)</h3><ul>
+<li>Maps multiple internal IP:port to one external IP:port.</li>
+</ul>
+<h3 id="Private-IP-Ranges-RFC-1918"><a href="#Private-IP-Ranges-RFC-1918" class="headerlink" title="Private IP Ranges (RFC 1918)"></a>Private IP Ranges (RFC 1918)</h3><ul>
+<li><code>10.0.0.0/8</code></li>
+<li><code>172.16.0.0/12</code></li>
+<li><code>192.168.0.0/16</code></li>
+</ul>
+<h3 id="NAT-Types"><a href="#NAT-Types" class="headerlink" title="NAT Types"></a>NAT Types</h3><table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Behavior</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Full Cone</td>
+<td>Any external host can send to internal IP once mapped</td>
+</tr>
+<tr>
+<td>Restricted</td>
+<td>Only external IPs that received packets can reply</td>
+</tr>
+<tr>
+<td>Port-Restricted</td>
+<td>Must match both IP and port</td>
+</tr>
+<tr>
+<td>Symmetric</td>
+<td>Unique mapping per destination</td>
+</tr>
+</tbody></table>
+<h3 id="Limitations"><a href="#Limitations" class="headerlink" title="Limitations"></a>Limitations</h3><ul>
+<li>Issues with embedded IPs (FTP, SIP).</li>
+<li>Problems with ICMP and IPSec.</li>
+</ul>
+<h3 id="FreeBSD-NAT-via-PF"><a href="#FreeBSD-NAT-via-PF" class="headerlink" title="FreeBSD NAT via PF"></a>FreeBSD NAT via PF</h3><figure class="highlight pf"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">nat <span class="keyword">on</span> <span class="variable">$ext_if</span> <span class="keyword">from</span> <span class="variable">$lan_net</span> <span class="keyword">to</span> <span class="literal">any</span> -&gt; <span class="variable">$public_ip</span></span><br><span class="line">rdr <span class="keyword">on</span> <span class="variable">$ext_if</span> <span class="keyword">proto</span> tcp <span class="keyword">from</span> <span class="literal">any</span> <span class="keyword">to</span> <span class="variable">$public_ip</span> <span class="keyword">port</span> <span class="number">80</span> -&gt; <span class="number">192.168</span>.<span class="number">1.10</span> <span class="keyword">port</span> <span class="number">80</span></span><br><span class="line">binat <span class="keyword">on</span> <span class="variable">$ext_if</span> <span class="keyword">from</span> <span class="variable">$lan_net</span> <span class="keyword">to</span> <span class="literal">any</span> -&gt; <span class="variable">$public_ip</span></span><br></pre></td></tr></tbody></table></figure>
+
+<hr>
+<h2 id="NAT-Network-Address-Translation-Explanation"><a href="#NAT-Network-Address-Translation-Explanation" class="headerlink" title="NAT (Network Address Translation) Explanation"></a>NAT (Network Address Translation) Explanation</h2><ol>
+<li><p><strong>NAT Core Functionality:</strong></p>
+<ul>
+<li>NAT enables communication between different network segments by modifying the source/destination IP addresses of IP packets.</li>
+<li>Main functions:<ul>
+<li>Translation between internal private IPs and external public IPs.</li>
+<li>Enhanced security (packets cannot directly enter the internal network from outside).</li>
+<li>Conservation of public IP addresses.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>NAPT (PAT, Port Address Translation):</strong></p>
+<ul>
+<li><p>NAPT uses source/destination port numbers to distinguish multiple connections.</p>
+</li>
+<li><p>Example:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Internal Host</th>
+<th align="left">NAT Device</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">192.168.0.2:4321</td>
+<td align="left">203.0.113.10:10001</td>
+</tr>
+<tr>
+<td align="left">192.168.0.3:5678</td>
+<td align="left">203.0.113.10:10002</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>Allows hundreds of internal hosts to share a single public IP.</p>
+</li>
+</ul>
+</li>
+<li><p><strong>Private IPs and Security:</strong></p>
+<ul>
+<li>According to RFC1918, these ranges are private and not routed on the internet: [cite: 157, 158]<ul>
+<li>10.0.0.0/8</li>
+<li>172.16.0.0/12</li>
+<li>192.168.0.0/16</li>
+</ul>
+</li>
+<li>Using these IPs behind NAT enhances basic security as external entities cannot initiate connections.</li>
+</ul>
+</li>
+<li><p><strong>NAT Type Analysis (Cone vs. Symmetric):</strong></p>
+<ul>
+<li>Cone NATs and Symmetric NATs differ in their P2P connection success rates.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="left">Type</th>
+<th align="left">Behavior</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">Full Cone</td>
+<td align="left">All responses to the same source are allowed to enter.</td>
+</tr>
+<tr>
+<td align="left">Restricted Cone</td>
+<td align="left">Restricts by source IP.</td>
+</tr>
+<tr>
+<td align="left">Port-Restricted Cone</td>
+<td align="left">Restricts by source IP and port.</td>
+</tr>
+<tr>
+<td align="left">Symmetric NAT</td>
+<td align="left">Each external connection creates a unique mapping.</td>
+</tr>
+</tbody></table>
+</li>
+<li><p><strong>NAT Limitations and Compatibility Issues:</strong></p>
+<ul>
+<li>Protocols embedding IP addresses in the application layer (e.g., FTP, SIP) may fail. [cite: 159, 160]</li>
+<li>ICMP packets may be blocked or incorrectly modified.</li>
+<li>IPSec VPNs are prone to connection failures due to IP encapsulation disruption.</li>
+</ul>
+</li>
+<li><p><strong>Configuring NAT with PF on FreeBSD:</strong></p>
+<ul>
+<li>FreeBSD uses PF (Packet Filter) for NAT.</li>
+<li>Key syntax:<ul>
+<li><code>nat on $ext_if from $lan_net to any -&gt; $public_ip</code></li>
+<li><code>rdr on $ext_if proto tcp from any to $public_ip port 80 -&gt; 192.168.1.10 port 80</code></li>
+<li><code>binat on $ext_if from $lan_net to any -&gt; $public_ip</code></li>
+</ul>
+</li>
+<li><code>nat</code>: NAT for internal network accessing external.</li>
+<li><code>rdr</code>: Redirects external access to a port to an internal server (for web hosting).</li>
+<li><code>binat</code>: Bidirectional NAT (less common).</li>
+</ul>
+</li>
+</ol>
+<h2 id="Summary-Table"><a href="#Summary-Table" class="headerlink" title="Summary Table"></a>Summary Table</h2><table>
+<thead>
+<tr>
+<th align="left">Technology</th>
+<th align="left">Key Function</th>
+<th align="left">Notes</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">DHCP</td>
+<td align="left">Automatic IP assignment</td>
+<td align="left">Supports dynamic, manual, auto assign</td>
+</tr>
+<tr>
+<td align="left">NAT</td>
+<td align="left">IP address translation</td>
+<td align="left">SNAT, DNAT, NAPT</td>
+</tr>
+<tr>
+<td align="left">FreeBSD</td>
+<td align="left">Configurable DHCP + NAT</td>
+<td align="left">Uses isc dhcpd and pf tools</td>
+</tr>
+</tbody></table>
+<h1 id="VPN-Basics-and-Architecture"><a href="#VPN-Basics-and-Architecture" class="headerlink" title="VPN Basics and Architecture"></a>VPN Basics and Architecture</h1><h2 id="What-is-VPN"><a href="#What-is-VPN" class="headerlink" title="What is VPN?"></a>What is VPN?</h2><ul>
+<li>A <strong>Virtual Private Network (VPN)</strong> simulates a private communication channel over a public network like the Internet.</li>
+<li>It enables <strong>secure, encrypted communication</strong> between users, branches, or internal systems.</li>
+<li>VPNs act like private links between hosts, despite being transmitted through shared infrastructure.</li>
+</ul>
+<h2 id="Common-Use-Cases"><a href="#Common-Use-Cases" class="headerlink" title="Common Use Cases"></a>Common Use Cases</h2><ul>
+<li><strong>Remote access</strong> for employees or teleworkers.</li>
+<li><strong>Site-to-site VPNs</strong> connecting branch offices securely.</li>
+<li><strong>Internal communication</strong> security in a LAN environment.</li>
+</ul>
+<h2 id="Why-Use-VPN"><a href="#Why-Use-VPN" class="headerlink" title="Why Use VPN?"></a>Why Use VPN?</h2><table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Benefit</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Cost-effective</td>
+<td>Avoids dedicated leased lines by using public internet.</td>
+</tr>
+<tr>
+<td>Scalable</td>
+<td>Easily add users/sites without infrastructure overhaul.</td>
+</tr>
+<tr>
+<td>Manageable</td>
+<td>Centralized control via software and certificates.</td>
+</tr>
+<tr>
+<td>Secure</td>
+<td>Encrypts traffic, ensuring confidentiality and integrity.</td>
+</tr>
+</tbody></table>
+<h2 id="Core-Concept-Tunneling"><a href="#Core-Concept-Tunneling" class="headerlink" title="Core Concept: Tunneling"></a>Core Concept: Tunneling</h2><ul>
+<li><strong>Encapsulation:</strong> The original packet is wrapped inside another packet.</li>
+<li><strong>External nodes only see the outer shell</strong>; content remains encrypted.</li>
+<li><strong>Allows protocol compatibility</strong> for services not natively supported.</li>
+</ul>
+<h2 id="VPN-Security-Requirements"><a href="#VPN-Security-Requirements" class="headerlink" title="VPN Security Requirements"></a>VPN Security Requirements</h2><ol>
+<li><strong>User Authentication:</strong> Ensures only authorized users access the network.</li>
+<li><strong>Key Management:</strong> Safely generates and distributes encryption keys.</li>
+<li><strong>Address Management:</strong> Allocates private IPs to clients securely.</li>
+<li><strong>Encryption:</strong> Protects data in transit from tampering or snooping.</li>
+</ol>
+<h2 id="VPN-Security-Features"><a href="#VPN-Security-Features" class="headerlink" title="VPN Security Features"></a>VPN Security Features</h2><table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Authentication</td>
+<td>Validates identity of user/device.</td>
+</tr>
+<tr>
+<td>Data Integrity</td>
+<td>Ensures data isn’t altered during transmission.</td>
+</tr>
+<tr>
+<td>Confidentiality</td>
+<td>Encrypts data to protect from eavesdropping.</td>
+</tr>
+<tr>
+<td>Access Control</td>
+<td>Limits access to authorized users/devices.</td>
+</tr>
+</tbody></table>
+<h2 id="VPN-Protocol-Types-and-Comparison"><a href="#VPN-Protocol-Types-and-Comparison" class="headerlink" title="VPN Protocol Types and Comparison"></a>VPN Protocol Types and Comparison</h2><h3 id="PPP-based-Protocols"><a href="#PPP-based-Protocols" class="headerlink" title="PPP-based Protocols"></a>PPP-based Protocols</h3><ul>
+<li><strong>PPTP:</strong> Deprecated due to major vulnerabilities.</li>
+<li><strong>L2TP/IPsec:</strong> Combines tunneling with encryption (L2TP + IPsec).</li>
+</ul>
+<h3 id="TCP-IP-based"><a href="#TCP-IP-based" class="headerlink" title="TCP/IP-based"></a>TCP/IP-based</h3><ul>
+<li><strong>IPsec</strong><ul>
+<li><strong>Transport mode:</strong> Encrypts only data portion.</li>
+<li><strong>Tunnel mode:</strong> Encrypts entire IP packet, ideal for VPN.</li>
+</ul>
+</li>
+<li><strong>BGP/MPLS IP VPN:</strong> Enterprise-level, ISP-grade technology.</li>
+</ul>
+<h3 id="SSL-TLS-based"><a href="#SSL-TLS-based" class="headerlink" title="SSL/TLS-based"></a>SSL/TLS-based</h3><ul>
+<li><strong>SSL VPN</strong><ul>
+<li>Works via browser using HTTPS.</li>
+</ul>
+</li>
+<li><strong>SSTP</strong><ul>
+<li>Microsoft’s SSL-based tunneling.</li>
+</ul>
+</li>
+<li><strong>OpenVPN</strong><ul>
+<li>Uses OpenSSL and TLS.</li>
+<li>Supports TUN (L3) and TAP (L2).</li>
+<li>Highly flexible, includes CA and certificate support.</li>
+</ul>
+</li>
+<li><strong>WireGuard</strong><ul>
+<li>Lightweight, modern, minimal attack surface.</li>
+<li>Uses UDP and modern cryptography (Curve25519, ChaCha20).</li>
+<li>Simple configuration with public/private key pairs.</li>
+</ul>
+</li>
+</ul>
+<h2 id="OpenVPN-vs-WireGuard"><a href="#OpenVPN-vs-WireGuard" class="headerlink" title="OpenVPN vs WireGuard"></a>OpenVPN vs WireGuard</h2><table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>OpenVPN</th>
+<th>WireGuard</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Design</td>
+<td>Mature, secure, flexible</td>
+<td>Modern, efficient, simple</td>
+</tr>
+<tr>
+<td>Encryption</td>
+<td>TLS + OpenSSL</td>
+<td>Curve25519, ChaCha20, etc.</td>
+</tr>
+<tr>
+<td>Performance</td>
+<td>Good, but TAP can slow it down</td>
+<td>High performance, low latency</td>
+</tr>
+<tr>
+<td>Config Complexity</td>
+<td>Higher, more granular options</td>
+<td>Minimal, easy to manage</td>
+</tr>
+<tr>
+<td>Cross-platform</td>
+<td>Widely supported</td>
+<td>Also widely supported</td>
+</tr>
+<tr>
+<td>Auth Method</td>
+<td>Certificate, username/password</td>
+<td>Public key based</td>
+</tr>
+<tr>
+<td>Tunnel Mode</td>
+<td>TUN + TAP</td>
+<td>TUN (bridge requires extra)</td>
+</tr>
+</tbody></table>
+<h2 id="Use-Case-Recommendations"><a href="#Use-Case-Recommendations" class="headerlink" title="Use Case Recommendations"></a>Use Case Recommendations</h2><ul>
+<li><strong>OpenVPN:</strong> Ideal for enterprise use with multi-user, multi-auth layers.</li>
+<li><strong>WireGuard:</strong> Best for individuals, small teams, or remote access scenarios.</li>
+</ul>
+<hr>
+<h1 id="DNS-Domain-Name-System-Overview"><a href="#DNS-Domain-Name-System-Overview" class="headerlink" title="DNS (Domain Name System) Overview"></a>DNS (Domain Name System) Overview</h1><h2 id="Importance-of-DNS"><a href="#Importance-of-DNS" class="headerlink" title="Importance of DNS"></a>Importance of DNS</h2><ul>
+<li>Converts easy-to-remember <strong>domain names</strong> (e.g., <a target="_blank" rel="noopener" href="http://www.google.com/">www.google.com</a>) into IP addresses.</li>
+<li>Essential for IPv6 due to complex address formats.</li>
+</ul>
+<h2 id="DNS-Namespace"><a href="#DNS-Namespace" class="headerlink" title="DNS Namespace"></a>DNS Namespace</h2><ul>
+<li>Hierarchical tree with <strong>root zone (.)</strong> at the top.</li>
+<li>Below are <strong>TLDs</strong> like <code>.com</code>, <code>.edu</code>, then subdomains like <code>nycu.edu.tw</code>.</li>
+<li>Restrictions:<ul>
+<li>Max full domain: 255 bytes.</li>
+<li>Max label: 63 bytes.</li>
+</ul>
+</li>
+</ul>
+<h2 id="How-DNS-Works"><a href="#How-DNS-Works" class="headerlink" title="How DNS Works"></a>How DNS Works</h2><h3 id="Query-Types"><a href="#Query-Types" class="headerlink" title="Query Types"></a>Query Types</h3><ul>
+<li><strong>Recursive:</strong> Resolver queries all servers on behalf of client.</li>
+<li><strong>Iterative:</strong> Resolver refers the client to other DNS servers.</li>
+</ul>
+<h3 id="Caching"><a href="#Caching" class="headerlink" title="Caching"></a>Caching</h3><ul>
+<li>Speeds up response and reduces traffic.</li>
+<li><strong>Positive cache:</strong> TTL-based successful records.</li>
+<li><strong>Negative cache:</strong> Stores failed queries temporarily.</li>
+</ul>
+<h2 id="Zones-and-Name-Server-Types"><a href="#Zones-and-Name-Server-Types" class="headerlink" title="Zones and Name Server Types"></a>Zones and Name Server Types</h2><ul>
+<li><strong>Zone:</strong> Portion of DNS namespace managed by one authority.</li>
+<li><strong>Authoritative server:</strong> Holds original data (master/slave).</li>
+<li><strong>Non-authoritative:</strong> Serves from cache.</li>
+<li><strong>Recursive server:</strong> Completes queries.</li>
+<li><strong>Forwarder:</strong> Forwards to other DNS servers.</li>
+<li><strong>Caching server:</strong> Optimized for caching responses.</li>
+</ul>
+<h2 id="DNS-Security"><a href="#DNS-Security" class="headerlink" title="DNS Security"></a>DNS Security</h2><h3 id="DNSSEC"><a href="#DNSSEC" class="headerlink" title="DNSSEC"></a>DNSSEC</h3><ul>
+<li>Uses asymmetric crypto to ensure:<ul>
+<li>Data origin authentication.</li>
+<li>Integrity validation.</li>
+<li>Authenticated denial of existence.</li>
+</ul>
+</li>
+</ul>
+<h3 id="DoT-and-DoH"><a href="#DoT-and-DoH" class="headerlink" title="DoT and DoH"></a>DoT and DoH</h3><ul>
+<li><strong>DoT (DNS over TLS):</strong> Uses TCP + TLS, port 853.</li>
+<li><strong>DoH (DNS over HTTPS):</strong> Uses HTTPS, port 443.</li>
+<li>Prevents eavesdropping and DNS spoofing.</li>
+</ul>
+<h3 id="DNS-Amplification-Attack"><a href="#DNS-Amplification-Attack" class="headerlink" title="DNS Amplification Attack"></a>DNS Amplification Attack</h3><ul>
+<li>Uses spoofed queries to reflect large responses to a target (DDoS).</li>
+</ul>
+<h2 id="DNS-Tools-and-Files"><a href="#DNS-Tools-and-Files" class="headerlink" title="DNS Tools and Files"></a>DNS Tools and Files</h2><table>
+<thead>
+<tr>
+<th>File</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>/etc/resolv.conf</code></td>
+<td>DNS servers and search domains</td>
+</tr>
+<tr>
+<td><code>/etc/hosts</code></td>
+<td>Local manual DNS mappings</td>
+</tr>
+<tr>
+<td><code>/etc/nsswitch.conf</code></td>
+<td>Lookup order configuration</td>
+</tr>
+</tbody></table>
+<h3 id="CLI-Tools"><a href="#CLI-Tools" class="headerlink" title="CLI Tools"></a>CLI Tools</h3><ul>
+<li><code>host</code>, <code>nslookup</code>, <code>dig</code>, <code>drill</code> (with DNSSEC support)</li>
+</ul>
+<h2 id="Advanced-DNS-Use-Cases"><a href="#Advanced-DNS-Use-Cases" class="headerlink" title="Advanced DNS Use Cases"></a>Advanced DNS Use Cases</h2><ul>
+<li><strong>GeoDNS:</strong> Responds based on client geography.</li>
+<li><strong>IDN (Internationalized Domain Name):</strong> Supports Unicode domains.</li>
+<li><strong>Punycode:</strong> Encodes Unicode to ASCII (e.g., <code>xn--fsq.com</code>).</li>
+<li><strong>Public DNS Providers:</strong> Google (8.8.8.8), Cloudflare (1.1.1.1), OpenDNS.</li>
+</ul>
+<hr>
+<h1 id="BIND-Berkeley-Internet-Name-Domain-System"><a href="#BIND-Berkeley-Internet-Name-Domain-System" class="headerlink" title="BIND (Berkeley Internet Name Domain) System"></a>BIND (Berkeley Internet Name Domain) System</h1><h2 id="Key-Components"><a href="#Key-Components" class="headerlink" title="Key Components"></a>Key Components</h2><ul>
+<li><code>named</code>: Main DNS daemon.</li>
+<li><code>bind-tools</code>: Query tools like <code>dig</code>, <code>host</code>, <code>nslookup</code>.</li>
+<li><code>rndc</code>: Remote control for <code>named</code>.</li>
+<li>Resolver libraries (e.g., <code>res_query</code>).</li>
+</ul>
+<h2 id="Configuration-Files"><a href="#Configuration-Files" class="headerlink" title="Configuration Files"></a>Configuration Files</h2><h3 id="named-conf-Main-Config"><a href="#named-conf-Main-Config" class="headerlink" title="named.conf (Main Config)"></a>named.conf (Main Config)</h3><table>
+<thead>
+<tr>
+<th>Directive</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>options</code></td>
+<td>Global settings: recursion, forwarders…</td>
+</tr>
+<tr>
+<td><code>zone</code></td>
+<td>Declares zone authority</td>
+</tr>
+<tr>
+<td><code>view</code></td>
+<td>Split DNS support</td>
+</tr>
+<tr>
+<td><code>acl</code></td>
+<td>Access control</td>
+</tr>
+<tr>
+<td><code>controls</code></td>
+<td>Manages <code>rndc</code> access</td>
+</tr>
+<tr>
+<td><code>logging</code></td>
+<td>Log setup: channel + category</td>
+</tr>
+<tr>
+<td><code>include</code></td>
+<td>Import other config files</td>
+</tr>
+</tbody></table>
+<h3 id="Zone-Data-Files"><a href="#Zone-Data-Files" class="headerlink" title="Zone Data Files"></a>Zone Data Files</h3><ul>
+<li>Resource Record (RR) format: <code>[name] [ttl] [class] type data</code><ul>
+<li>Common classes: <code>IN</code> (Internet), <code>CH</code>, <code>HS</code></li>
+<li>Special characters:<ul>
+<li><code>;</code> for comments</li>
+<li><code>@</code> for current origin</li>
+<li><code>()</code> for line wrap</li>
+<li><code>*</code> as wildcard (in name only)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="RR-Types"><a href="#RR-Types" class="headerlink" title="RR Types"></a>RR Types</h3><table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>SOA</td>
+<td>Start of Authority, zone origin info</td>
+</tr>
+<tr>
+<td>NS</td>
+<td>Name Server</td>
+</tr>
+<tr>
+<td>A/AAAA</td>
+<td>IPv4/IPv6 mapping</td>
+</tr>
+<tr>
+<td>PTR</td>
+<td>Reverse mapping</td>
+</tr>
+<tr>
+<td>MX</td>
+<td>Mail exchanger</td>
+</tr>
+<tr>
+<td>CNAME</td>
+<td>Canonical (alias) name</td>
+</tr>
+<tr>
+<td>TXT</td>
+<td>Arbitrary text, often for SPF</td>
+</tr>
+<tr>
+<td>SRV</td>
+<td>Service locator</td>
+</tr>
+<tr>
+<td>DNSSEC</td>
+<td>DS, DNSKEY, RRSIG, NSEC/NSEC3, CAA, etc.</td>
+</tr>
+</tbody></table>
+<h3 id="Other-Concepts"><a href="#Other-Concepts" class="headerlink" title="Other Concepts"></a>Other Concepts</h3><ul>
+<li><strong>Glue Record:</strong> Child NS’s IP in parent zone.</li>
+<li><strong>Lame Delegation:</strong> NS fails to serve delegated domain.</li>
+</ul>
+<h2 id="rndc-Remote-DNS-Control"><a href="#rndc-Remote-DNS-Control" class="headerlink" title="rndc: Remote DNS Control"></a>rndc: Remote DNS Control</h2><ul>
+<li>Commands: <code>reload</code>, <code>restart</code>, <code>status</code>, <code>dumpdb</code>, etc.</li>
+</ul>
+<h2 id="Zone-Update-and-Transfer"><a href="#Zone-Update-and-Transfer" class="headerlink" title="Zone Update and Transfer"></a>Zone Update and Transfer</h2><ul>
+<li>After zone file edits, increase serial number and run <code>rndc reload</code>.</li>
+<li>With <code>notify</code> enabled, slave gets notified.</li>
+<li>Transfer types:<ul>
+<li><strong>AXFR:</strong> Full zone.</li>
+<li><strong>IXFR:</strong> Incremental.</li>
+</ul>
+</li>
+</ul>
+<h2 id="Dynamic-Updates"><a href="#Dynamic-Updates" class="headerlink" title="Dynamic Updates"></a>Dynamic Updates</h2><ul>
+<li>Allows real-time changes (RFC 2136).</li>
+<li>Update via <code>nsupdate</code> tool.</li>
+<li>Access controlled by <code>allow-update</code> or policy settings.</li>
+</ul>
+<h2 id="Security-Measures"><a href="#Security-Measures" class="headerlink" title="Security Measures"></a>Security Measures</h2><ul>
+<li><strong>TSIG:</strong> Symmetric signature for zone transfers.</li>
+<li><strong>DNSSEC:</strong> Ensures authenticity and integrity via public key cryptography.</li>
+<li><strong>Jail / ACLs / Permissions:</strong> OS-level hardening options.</li>
+<li><strong>DoT:</strong> Can be enabled for encrypted queries.</li>
+</ul>
+<h2 id="Logging-and-Debugging"><a href="#Logging-and-Debugging" class="headerlink" title="Logging and Debugging"></a>Logging and Debugging</h2><ul>
+<li>Use <code>logging</code> section to configure output.</li>
+<li>Tools:<ul>
+<li><code>named -d &lt;level&gt;</code></li>
+<li><code>rndc trace</code></li>
+</ul>
+</li>
+</ul>
+<hr>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="https://withoutdirection.github.io">烏鴉先生</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="http://withoutdirection.github.io/2025/04/19/NA-midterm/">http://withoutdirection.github.io/2025/04/19/NA-midterm/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles on this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless otherwise stated.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/NA/">NA</a><a class="post-meta__tags" href="/tags/%E6%9C%9F%E4%B8%AD%E8%80%83/">期中考</a></div><div class="post-share"><div class="social-share" data-image="/img/crow.webp" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer=""></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width" href="/2025/04/13/CSC-midterm/" title="電腦安全總整與實作期中筆記"><div class="cover" style="background: 縮略圖"></div><div class="info"><div class="info-1"><div class="info-item-1">Previous</div><div class="info-item-2">電腦安全總整與實作期中筆記</div></div><div class="info-2"><div class="info-item-1">電腦安全總整與實作期中筆記Chapter 1: OverviewThree components of computer security Confidentiality Information is not disclosed to unauthorized individuals Individuals control or influence what information related to them may be collected and stored   Integrity Information and programs are changed only in a specified and authorized manner   Availability Systems work promptly and service is not denied to authorized users    Threats and Attacks   Threat Consequence Attack Action Example    Unauthorized...</div></div></div></a></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/crow.webp" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"></div><div class="author-info-name">烏鴉先生</div><div class="author-info-description">隨手寫東西</div><div class="site-data"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">3</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">5</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">1</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/WithoutDirection"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#TCP-IP-Protocol-Model-Four-Layer-Architecture"><span class="toc-number">1.</span> <span class="toc-text">TCP/IP Protocol Model (Four-Layer Architecture)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Layers-Overview"><span class="toc-number">1.1.</span> <span class="toc-text">Layers Overview</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#OSI-Model-Comparison"><span class="toc-number">1.1.1.</span> <span class="toc-text">OSI Model Comparison</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Network-Addressing"><span class="toc-number">1.2.</span> <span class="toc-text">Network Addressing</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#MAC-Address-Hardware-Layer"><span class="toc-number">1.2.1.</span> <span class="toc-text">MAC Address (Hardware Layer)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IP-Address-Logical-Address"><span class="toc-number">1.2.2.</span> <span class="toc-text">IP Address (Logical Address)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Port-Numbers"><span class="toc-number">1.2.3.</span> <span class="toc-text">Port Numbers</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Link-Layer-and-Ethernet"><span class="toc-number">1.3.</span> <span class="toc-text">Link Layer and Ethernet</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Network-Layer-IP-Concepts"><span class="toc-number">1.4.</span> <span class="toc-text">Network Layer &amp; IP Concepts</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Address-Resolution-Protocols"><span class="toc-number">1.5.</span> <span class="toc-text">Address Resolution Protocols</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ARP-Address-Resolution-Protocol"><span class="toc-number">1.5.1.</span> <span class="toc-text">ARP (Address Resolution Protocol)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RARP-Reverse-ARP"><span class="toc-number">1.5.2.</span> <span class="toc-text">RARP (Reverse ARP)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ICMP-Internet-Control-Message-Protocol"><span class="toc-number">1.6.</span> <span class="toc-text">ICMP (Internet Control Message Protocol)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Transport-Layer-Protocols"><span class="toc-number">1.7.</span> <span class="toc-text">Transport Layer Protocols</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#UDP-User-Datagram-Protocol"><span class="toc-number">1.7.1.</span> <span class="toc-text">UDP (User Datagram Protocol)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TCP-Transmission-Control-Protocol"><span class="toc-number">1.7.2.</span> <span class="toc-text">TCP (Transmission Control Protocol)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Encapsulation-Decapsulation"><span class="toc-number">1.8.</span> <span class="toc-text">Encapsulation &amp; Decapsulation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IP-Header-Details"><span class="toc-number">1.9.</span> <span class="toc-text">IP Header Details</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Routing-Fundamentals"><span class="toc-number">2.</span> <span class="toc-text">Routing Fundamentals</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Static-vs-Dynamic-Routing"><span class="toc-number">2.0.1.</span> <span class="toc-text">Static vs Dynamic Routing</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Routing-Table-Protocols"><span class="toc-number">2.0.2.</span> <span class="toc-text">Routing Table &amp; Protocols</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Common-Metrics"><span class="toc-number">2.0.3.</span> <span class="toc-text">Common Metrics</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Routing-Protocols-and-Autonomous-Systems"><span class="toc-number">2.1.</span> <span class="toc-text">Routing Protocols and Autonomous Systems</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Autonomous-Systems-AS"><span class="toc-number">2.1.1.</span> <span class="toc-text">Autonomous Systems (AS)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Protocol-Scope"><span class="toc-number">2.1.2.</span> <span class="toc-text">Protocol Scope</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Protocol-Types"><span class="toc-number">2.1.3.</span> <span class="toc-text">Protocol Types</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Routing-Protocol-Comparison-Table"><span class="toc-number">2.2.</span> <span class="toc-text">Routing Protocol Comparison Table</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#routed-Daemon-Unix-Routing-Daemon"><span class="toc-number">2.3.</span> <span class="toc-text">routed Daemon (Unix Routing Daemon)</span></a></li></ol><li class="toc-item toc-level-1"><a class="toc-link" href="#Dynamic-Host-Configuration-Protocol-DHCP-NAT-Network-Address-Translation"><span class="toc-number">3.</span> <span class="toc-text">Dynamic Host Configuration Protocol (DHCP) &amp; NAT (Network Address Translation)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Architecture"><span class="toc-number">3.0.1.</span> <span class="toc-text">Architecture</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Allocation-Types"><span class="toc-number">3.0.2.</span> <span class="toc-text">Allocation Types</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DORA-Process"><span class="toc-number">3.0.3.</span> <span class="toc-text">DORA Process</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Lease-Lifecycle"><span class="toc-number">3.0.4.</span> <span class="toc-text">Lease Lifecycle</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#FreeBSD-DHCP-ISC-DHCP"><span class="toc-number">3.0.5.</span> <span class="toc-text">FreeBSD DHCP (ISC DHCP)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Network-Address-Translation-NAT"><span class="toc-number">3.1.</span> <span class="toc-text">Network Address Translation (NAT)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Purpose"><span class="toc-number">3.1.1.</span> <span class="toc-text">Purpose</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#NAPT-Port-Translation"><span class="toc-number">3.1.2.</span> <span class="toc-text">NAPT (Port Translation)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Private-IP-Ranges-RFC-1918"><span class="toc-number">3.1.3.</span> <span class="toc-text">Private IP Ranges (RFC 1918)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#NAT-Types"><span class="toc-number">3.1.4.</span> <span class="toc-text">NAT Types</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Limitations"><span class="toc-number">3.1.5.</span> <span class="toc-text">Limitations</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#FreeBSD-NAT-via-PF"><span class="toc-number">3.1.6.</span> <span class="toc-text">FreeBSD NAT via PF</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NAT-Network-Address-Translation-Explanation"><span class="toc-number">3.2.</span> <span class="toc-text">NAT (Network Address Translation) Explanation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Summary-Table"><span class="toc-number">3.3.</span> <span class="toc-text">Summary Table</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#VPN-Basics-and-Architecture"><span class="toc-number">4.</span> <span class="toc-text">VPN Basics and Architecture</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#What-is-VPN"><span class="toc-number">4.1.</span> <span class="toc-text">What is VPN?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Common-Use-Cases"><span class="toc-number">4.2.</span> <span class="toc-text">Common Use Cases</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Why-Use-VPN"><span class="toc-number">4.3.</span> <span class="toc-text">Why Use VPN?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Core-Concept-Tunneling"><span class="toc-number">4.4.</span> <span class="toc-text">Core Concept: Tunneling</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#VPN-Security-Requirements"><span class="toc-number">4.5.</span> <span class="toc-text">VPN Security Requirements</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#VPN-Security-Features"><span class="toc-number">4.6.</span> <span class="toc-text">VPN Security Features</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#VPN-Protocol-Types-and-Comparison"><span class="toc-number">4.7.</span> <span class="toc-text">VPN Protocol Types and Comparison</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#PPP-based-Protocols"><span class="toc-number">4.7.1.</span> <span class="toc-text">PPP-based Protocols</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TCP-IP-based"><span class="toc-number">4.7.2.</span> <span class="toc-text">TCP/IP-based</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SSL-TLS-based"><span class="toc-number">4.7.3.</span> <span class="toc-text">SSL/TLS-based</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#OpenVPN-vs-WireGuard"><span class="toc-number">4.8.</span> <span class="toc-text">OpenVPN vs WireGuard</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Use-Case-Recommendations"><span class="toc-number">4.9.</span> <span class="toc-text">Use Case Recommendations</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#DNS-Domain-Name-System-Overview"><span class="toc-number">5.</span> <span class="toc-text">DNS (Domain Name System) Overview</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Importance-of-DNS"><span class="toc-number">5.1.</span> <span class="toc-text">Importance of DNS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DNS-Namespace"><span class="toc-number">5.2.</span> <span class="toc-text">DNS Namespace</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#How-DNS-Works"><span class="toc-number">5.3.</span> <span class="toc-text">How DNS Works</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Query-Types"><span class="toc-number">5.3.1.</span> <span class="toc-text">Query Types</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Caching"><span class="toc-number">5.3.2.</span> <span class="toc-text">Caching</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Zones-and-Name-Server-Types"><span class="toc-number">5.4.</span> <span class="toc-text">Zones and Name Server Types</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DNS-Security"><span class="toc-number">5.5.</span> <span class="toc-text">DNS Security</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#DNSSEC"><span class="toc-number">5.5.1.</span> <span class="toc-text">DNSSEC</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DoT-and-DoH"><span class="toc-number">5.5.2.</span> <span class="toc-text">DoT and DoH</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DNS-Amplification-Attack"><span class="toc-number">5.5.3.</span> <span class="toc-text">DNS Amplification Attack</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DNS-Tools-and-Files"><span class="toc-number">5.6.</span> <span class="toc-text">DNS Tools and Files</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#CLI-Tools"><span class="toc-number">5.6.1.</span> <span class="toc-text">CLI Tools</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Advanced-DNS-Use-Cases"><span class="toc-number">5.7.</span> <span class="toc-text">Advanced DNS Use Cases</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#BIND-Berkeley-Internet-Name-Domain-System"><span class="toc-number">6.</span> <span class="toc-text">BIND (Berkeley Internet Name Domain) System</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Key-Components"><span class="toc-number">6.1.</span> <span class="toc-text">Key Components</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Configuration-Files"><span class="toc-number">6.2.</span> <span class="toc-text">Configuration Files</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#named-conf-Main-Config"><span class="toc-number">6.2.1.</span> <span class="toc-text">named.conf (Main Config)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Zone-Data-Files"><span class="toc-number">6.2.2.</span> <span class="toc-text">Zone Data Files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RR-Types"><span class="toc-number">6.2.3.</span> <span class="toc-text">RR Types</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Other-Concepts"><span class="toc-number">6.2.4.</span> <span class="toc-text">Other Concepts</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#rndc-Remote-DNS-Control"><span class="toc-number">6.3.</span> <span class="toc-text">rndc: Remote DNS Control</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Zone-Update-and-Transfer"><span class="toc-number">6.4.</span> <span class="toc-text">Zone Update and Transfer</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Dynamic-Updates"><span class="toc-number">6.5.</span> <span class="toc-text">Dynamic Updates</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Security-Measures"><span class="toc-number">6.6.</span> <span class="toc-text">Security Measures</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Logging-and-Debugging"><span class="toc-number">6.7.</span> <span class="toc-text">Logging and Debugging</span></a></li></ol></li></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Posts</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/04/19/NA-midterm/" title="NA 期中大抄">NA 期中大抄</a><time datetime="2025-04-18T16:00:00.000Z" title="Created 2025-04-19 00:00:00">2025-04-19</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/04/13/CSC-midterm/" title="電腦安全總整與實作期中筆記">電腦安全總整與實作期中筆記</a><time datetime="2025-04-12T16:00:00.000Z" title="Created 2025-04-13 00:00:00">2025-04-13</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/03/16/Record-of-senior-in-NYCU/" title="交大資工-大四紀錄">交大資工-大四紀錄</a><time datetime="2025-03-15T16:09:58.726Z" title="Created 2025-03-16 00:09:58">2025-03-16</time></div></div></div></div></div></div></main><footer id="footer" style="background: transparent;"><div id="footer-wrap"><div class="copyright">©2019 - 2025 By 烏鴉先生</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Reading Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light and Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle Between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Settings"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back to Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async="" data-pjax="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
