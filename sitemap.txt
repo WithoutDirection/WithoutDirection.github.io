@@ -1,5 +1,6 @@
-http://withoutdirection.github.io/2025/05/30/CSC-final/
 http://withoutdirection.github.io/2025/03/16/Record-of-senior-in-NYCU/
+http://withoutdirection.github.io/2025/06/05/Computer-security-self-study/
+http://withoutdirection.github.io/2025/05/30/CSC-final/
 http://withoutdirection.github.io/2025/04/13/CSC-midterm/
 http://withoutdirection.github.io/2025/04/19/NA-midterm/
 http://withoutdirection.github.io/google5f118fd7100e5860.html
@@ -11,4 +12,6 @@ http://withoutdirection.github.io/tags/%E8%B3%87%E5%B7%A5/
 http://withoutdirection.github.io/tags/%E9%9B%BB%E8%85%A6%E5%AE%89%E5%85%A8/
 http://withoutdirection.github.io/tags/NA/
 http://withoutdirection.github.io/tags/%E6%9C%9F%E4%B8%AD%E8%80%83/
+http://withoutdirection.github.io/tags/Computer-Security/
+http://withoutdirection.github.io/tags/%E8%87%AA%E5%AD%B8%E8%A8%88%E7%95%AB/
 http://withoutdirection.github.io/categories/%E8%B3%87%E5%B7%A5/
