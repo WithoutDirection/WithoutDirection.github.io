@@ -18,8 +18,8 @@
   
   <entry>
     <title>中研院資訊所暑期實習</title>
-    <link href="http://withoutdirection.github.io/2025/07/01/sinica-cs-summer-internship/"/>
-    <id>http://withoutdirection.github.io/2025/07/01/sinica-cs-summer-internship/</id>
+    <link href="http://withoutdirection.github.io/sinica-cs-summer-internship/"/>
+    <id>http://withoutdirection.github.io/sinica-cs-summer-internship/</id>
     <published>2025-06-30T16:00:00.000Z</published>
     <updated>2025-07-10T08:22:49.868Z</updated>
     
@@ -44,8 +44,8 @@
   
   <entry>
     <title>自學電安的52周</title>
-    <link href="http://withoutdirection.github.io/2025/06/05/Computer-security-self-study/"/>
-    <id>http://withoutdirection.github.io/2025/06/05/Computer-security-self-study/</id>
+    <link href="http://withoutdirection.github.io/Computer-security-self-study/"/>
+    <id>http://withoutdirection.github.io/Computer-security-self-study/</id>
     <published>2025-06-05T11:01:23.631Z</published>
     <updated>2025-06-06T08:13:44.764Z</updated>
     
@@ -60,18 +60,18 @@
     
     
     
+    <category term="資工" scheme="http://withoutdirection.github.io/tags/%E8%B3%87%E5%B7%A5/"/>
+    
     <category term="Computer Security" scheme="http://withoutdirection.github.io/tags/Computer-Security/"/>
     
     <category term="自學計畫" scheme="http://withoutdirection.github.io/tags/%E8%87%AA%E5%AD%B8%E8%A8%88%E7%95%AB/"/>
-    
-    <category term="資工" scheme="http://withoutdirection.github.io/tags/%E8%B3%87%E5%B7%A5/"/>
     
   </entry>
   
   <entry>
     <title>電腦安全總整與實作期末筆記</title>
-    <link href="http://withoutdirection.github.io/2025/05/30/CSC-final/"/>
-    <id>http://withoutdirection.github.io/2025/05/30/CSC-final/</id>
+    <link href="http://withoutdirection.github.io/CSC-final/"/>
+    <id>http://withoutdirection.github.io/CSC-final/</id>
     <published>2025-05-29T16:00:00.000Z</published>
     <updated>2025-06-01T20:56:13.469Z</updated>
     
@@ -88,16 +88,16 @@
     <category term="資工" scheme="http://withoutdirection.github.io/categories/%E8%B3%87%E5%B7%A5/"/>
     
     
-    <category term="資工" scheme="http://withoutdirection.github.io/tags/%E8%B3%87%E5%B7%A5/"/>
-    
     <category term="電腦安全" scheme="http://withoutdirection.github.io/tags/%E9%9B%BB%E8%85%A6%E5%AE%89%E5%85%A8/"/>
+    
+    <category term="資工" scheme="http://withoutdirection.github.io/tags/%E8%B3%87%E5%B7%A5/"/>
     
   </entry>
   
   <entry>
     <title>NA 期中大抄</title>
-    <link href="http://withoutdirection.github.io/2025/04/19/NA-midterm/"/>
-    <id>http://withoutdirection.github.io/2025/04/19/NA-midterm/</id>
+    <link href="http://withoutdirection.github.io/NA-midterm/"/>
+    <id>http://withoutdirection.github.io/NA-midterm/</id>
     <published>2025-04-18T16:00:00.000Z</published>
     <updated>2025-04-19T13:59:55.863Z</updated>
     
@@ -122,8 +122,8 @@
   
   <entry>
     <title>電腦安全總整與實作期中筆記</title>
-    <link href="http://withoutdirection.github.io/2025/04/13/CSC-midterm/"/>
-    <id>http://withoutdirection.github.io/2025/04/13/CSC-midterm/</id>
+    <link href="http://withoutdirection.github.io/CSC-midterm/"/>
+    <id>http://withoutdirection.github.io/CSC-midterm/</id>
     <published>2025-04-12T16:00:00.000Z</published>
     <updated>2025-04-19T14:07:48.146Z</updated>
     
@@ -140,16 +140,16 @@
     <category term="資工" scheme="http://withoutdirection.github.io/categories/%E8%B3%87%E5%B7%A5/"/>
     
     
-    <category term="資工" scheme="http://withoutdirection.github.io/tags/%E8%B3%87%E5%B7%A5/"/>
-    
     <category term="電腦安全" scheme="http://withoutdirection.github.io/tags/%E9%9B%BB%E8%85%A6%E5%AE%89%E5%85%A8/"/>
+    
+    <category term="資工" scheme="http://withoutdirection.github.io/tags/%E8%B3%87%E5%B7%A5/"/>
     
   </entry>
   
   <entry>
     <title>交大資工-大四紀錄</title>
-    <link href="http://withoutdirection.github.io/2025/03/16/Record-of-senior-in-NYCU/"/>
-    <id>http://withoutdirection.github.io/2025/03/16/Record-of-senior-in-NYCU/</id>
+    <link href="http://withoutdirection.github.io/Record-of-senior-in-NYCU/"/>
+    <id>http://withoutdirection.github.io/Record-of-senior-in-NYCU/</id>
     <published>2025-03-15T16:09:58.726Z</published>
     <updated>2025-06-06T08:13:44.798Z</updated>
     
