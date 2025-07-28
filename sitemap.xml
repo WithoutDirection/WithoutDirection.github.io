@@ -2,9 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://withoutdirection.github.io/Mitre-ATT-CK-Techniues-note/</loc>
+    
+    <lastmod>2025-07-28</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://withoutdirection.github.io/sinica-cs-summer-internship/</loc>
     
-    <lastmod>2025-07-17</lastmod>
+    <lastmod>2025-07-28</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
