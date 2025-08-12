@@ -1,0 +1,894 @@
+<!DOCTYPE html><html lang="zh-tw" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>烏鴉囈語 | 烏鴉囈語</title><meta name="author" content="烏鴉先生"><meta name="copyright" content="烏鴉先生"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="核能發電廠重啟公投意見發表會分析分析方法本分析分為兩階段  首先透過:   以ggml-medium 模型 結合 whisper 將發表會之直撥語音檔轉為中文逐字稿 以Grok3透過”逐字稿”進行文本分析，提取關鍵論點與數據 最後將所有分析結果以 Claude 4進行整合與表格化   再來根據LLM分析內容   找尋其中提到論點或是證據薄弱的地方，標註資料、引用的方法與來源 若是可行的話，會嘗試找">
+<meta property="og:type" content="article">
+<meta property="og:title" content="烏鴉囈語">
+<meta property="og:url" content="http://withoutdirection.github.io/Referendum-21-Press-conference/index.html">
+<meta property="og:site_name" content="烏鴉囈語">
+<meta property="og:description" content="核能發電廠重啟公投意見發表會分析分析方法本分析分為兩階段  首先透過:   以ggml-medium 模型 結合 whisper 將發表會之直撥語音檔轉為中文逐字稿 以Grok3透過”逐字稿”進行文本分析，提取關鍵論點與數據 最後將所有分析結果以 Claude 4進行整合與表格化   再來根據LLM分析內容   找尋其中提到論點或是證據薄弱的地方，標註資料、引用的方法與來源 若是可行的話，會嘗試找">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="http://withoutdirection.github.io/img/crow.webp">
+<meta property="article:published_time" content="2025-08-12T04:10:09.623Z">
+<meta property="article:modified_time" content="2025-08-12T07:48:52.089Z">
+<meta property="article:author" content="烏鴉先生">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://withoutdirection.github.io/img/crow.webp"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "",
+  "url": "http://withoutdirection.github.io/Referendum-21-Press-conference/",
+  "image": "http://withoutdirection.github.io/img/crow.webp",
+  "datePublished": "2025-08-12T04:10:09.623Z",
+  "dateModified": "2025-08-12T07:48:52.089Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "烏鴉先生",
+      "url": "https://withoutdirection.github.io"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://withoutdirection.github.io/Referendum-21-Press-conference/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"><link rel="preconnect" href="//busuanzi.ibruce.info"><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          const hour = new Date().getHours()
+          const isNight = hour <= 6 || hour >= 17
+          if (theme === undefined) isNight ? activateDarkMode() : activateLightMode()
+          else theme === 'light' ? activateLightMode() : activateDarkMode()
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Failed',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '烏鴉囈語',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="/css/modify.css"><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="烏鴉囈語" type="application/atom+xml">
+</head><body><div id="web_bg" style="background-image: url(img/forest.webp);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/crow.webp" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"></div><div class="site-data text-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">8</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">10</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">1</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首頁</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 檔案</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 標籤</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> about</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background: 縮略圖;"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="/img/logo.webp" alt="Logo"><span class="site-name">烏鴉囈語</span></a><a class="nav-page-title" href="/"><span class="site-name">烏鴉囈語</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首頁</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 檔案</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 標籤</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> about</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">Untitled</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2025-08-12T04:10:09.623Z" title="Created 2025-08-12 12:10:09">2025-08-12</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2025-08-12T07:48:52.089Z" title="Updated 2025-08-12 15:48:52">2025-08-12</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><div class="top-img" style="background-image: url(undefined);"></div><article class="container post-content" id="article-container"><h1 id="核能發電廠重啟公投意見發表會分析"><a href="#核能發電廠重啟公投意見發表會分析" class="headerlink" title="核能發電廠重啟公投意見發表會分析"></a>核能發電廠重啟公投意見發表會分析</h1><h2 id="分析方法"><a href="#分析方法" class="headerlink" title="分析方法"></a>分析方法</h2><p>本分析分為兩階段</p>
+<ul>
+<li>首先透過:</li>
+</ul>
+<ol>
+<li>以<a target="_blank" rel="noopener" href="https://huggingface.co/ggerganov/whisper.cpp/tree/90a64d80ea254cf67575b41a5971f972c79f7b45">ggml-medium 模型</a> 結合 <a target="_blank" rel="noopener" href="https://github.com/ggml-org/whisper.cpp">whisper</a> 將發表會之直撥語音檔轉為中文逐字稿</li>
+<li>以Grok3透過”逐字稿”進行文本分析，提取關鍵論點與數據</li>
+<li>最後將所有分析結果以 Claude 4進行整合與表格化</li>
+</ol>
+<ul>
+<li>再來根據LLM分析內容</li>
+</ul>
+<ol>
+<li>找尋其中提到論點或是證據薄弱的地方，標註資料、引用的方法與來源</li>
+<li>若是可行的話，會嘗試找出相關的背景知識或是數據，並且進行驗證、視覺化</li>
+</ol>
+<blockquote>
+<p>為公正性，以下為用grok作分析所使用的prompt，歡迎大家用同樣的步驟檢驗內容<br>Prompt(Grok3):<br>附件為一針對核能發電廠是否要重啟之辯論會，<br>請根據裡面的內容結合邏輯敘述背景知識與核能發電背景知識分析雙方論點，<br>並指出雙方有無數據錯誤、缺漏。<br>將分析結果以中文的markdown文件產出</p>
+</blockquote>
+<blockquote>
+<p>Prompt(Claude 4):<br>請將以下內容進行整合與表格化，並標註是由哪一個人所發表或是為分析之補充:<br>(貼上內容)</p>
+</blockquote>
+<hr>
+<h2 id="第一場發表會"><a href="#第一場發表會" class="headerlink" title="第一場發表會"></a>第一場發表會</h2><blockquote>
+<p>此處Whisper誤將葉宗洸教授解析成葉宗光教授，為展現對教授之敬意，將其更正為葉宗洸</p>
+</blockquote>
+<h3 id="正方（葉宗洸）論點分析"><a href="#正方（葉宗洸）論點分析" class="headerlink" title="正方（葉宗洸）論點分析"></a>正方（葉宗洸）論點分析</h3><h4 id="主要論點"><a href="#主要論點" class="headerlink" title="主要論點"></a>主要論點</h4><ol>
+<li><p><strong>能源安全與獨立電網</strong>：</p>
+<ul>
+<li>台灣是資源匱乏的島國，98%的能源依賴進口，獨立電網使能源安全至關重要。</li>
+<li>核能發電的燃料安全存量為18至36個月，遠高於燃煤（36天）和天然氣（7至11天），有利於能源穩定。</li>
+<li>國際友人（如美國駐台代表、美國海軍情報官）建議台灣保留核電，認為至少一座核電廠可提供5%至6%的電力，確保軍事、行政、醫療等基本用電需求。</li>
+</ul>
+</li>
+<li><p><strong>核電安全性</strong>：</p>
+<ul>
+<li>台灣核電廠運轉40年未因地震發生重大事故，全球也無核電廠因地震造成致命損壞。</li>
+<li>核三廠耐震能力達0.72G，高於台北101（0.3G）和翡翠水庫（0.4G），即使按美國核管會SHAKE LEVEL 3標準（1.384G），仍可安全停機。</li>
+<li>核三廠位於海平面15公尺以上，另有19公尺高的海嘯防護牆，足以抵禦最高10公尺的海嘯。</li>
+</ul>
+</li>
+<li><p><strong>核電廠壽命</strong>：</p>
+<ul>
+<li>核電廠40年壽命限制源於美國反托拉斯政策，而非技術限制。美國80多座核電廠經更新後繼續運轉，無40年強制除役規定。</li>
+<li>密西根Parsadis核電廠已進入除役階段，但成功申請重啟，顯示除役核電廠重啟可行。</li>
+</ul>
+</li>
+<li><p><strong>供電緊迫與政策失誤</strong>：</p>
+<ul>
+<li>台灣目前供電緊張，出現「中電南送」現象，顯示能源政策失衡。</li>
+<li>新建機組（如大潭九號機、新達電廠）進度落後，燃煤機組被迫違法重啟，顯示台電供電壓力。</li>
+<li>核電成本低（每度1.5元），相較天然氣與再生能源（風電6.5元、光電4.8元）更具經濟效益。</li>
+</ul>
+</li>
+</ol>
+<h4 id="數據與邏輯檢視"><a href="#數據與邏輯檢視" class="headerlink" title="數據與邏輯檢視"></a>數據與邏輯檢視</h4><ul>
+<li><p><strong>正確性</strong>：</p>
+<ul>
+<li><strong>能源進口比例</strong>：台灣確實高度依賴能源進口，根據能源署數據，2024年能源進口比例約97.5%，與正方所述98%相符。</li>
+<li><strong>燃料存量</strong>：核燃料存量（18至36個月）與燃煤（約30天）、天然氣（7至11天）數據大致正確，反映核能燃料高能量密度與長期儲存特性。</li>
+<li><strong>耐震能力</strong>：核三廠耐震設計為0.72G，台北101為0.3G，翡翠水庫為0.4G，數據合理。美國核管會SHAKE LEVEL 3標準（1.384G）測試結果顯示核三廠可安全停機，符合台電公開報告。</li>
+<li><strong>Parsadis核電廠案例</strong>：美國密西根州的Palisades核電廠確於2025年獲准重啟，為全球首個進入除役後重啟的案例，正方引用正確。</li>
+<li><strong>核電成本</strong>：核電發電成本約每度1.5至2元，遠低於風電（約6元）與光電（約4.5元），數據合理。</li>
+</ul>
+</li>
+<li><p><strong>缺漏與邏輯漏洞</strong>：</p>
+<ul>
+<li><strong>國際建議的背景</strong>：正方引用美國駐台代表與海軍情報官的建議，但未提供具體出處或背景，可能誇大其權威性，且未說明這些建議是否基於台灣實際情況。</li>
+<li><strong>核電廠攻擊風險</strong>：正方稱核電廠因全球影響而不會成為戰爭攻擊目標，但未提供充分證據。烏克蘭戰爭中，核電廠雖未被直接攻擊，但曾受威脅（如扎波羅熱核電廠），顯示風險存在。</li>
+<li><strong>福島事故簡化</strong>：正方將福島事故完全歸因於海嘯，忽略地震對冷卻系統的間接影響及人為管理失誤，可能過分簡化事故原因。</li>
+<li><strong>經濟效益過分強調</strong>：正方強調核電低成本，但未充分討論核廢料處理與除役成本，這些長期成本可能抵消短期經濟優勢。</li>
+<li><strong>供電緊張證據不足</strong>：正方提及「中電南送」與燃煤機組違法重啟，但未提供具體數據（如違法重啟的發電量或頻率），可能誇大問題嚴重性。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="反方（曾文生）論點分析"><a href="#反方（曾文生）論點分析" class="headerlink" title="反方（曾文生）論點分析"></a>反方（曾文生）論點分析</h3><h4 id="主要論點-1"><a href="#主要論點-1" class="headerlink" title="主要論點"></a>主要論點</h4><ol>
+<li><p><strong>程序正義與科學檢驗</strong>：</p>
+<ul>
+<li>核電廠延役需經過嚴謹的科學檢驗與公開透明程序，現階段未完成安全評估，公投時機不成熟。</li>
+<li>主管機關需確認「無安全疑慮」，但這需繁複的設備老化評估、風險因子分析及工程補強，無法僅憑投票決定。</li>
+<li>台電需依據核安會的審查程序進行自我安全檢查，公開風險評估結果後再徵求民意。</li>
+</ul>
+</li>
+<li><p><strong>供電穩定性</strong>：</p>
+<ul>
+<li>台灣供電穩定，備轉容量率低於6%的天數從2016-2017年的100天降至近年幾乎為零（日間）或少於10天（夜間）。</li>
+<li>新建天然氣機組（如大潭、通宵、新達電廠）已提升北部供電能力，短期「中電南送」現象將隨新達電廠機組上線消失。</li>
+<li>核三廠除役後，台電可透過其他機組調度滿足需求，6%發電量損失可控。</li>
+</ul>
+</li>
+<li><p><strong>環境與核廢料問題</strong>：</p>
+<ul>
+<li>台電火力發電空污排放自2016年起減少70%，反駁核電除役導致空污惡化的說法。</li>
+<li>核廢料處置是延役核電的關鍵問題，台電正積極推動高階核廢料選址立法，需負責任地尋求解決方案。</li>
+</ul>
+</li>
+<li><p><strong>政策與民意</strong>：</p>
+<ul>
+<li>非核家園為長期政策，核能延役需滿足安全、核廢料解方及民意支持三前提。</li>
+<li>立法院2025年修法開放核電廠執照延期申請，台電將依法進行安全審查，顯示政府並非完全反對核電。</li>
+</ul>
+</li>
+</ol>
+<h4 id="數據與邏輯檢視-1"><a href="#數據與邏輯檢視-1" class="headerlink" title="數據與邏輯檢視"></a>數據與邏輯檢視</h4><ul>
+<li><p><strong>正確性</strong>：</p>
+<ul>
+<li><strong>備轉容量率</strong>：反方稱2016-2017年備轉容量率低於6%的天數達100天，近年幾乎為零（日間）或少於10天（夜間），與台電公開數據一致，顯示供電穩定性提升。</li>
+<li><strong>空污排放</strong>：台電火力發電空污排放減少70%的說法與環保署監測數據相符，反映燃煤機組升級與天然氣機組增加的成效。</li>
+<li><strong>核廢料選址</strong>：台電確實推動高階核廢料選址立法，顯示對核廢料問題的積極態度。</li>
+<li><strong>立法院修法</strong>：2025年5月修訂核管法，開放執照延期申請，反方所述正確。</li>
+</ul>
+</li>
+<li><p><strong>缺漏與邏輯漏洞</strong>：</p>
+<ul>
+<li><strong>安全審查細節不足</strong>：反方強調需嚴謹程序，但未具體說明核三廠延役所需的檢查項目、時間表或成本，降低說服力。</li>
+<li><strong>供電穩定性證據單薄</strong>：反方雖稱備轉容量率改善，但未回應正方提及的新建機組進度落後問題，可能掩蓋短期供電風險。</li>
+<li><strong>核廢料問題未深入</strong>：反方提及核廢料選址立法，但未提供當前進度或可行方案，無法完全回應正方的質疑。</li>
+<li><strong>程序正義過分強調</strong>：反方質疑公投時機，但未正面回應正方「政府不積極評估核電延役」的批評，可能顯得迴避核心問題。</li>
+<li><strong>燃煤機組備用爭議</strong>：反方稱燃煤機組作為國安備用，但未解釋為何違法重啟（如新達三、四號機），可能削弱論述可信度。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="雙方比較與總結"><a href="#雙方比較與總結" class="headerlink" title="雙方比較與總結"></a>雙方比較與總結</h3><h4 id="數據正確性"><a href="#數據正確性" class="headerlink" title="數據正確性"></a>數據正確性</h4><ul>
+<li><strong>正方</strong>：能源進口比例、燃料存量、耐震能力、核電成本及Palisades案例等數據正確，但國際建議與核電廠攻擊風險的論述缺乏充分證據。</li>
+<li><strong>反方</strong>：備轉容量率、空污排放減少及立法院修法等數據正確，但安全審查與核廢料處置的具體進展資訊不足。</li>
+</ul>
+<h4 id="邏輯缺漏"><a href="#邏輯缺漏" class="headerlink" title="邏輯缺漏"></a>邏輯缺漏</h4><ul>
+<li><strong>正方</strong>：<ul>
+<li>過分強調核電的經濟與安全優勢，忽略核廢料處理與除役成本的長期影響。</li>
+<li>福島事故與核電廠戰爭風險的論述過於簡化，未能全面評估複雜風險。</li>
+<li>「中電南送」與違法重啟的指控雖具衝擊力，但缺乏具體數據支持。 <code>此處應該是反方的缺漏</code></li>
+</ul>
+</li>
+<li><strong>反方</strong>：<ul>
+<li>強調程序正義與安全審查，但未提供具體方案或時間表，顯得論述空泛。</li>
+<li>未充分回應正方對新建機組進度落後的質疑，可能掩蓋供電挑戰。</li>
+<li>核廢料問題的討論停留於立法層面，缺乏實際解決方案的細節。</li>
+</ul>
+</li>
+</ul>
+<h4 id="背景知識補充"><a href="#背景知識補充" class="headerlink" title="背景知識補充"></a>背景知識補充</h4><ul>
+<li><strong>核能發電特性</strong>：核能發電具低碳、高穩定性與低燃料成本優勢，但核廢料處置與電廠除役成本高，且需嚴格安全管理。全球核電廠延役趨勢增加（如美國、加拿大），但需通過嚴格的設備老化評估與更新。</li>
+<li><strong>台灣能源現況</strong>：2024年台灣電力結構中，燃煤佔約30%，天然氣佔45%，核能僅剩3%（核三廠除役前）。再生能源（風電、光電）佔比約10%，但間歇性問題需搭配穩定電源。</li>
+<li><strong>核廢料挑戰</strong>：台灣高階核廢料目前儲存於核電廠內，長期處置場尚未確定，選址需考慮地質穩定性與社會接受度，技術與政治難度高。</li>
+</ul>
+<hr>
+<h2 id="第二場發表會"><a href="#第二場發表會" class="headerlink" title="第二場發表會"></a>第二場發表會</h2><h3 id="辯論背景簡述"><a href="#辯論背景簡述" class="headerlink" title="辯論背景簡述"></a>辯論背景簡述</h3><blockquote>
+<p>此處Whisper誤將林子倫教授解析成林子綸教授，為展現對教授之敬意，將其更正為林子倫</p>
+</blockquote>
+<p>此辯論會為2025年8月23日台灣全國性公民投票第21案（是否同意核三廠經確認無安全疑慮後繼續運轉）的第二場意見發表會，由中央選舉委員會主辦。正方代表翁曉玲（立法委員，支持重啟）主張核電為能源安全、低碳且經濟的必要選項；反方代表林子倫（台灣大學教授，反對重啟）強調再生能源轉型、核電風險與全球趨勢。辯論焦點涵蓋能源安全、空氣污染、健康影響、經濟成本及國際趨勢。</p>
+<p>台灣核能背景：台灣有三座核電廠（核一、核二、核三），核三廠位於屏東恆春，為最新一座。依民進黨「非核家園」政策，核三廠二號機於2025年5月17日執照到期停止運轉，目前台灣電力結構以火力發電為主（約83%），再生能源約12%，能源97%依賴進口。全球核能佔比約9-10%，再生能源（含水力）約30-32%，IEA預測2050年再生能源在淨零情景下佔比達90%。</p>
+<p>以下分析雙方論點，結合邏輯、背景知識，並指出數據錯誤或缺漏。分析基於辯論內容及外部驗證（如IEA報告、台灣能源局數據、耶魯EPI指數）。</p>
+<h3 id="正方論點分析"><a href="#正方論點分析" class="headerlink" title="正方論點分析"></a>正方論點分析</h3><p>正方強調核電為台灣能源困境的解方，論點邏輯上以「能源安全 vs. 缺電風險」、「健康與環保 vs. 火力污染」、「經濟效益 vs. 再生能源高成本」為主軸，呼籲務實回歸核電。背景知識支持核電低碳（發電過程無CO2排放）、穩定（基載電力不受天候影響），並被歐盟部分國家視為綠能。但論點忽略核電潛在風險（如地震帶位置），並過度簡化再生能源局限。</p>
+<h4 id="主要論點-2"><a href="#主要論點-2" class="headerlink" title="主要論點"></a>主要論點</h4><ol>
+<li><p><strong>能源結構與缺電風險</strong>：</p>
+<ul>
+<li>台灣已進入非核家園，核三廠2025年5月17日停止，晚間95%電力來自火力（煤、天然氣）。</li>
+<li>全球僅德國、台灣廢核，但台灣無德國條件（再生能源50-60%、鄰國購電）。</li>
+<li>蔡英文執政8年有4-5次全國大停電，區域停電頻繁；能源93-96%進口，封鎖風險高。</li>
+<li>邏輯分析：強調火力依賴導致不穩定，核電佔6%但為「救命電」。背景知識：台灣島國、多山，進口依賴高（97%），地緣風險（如台海衝突）確實存在。</li>
+</ul>
+</li>
+<li><p><strong>環保與健康益處</strong>：</p>
+<ul>
+<li>核電低碳、乾淨，優於火力（無「乾淨煤」）；火力造成空污，肺癌年增（10萬人得癌、1萬多人死，非吸菸者佔50%以上，女性90%）。</li>
+<li>空污嚴重：耶魯2024排名台灣第163名；火力危害遠高於核電。</li>
+<li>邏輯分析：以醫學數據連結空污與健康，批評民進黨「用肺發電」。背景知識：核電確為低碳能源，火力PM2.5排放高，台灣肺癌非吸菸者比例高（60%），但空污為多因。</li>
+</ul>
+</li>
+<li><p><strong>經濟與穩定性</strong>：</p>
+<ul>
+<li>再生能源僅13%，目標20%跳票；電價漲4次，台電虧4000億。</li>
+<li>核電便宜（燃料丸等於1噸煤），穩定不依天候；全球111座反應爐超40年、13座超50年。</li>
+<li>核三安全：40年無重大事故，當地78%支持、全國67%支持；核廢料有技術解決。</li>
+<li>邏輯分析：主張核+再生共存，批評綠能弊案、土地占用。背景知識：核電成本低於再生（但新廠高），延役可行（美國延至80年）。</li>
+</ul>
+</li>
+</ol>
+<h4 id="數據錯誤與缺漏"><a href="#數據錯誤與缺漏" class="headerlink" title="數據錯誤與缺漏"></a>數據錯誤與缺漏</h4><ul>
+<li><strong>錯誤</strong>：<ul>
+<li>火力95%：整體2024年火力83.2%（煤39.3%、氣42.4%），但晚間高峰可能接近95%（無太陽能）。非嚴重錯誤，但未區分整體 vs. 峰值。</li>
+<li>肺癌數據：台灣2021年肺癌新診斷約1.6萬（非10萬），死亡約1萬。10萬可能為所有癌症總數誤用；非吸菸者佔60%（非50%），女性90%正確。</li>
+<li>耶魯排名：2024 EPI空氣品質台灣排88（非163），總EPI排60。163可能是總排名倒數誤讀。</li>
+<li>能源進口：93-96% vs. 實際97.73%，輕微低估。</li>
+</ul>
+</li>
+<li><strong>缺漏</strong>：<ul>
+<li>未提核三地震風險（台灣地震帶，專家警告耐震不足）。</li>
+<li>核廢料：僅稱「有技術」，缺具體計畫（如蘭嶼爭議、長期儲存成本）。</li>
+<li>忽略再生能源進展：台灣離岸風電全球第五，成長5倍。</li>
+<li>未討論AI/半導體高耗電需求，可能放大缺電風險。</li>
+</ul>
+</li>
+</ul>
+<h3 id="反方論點分析"><a href="#反方論點分析" class="headerlink" title="反方論點分析"></a>反方論點分析</h3><p>反方以「能源轉型框架」為核心，主張再生能源為主流趨勢，核電增加風險。論點邏輯強調「韌性 vs. 集中風險」、「全球共識 vs. 舊技術」，呼籲投資未來。背景知識支持再生能源快速成長（IEA：新增92%來自再生），但忽略其間歇性需儲能輔助，及台灣土地限制。</p>
+<h4 id="主要論點-3"><a href="#主要論點-3" class="headerlink" title="主要論點"></a>主要論點</h4><ol>
+<li><p><strong>能源安全與轉型</strong>：</p>
+<ul>
+<li>非核100天，需社會共識；能源安全需多元、分散、在地再生能源（太陽、風、地熱等）。</li>
+<li>集中核電脆弱（災害、地緣風險）；再生結合智慧電網，提升韌性。</li>
+<li>邏輯分析：典範轉移，從集中到分散。背景知識：台灣地震/颱風多，分散再生可減風險。</li>
+</ul>
+</li>
+<li><p><strong>全球趨勢與數據</strong>：</p>
+<ul>
+<li>再生新增92.5%，全球佔32%（核9%）；IEA預測2026再生超越核，2050再生90%、核10%。</li>
+<li>COP28目標再生三倍；台灣產業需綠電（台積電等）。</li>
+<li>邏輯分析：引用聯合國/IEA報告，強調機會成本。背景知識：IEA NZE情景確實再生主導，核維持10%。</li>
+</ul>
+</li>
+<li><p><strong>核電風險與成本</strong>：</p>
+<ul>
+<li>安全不確定：地震帶、攻擊風險；成本超支（福島賠償10兆日圓）、廢料債留子孫。</li>
+<li>台灣轉型成果：再生成長5倍，佔12%；台中PM2.5從2018年20.9降至2024年15；溫室氣體從2007峰值降，佔全球0.5%。</li>
+<li>邏輯分析：比喻「40年老車」，強調道德風險（Leave屏東人behind）。背景知識：核災成本高，廢料無終處置。</li>
+</ul>
+</li>
+</ol>
+<h4 id="數據錯誤與缺漏-1"><a href="#數據錯誤與缺漏-1" class="headerlink" title="數據錯誤與缺漏"></a>數據錯誤與缺漏</h4><ul>
+<li><strong>錯誤</strong>：<ul>
+<li>再生佔32%：正確（含水力），但核9%準確。</li>
+<li>台中PM2.5：2018年20.9 → 2024年15正確（環保局數據），但整體台灣2022年13.4、2023可能回升（沙塵影響），改善趨勢成立。</li>
+<li>溫室氣體：從2007峰值降正確，但台灣排放仍高（全球0.5%），減碳需加速。</li>
+</ul>
+</li>
+<li><strong>缺漏</strong>：<ul>
+<li>未提再生能源間歇性：需大量儲能/備載，台灣目前儲能不足，可能導致缺電。</li>
+<li>成本忽略：再生初始高（但下降中），土地占用（農田光電爭議）。</li>
+<li>忽略民意：2025年民調66-67%支持核三重啟，未回應社會分歧。</li>
+<li>未討論核延役可行性：全球多例超40年，核三硬體健全。</li>
+<li>綠能商機：強調就業，但缺量化數據（如綠領人才增幅）。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="第三場發表會"><a href="#第三場發表會" class="headerlink" title="第三場發表會"></a>第三場發表會</h2><h3 id="背景介紹"><a href="#背景介紹" class="headerlink" title="背景介紹"></a>背景介紹</h3><blockquote>
+<p>此處Whisper誤將黃士修解析成黃世修，為展現敬意，將其更正為黃士修</p>
+</blockquote>
+<p>本辯論會為台灣中央選舉委員會針對2025年全國性公民投票第21案所舉辦的第三場意見發表會，主題為「您是否同意第三核能發電廠經主管機關同意確認無安全疑慮後繼續運轉」。辯論日期為2025年8月左右（辯論中提及公投日期為8月23日），正方代表黃士修（支持重啟，強調以核養綠）與反方代表甘崇偉（反對重啟，台灣綠黨共同召集人）各發表兩輪意見，每輪12分鐘。</p>
+<p>核三廠（馬鞍山核電廠）位於屏東縣恆春鎮，為台灣第三座核電廠，使用第二代壓水式反應爐，於1978年動工、1984年商轉，已於2025年5月17日除役。台灣能源背景：非核家園政策自2016年民進黨執政後推動，但2018年「以核養綠」公投通過，否定該政策；2025年台灣電力供應依賴火力（煤、天然氣）約80%，再生能源約10%，核能歸零後面臨缺電疑慮與碳排壓力。全球核能背景：核能提供穩定基載電力，但面臨安全、廢料與地震風險；福島核災（2011）後，全球核電趨勢分歧，歐盟將核能納入綠色分類但有嚴格條件。</p>
+<p>分析基於辯論內容，結合邏輯（論點一致性）、核能背景知識（安全設計、廢料處理、地震耐受）與外部事實驗證（來自WHO、UNSCEAR、台電、歐盟稅則等來源）。重點指出雙方論點強弱、數據錯誤或缺漏。</p>
+<h3 id="正方論點分析（黃士修，支持重啟）"><a href="#正方論點分析（黃士修，支持重啟）" class="headerlink" title="正方論點分析（黃士修，支持重啟）"></a>正方論點分析（黃士修，支持重啟）</h3><p>黃士修的論點以經濟、安全與地緣政治為主軸，強調重啟核三可改善台灣能源結構，批評反核政策導致台電虧損與空污增加。論點邏輯上強調機會成本（廢核的隱藏損失），並用國際事實反駁反核恐懼。</p>
+<h4 id="主要論點："><a href="#主要論點：" class="headerlink" title="主要論點："></a>主要論點：</h4><ul>
+<li><strong>經濟優勢</strong>：核能成本低（1.5元/度，包含廢料處理），再生能源5.5元/度；核三重啟可發150億度電/年，省600億元；全核運轉可省2400億元，等於普發1萬元/人。重啟可取代中火（台中火力發電廠）272億度煤電，關閉10部機組，減空污（台灣2024人均煤電世界第一）。</li>
+<li><strong>安全與事實澄清</strong>：福島輻射無死亡或癌症增加（WHO/UNSCEAR報告）。核三耐震已加固到1.384G（7級地震僅0.4G）。核電廠不怕地震（如日本女川核廠成避難所）。事故少，核三未重大事故。</li>
+<li><strong>核廢處理</strong>：有解，美國2000年表態可幫台灣處理；歐盟認核為綠能（納入永續投資）。</li>
+<li><strong>政策與地緣</strong>：反核導致台電虧損4500億元；非核家園違2018公投。反核是反美（美國支持台灣核能）、賣台（易受中國封鎖，天然氣撐不過10天）。重啟符合能源安全與SDGs。</li>
+<li><strong>批評反方</strong>：反核團體散佈謠言，拒認核為綠能；恆春斷層非第一類活動斷層，個人主張未經專家評估。</li>
+</ul>
+<h4 id="強點："><a href="#強點：" class="headerlink" title="強點："></a>強點：</h4><ul>
+<li>經濟邏輯強：機會成本計算合理，核能確實為低成本基載電源（全球平均核電成本約1-2元/度，再生能源依技術變動5-10元/度）。</li>
+<li>福島事實正確：UNSCEAR/WHO確認無輻射相關死亡，主要是疏散壓力導致健康問題。</li>
+<li>台灣煤電人均最高：2024數據約5115 kWh/人，世界第一，證明廢核後煤依賴增加。</li>
+</ul>
+<h4 id="數據錯誤或缺漏："><a href="#數據錯誤或缺漏：" class="headerlink" title="數據錯誤或缺漏："></a>數據錯誤或缺漏：</h4><ul>
+<li><strong>耐震值錯誤</strong>：宣稱核三加固到1.384G，但台電報告顯示原設計0.4G，加固安全停機系統到0.72G；1.384G為重新地震危害分析的峰值加速度（可能地震強度），非耐震能力。缺漏：未提恆春斷層確為活動斷層（3300年前活動，廠區下方簡列帶），風險存在。</li>
+<li><strong>核廢處理過度樂觀</strong>：美國曾表態（2000年），但無正式協議；台灣無高階廢料最終處置廠（計劃2055年），蘭嶼僅暫存。缺漏：未提歐盟條件（2050前高階處置廠、ATF燃料），核三不符。</li>
+<li><strong>重啟時間缺漏</strong>：批評核三停機3個月重啟時間，但實際需安檢、環評、地方同意，至少2-5年（類似美國Palisades重啟2年）。</li>
+<li><strong>其他缺漏</strong>：未提核三事故歷史（如2001 SBO為INES 3嚴重事件）；忽略老舊風險（浴缸曲線：40年後故障率升）。</li>
+</ul>
+<h3 id="反方論點分析（甘崇偉，反對重啟）"><a href="#反方論點分析（甘崇偉，反對重啟）" class="headerlink" title="反方論點分析（甘崇偉，反對重啟）"></a>反方論點分析（甘崇偉，反對重啟）</h3><p>甘崇偉以工程師視角，強調風險評估與數據，主張不缺電、無需冒險重啟老舊核廠。論點邏輯聚焦「需求確認」與「系統風險」，用歷史事故與地質科學支持。</p>
+<h4 id="主要論點：-1"><a href="#主要論點：-1" class="headerlink" title="主要論點："></a>主要論點：</h4><ul>
+<li><strong>不缺電</strong>：自2025/5/17核三除役至今，備轉容量97% &gt;10%，最低6.2%；節電計劃2027省206億度 &gt;核三178億度/年。未來再生能源+燃氣取代煤。</li>
+<li><strong>安全風險</strong>：核三老舊（40年，第二代），事故頻發（1985氫氣火災、1993輻射廢水、2001 SBO全黑2小時、2013變壓器警報84天、2025火災）。浴缸曲線：老化故障率升。</li>
+<li><strong>地質風險</strong>：恆春斷層活動（3300年前），廠區下方簡列帶（地震可撕裂廠房）；耐震僅0.72G，撐不住1.384G峰值。類似2018花蓮地震損毀建築。</li>
+<li><strong>核廢與綠能</strong>：無最終處置廠（蘭嶼滿載）；不符歐盟條件（2050高階處置、ATF燃料）。全球趨勢：2004-2023非中國，啟用53、關閉104；再生投資10倍核能。</li>
+<li><strong>成本與戰時</strong>：重啟成本高（如加州魔鬼谷延役5年2500-3900億台幣）；需5年流程。戰時核廠易攻擊（烏克蘭札波羅熱例），再生能源更韌性。</li>
+<li><strong>環保立場</strong>：支持綠能但反毀林貪污；核三選址錯誤，應遠離斷層。</li>
+</ul>
+<h4 id="強點：-1"><a href="#強點：-1" class="headerlink" title="強點："></a>強點：</h4><ul>
+<li>事故歷史正確：2001 SBO為INES 3，確認多起事件（台電公開資料）。</li>
+<li>斷層風險科學：恆春斷層確活動，廠區地質脆弱（台電槽溝資料）。</li>
+<li>歐盟條件正確：核需高階處置2050前運轉、ATF等；台灣不符。</li>
+<li>全球趨勢數據大致正確：非中國啟用少於關閉（WNISR報告：全球關閉多，中國主導新啟用）。</li>
+<li>備轉容量：短期數據合理（2025除役後維持6%以上），但邏輯上強調「確認需求」合理。</li>
+</ul>
+<h4 id="數據錯誤或缺漏：-1"><a href="#數據錯誤或缺漏：-1" class="headerlink" title="數據錯誤或缺漏："></a>數據錯誤或缺漏：</h4><ul>
+<li><strong>備轉容量缺漏</strong>：短期數據正確，但忽略未來需求（AI工廠、2025預測夜間7%、最壞0.4%）；缺電風險存在（2021三次大停電）。</li>
+<li><strong>重啟成本</strong>：魔鬼谷例合理，但核三是除役而非延役，成本可能較低（美國Palisades重啟約2000億台幣）；缺漏：重啟可省煤/氣成本。</li>
+<li><strong>戰時風險</strong>：核廠易癱瘓正確（烏克蘭例），但缺漏：核能提供穩定基載，封鎖下天然氣更脆弱（CSIS兵推：10天斷）。</li>
+<li><strong>其他缺漏</strong>：未提核能減碳貢獻（台灣碳排因廢核增加）；全球核趨勢忽略中國（全球淨增加），投資差異因核資本密集。</li>
+</ul>
+<h3 id="雙方比較與整體評估"><a href="#雙方比較與整體評估" class="headerlink" title="雙方比較與整體評估"></a>雙方比較與整體評估</h3><ul>
+<li><strong>邏輯一致性</strong>：正方強在經濟與地緣，強調機會成本與國際支持；反方強在安全風險，數據詳盡。但雙方皆有政治攻擊（正方稱反核「賣台」、反方避談未來缺電）。</li>
+<li><strong>數據準確度</strong>：正方耐震值錯誤，反方趨勢數據正確但忽略中國貢獻。雙方缺漏對方優勢（如正方未提事故，反方未提煤依賴增加）。</li>
+<li><strong>背景知識整合</strong>：核能安全設計（多重冷卻系統）支持正方，但台灣地震頻繁（環太平洋火環）放大反方斷層論。廢料處理全球有解（乾貯、地質掩埋），但台灣政治阻礙進展。</li>
+<li><strong>潛在偏誤</strong>：正方忽略老舊風險，反方過度強調核災（福島無輻射死），忽略再生能源間歇性（需儲能）。</li>
+</ul>
+<hr>
+<h2 id="公投辯論會整合分析表"><a href="#公投辯論會整合分析表" class="headerlink" title="公投辯論會整合分析表"></a>公投辯論會整合分析表</h2><h3 id="第一場發表會（葉宗洸-vs-曾文生）"><a href="#第一場發表會（葉宗洸-vs-曾文生）" class="headerlink" title="第一場發表會（葉宗洸 vs 曾文生）"></a>第一場發表會（葉宗洸 vs 曾文生）</h3><h4 id="正方論點（葉宗洸教授）"><a href="#正方論點（葉宗洸教授）" class="headerlink" title="正方論點（葉宗洸教授）"></a>正方論點（葉宗洸教授）</h4><table>
+<thead>
+<tr>
+<th>議題</th>
+<th>主要論點</th>
+<th>數據支持</th>
+<th>分析評價</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>能源安全</strong></td>
+<td>台灣98%能源依賴進口，獨立電網使能源安全至關重要</td>
+<td>核燃料存量18-36個月 vs 燃煤36天、天然氣7-11天</td>
+<td>✓ <strong>數據正確</strong>：台灣能源進口比例約97.5%</td>
+</tr>
+<tr>
+<td><strong>國際建議</strong></td>
+<td>美國駐台代表、海軍情報官建議保留核電</td>
+<td>至少一座核電廠可提供5-6%電力</td>
+<td>⚠️ <strong>分析補充</strong>：缺乏具體出處，可能誇大權威性</td>
+</tr>
+<tr>
+<td><strong>核電安全</strong></td>
+<td>台灣核電廠運轉40年未因地震發生重大事故</td>
+<td>核三廠耐震0.72G，高於台北101（0.3G）、翡翠水庫（0.4G）</td>
+<td>✓ <strong>數據正確</strong>：符合台電公開報告</td>
+</tr>
+<tr>
+<td><strong>海嘯防護</strong></td>
+<td>核三廠位於海平面15公尺以上，另有19公尺防護牆</td>
+<td>足以抵禦最高10公尺海嘯</td>
+<td>✓ <strong>數據合理</strong></td>
+</tr>
+<tr>
+<td><strong>延役可行性</strong></td>
+<td>核電廠40年壽命限制非技術限制</td>
+<td>美國80多座核電廠延役運轉，Palisades核電廠重啟案例</td>
+<td>✓ <strong>數據正確</strong>：2025年獲准重啟</td>
+</tr>
+<tr>
+<td><strong>經濟效益</strong></td>
+<td>核電成本低於其他發電方式</td>
+<td>核電1.5元/度 vs 風電6.5元、光電4.8元</td>
+<td>✓ <strong>數據合理</strong></td>
+</tr>
+<tr>
+<td><strong>供電問題</strong></td>
+<td>台灣供電緊張，出現「中電南送」現象</td>
+<td>新建機組進度落後，燃煤機組違法重啟</td>
+<td>⚠️ <strong>分析補充</strong>：缺乏具體數據支持</td>
+</tr>
+</tbody></table>
+<p><strong>邏輯缺漏（分析補充）</strong>：</p>
+<ul>
+<li>福島事故簡化：完全歸因於海嘯，忽略地震對冷卻系統影響</li>
+<li>核廢料成本未充分討論</li>
+<li>核電廠戰爭風險論述缺乏證據</li>
+</ul>
+<hr>
+<h4 id="反方論點（曾文生）"><a href="#反方論點（曾文生）" class="headerlink" title="反方論點（曾文生）"></a>反方論點（曾文生）</h4><table>
+<thead>
+<tr>
+<th>議題</th>
+<th>主要論點</th>
+<th>數據支持</th>
+<th>分析評價</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>程序正義</strong></td>
+<td>核電廠延役需嚴謹科學檢驗與透明程序</td>
+<td>需設備老化評估、風險分析及工程補強</td>
+<td>⚠️ <strong>分析補充</strong>：缺乏具體檢查項目與時間表</td>
+</tr>
+<tr>
+<td><strong>供電穩定</strong></td>
+<td>台灣供電穩定，備轉容量率改善</td>
+<td>低於6%天數從2016-17年100天降至近年幾乎為零</td>
+<td>✓ <strong>數據正確</strong>：與台電公開數據一致</td>
+</tr>
+<tr>
+<td><strong>新建機組</strong></td>
+<td>新建天然氣機組提升北部供電能力</td>
+<td>大潭、通宵、新達電廠機組上線</td>
+<td>⚠️ <strong>分析補充</strong>：未回應進度落後質疑</td>
+</tr>
+<tr>
+<td><strong>環境改善</strong></td>
+<td>台電火力發電空污排放大幅減少</td>
+<td>自2016年起減少70%</td>
+<td>✓ <strong>數據正確</strong>：符合環保署監測數據</td>
+</tr>
+<tr>
+<td><strong>核廢料</strong></td>
+<td>核廢料處置為延役關鍵問題</td>
+<td>台電推動高階核廢料選址立法</td>
+<td>⚠️ <strong>分析補充</strong>：缺乏具體進度與可行方案</td>
+</tr>
+<tr>
+<td><strong>政策開放</strong></td>
+<td>立法院2025年修法開放延期申請</td>
+<td>台電將依法進行安全審查</td>
+<td>✓ <strong>數據正確</strong>：2025年5月修訂核管法</td>
+</tr>
+</tbody></table>
+<p><strong>邏輯缺漏（分析補充）</strong>：</p>
+<ul>
+<li>過分強調程序正義，論述顯得空泛</li>
+<li>未解釋燃煤機組違法重啟問題</li>
+<li>核廢料討論停留於立法層面</li>
+</ul>
+<hr>
+<h3 id="第二場發表會（翁曉玲-vs-林子綸）"><a href="#第二場發表會（翁曉玲-vs-林子綸）" class="headerlink" title="第二場發表會（翁曉玲 vs 林子綸）"></a>第二場發表會（翁曉玲 vs 林子綸）</h3><h4 id="正方論點（翁曉玲立法委員）"><a href="#正方論點（翁曉玲立法委員）" class="headerlink" title="正方論點（翁曉玲立法委員）"></a>正方論點（翁曉玲立法委員）</h4><table>
+<thead>
+<tr>
+<th>議題</th>
+<th>主要論點</th>
+<th>數據支持</th>
+<th>分析評價</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>能源結構</strong></td>
+<td>台灣已進入非核家園，晚間95%電力來自火力</td>
+<td>核三廠2025年5月17日停止運轉</td>
+<td>⚠️ <strong>數據檢核</strong>：整體火力83.2%，但晚間峰值接近95%</td>
+</tr>
+<tr>
+<td><strong>國際比較</strong></td>
+<td>全球僅德國、台灣廢核，但台灣無德國條件</td>
+<td>德國再生能源50-60%、可鄰國購電</td>
+<td>✓ <strong>論點合理</strong></td>
+</tr>
+<tr>
+<td><strong>停電記錄</strong></td>
+<td>蔡英文執政8年有4-5次全國大停電</td>
+<td>能源93-96%進口，封鎖風險高</td>
+<td>⚠️ <strong>數據輕微低估</strong>：實際97.73%</td>
+</tr>
+<tr>
+<td><strong>健康影響</strong></td>
+<td>火力造成空污，肺癌年增</td>
+<td>10萬人得癌、1萬多人死，非吸菸者佔50%以上</td>
+<td>❌ <strong>數據錯誤</strong>：肺癌新診斷約1.6萬（非10萬），非吸菸者佔60%</td>
+</tr>
+<tr>
+<td><strong>國際排名</strong></td>
+<td>空污嚴重，耶魯2024排名台灣第163名</td>
+<td>-</td>
+<td>❌ <strong>數據錯誤</strong>：EPI空氣品質排88（非163）</td>
+</tr>
+<tr>
+<td><strong>經濟效益</strong></td>
+<td>再生能源成本高，電價上漲4次</td>
+<td>台電虧損4000億元</td>
+<td>✓ <strong>數據大致正確</strong></td>
+</tr>
+<tr>
+<td><strong>核電優勢</strong></td>
+<td>核電便宜穩定，全球延役趨勢</td>
+<td>111座反應爐超40年、13座超50年</td>
+<td>✓ <strong>數據正確</strong></td>
+</tr>
+<tr>
+<td><strong>民意支持</strong></td>
+<td>核三安全，當地與全國支持度高</td>
+<td>當地78%支持、全國67%支持</td>
+<td>✓ <strong>民調數據合理</strong></td>
+</tr>
+</tbody></table>
+<p><strong>主要缺漏（分析補充）</strong>：</p>
+<ul>
+<li>未提核三地震風險</li>
+<li>核廢料僅稱「有技術」，缺具體計畫</li>
+<li>忽略再生能源進展（離岸風電全球第五）</li>
+</ul>
+<hr>
+<h4 id="反方論點（林子綸教授）"><a href="#反方論點（林子綸教授）" class="headerlink" title="反方論點（林子綸教授）"></a>反方論點（林子綸教授）</h4><table>
+<thead>
+<tr>
+<th>議題</th>
+<th>主要論點</th>
+<th>數據支持</th>
+<th>分析評價</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>能源安全</strong></td>
+<td>能源安全需多元、分散、在地再生能源</td>
+<td>太陽、風、地熱等分散式系統</td>
+<td>✓ <strong>論點合理</strong>：符合韌性概念</td>
+</tr>
+<tr>
+<td><strong>全球趨勢</strong></td>
+<td>再生能源為主流趨勢</td>
+<td>新增92.5%來自再生，全球佔32%（核9%）</td>
+<td>✓ <strong>數據正確</strong>：含水力發電</td>
+</tr>
+<tr>
+<td><strong>國際預測</strong></td>
+<td>IEA預測再生能源將主導</td>
+<td>2026再生超越核，2050再生90%、核10%</td>
+<td>✓ <strong>數據正確</strong>：IEA NZE情景</td>
+</tr>
+<tr>
+<td><strong>COP28目標</strong></td>
+<td>國際共識再生能源三倍成長</td>
+<td>台灣產業需綠電（台積電等）</td>
+<td>✓ <strong>事實正確</strong></td>
+</tr>
+<tr>
+<td><strong>核電風險</strong></td>
+<td>安全不確定性與高成本</td>
+<td>福島賠償10兆日圓、地震帶攻擊風險</td>
+<td>✓ <strong>成本數據合理</strong></td>
+</tr>
+<tr>
+<td><strong>台灣轉型</strong></td>
+<td>再生能源成長成果</td>
+<td>成長5倍，佔12%</td>
+<td>✓ <strong>數據正確</strong></td>
+</tr>
+<tr>
+<td><strong>空污改善</strong></td>
+<td>台中PM2.5顯著改善</td>
+<td>2018年20.9降至2024年15</td>
+<td>✓ <strong>數據正確</strong>：環保局數據</td>
+</tr>
+<tr>
+<td><strong>溫室氣體</strong></td>
+<td>台灣排放從峰值下降</td>
+<td>從2007峰值降，佔全球0.5%</td>
+<td>✓ <strong>趨勢正確</strong></td>
+</tr>
+</tbody></table>
+<p><strong>主要缺漏（分析補充）</strong>：</p>
+<ul>
+<li>未提再生能源間歇性問題</li>
+<li>忽略成本與土地占用爭議</li>
+<li>未回應民意支持核電的調查</li>
+</ul>
+<hr>
+<h3 id="第三場發表會（黃士修-vs-甘崇偉）"><a href="#第三場發表會（黃士修-vs-甘崇偉）" class="headerlink" title="第三場發表會（黃士修 vs 甘崇偉）"></a>第三場發表會（黃士修 vs 甘崇偉）</h3><h4 id="正方論點（黃士修）"><a href="#正方論點（黃士修）" class="headerlink" title="正方論點（黃士修）"></a>正方論點（黃士修）</h4><table>
+<thead>
+<tr>
+<th>議題</th>
+<th>主要論點</th>
+<th>數據支持</th>
+<th>分析評價</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>經濟優勢</strong></td>
+<td>核能成本遠低於再生能源</td>
+<td>核電1.5元/度 vs 再生能源5.5元/度</td>
+<td>✓ <strong>數據合理</strong></td>
+</tr>
+<tr>
+<td><strong>重啟效益</strong></td>
+<td>核三重啟可大幅節省成本</td>
+<td>發150億度電/年，省600億元</td>
+<td>✓ <strong>計算邏輯合理</strong></td>
+</tr>
+<tr>
+<td><strong>全核效益</strong></td>
+<td>全核運轉等於普發現金</td>
+<td>可省2400億元，等於普發1萬元/人</td>
+<td>✓ <strong>數學計算正確</strong></td>
+</tr>
+<tr>
+<td><strong>減煤效果</strong></td>
+<td>重啟可取代中火煤電</td>
+<td>替代272億度煤電，關閉10部機組</td>
+<td>✓ <strong>邏輯合理</strong></td>
+</tr>
+<tr>
+<td><strong>煤電依賴</strong></td>
+<td>台灣人均煤電世界第一</td>
+<td>2024約5115 kWh/人</td>
+<td>✓ <strong>數據正確</strong></td>
+</tr>
+<tr>
+<td><strong>福島澄清</strong></td>
+<td>福島輻射無死亡或癌症增加</td>
+<td>WHO/UNSCEAR報告確認</td>
+<td>✓ <strong>事實正確</strong></td>
+</tr>
+<tr>
+<td><strong>耐震能力</strong></td>
+<td>核三耐震已加固</td>
+<td>加固到1.384G（7級地震僅0.4G）</td>
+<td>❌ <strong>數據錯誤</strong>：1.384G為地震強度，非耐震能力</td>
+</tr>
+<tr>
+<td><strong>核廢處理</strong></td>
+<td>有解決方案</td>
+<td>美國2000年表態可幫台灣處理</td>
+<td>⚠️ <strong>過度樂觀</strong>：無正式協議</td>
+</tr>
+<tr>
+<td><strong>歐盟認可</strong></td>
+<td>歐盟認核為綠能</td>
+<td>納入永續投資分類</td>
+<td>⚠️ <strong>有條件</strong>：需符合嚴格條件</td>
+</tr>
+</tbody></table>
+<p><strong>主要缺漏（分析補充）</strong>：</p>
+<ul>
+<li>重啟時間需2-5年，非3個月</li>
+<li>未提核三事故歷史（2001 SBO事件）</li>
+<li>忽略40年後老舊風險</li>
+</ul>
+<hr>
+<h4 id="反方論點（甘崇偉）"><a href="#反方論點（甘崇偉）" class="headerlink" title="反方論點（甘崇偉）"></a>反方論點（甘崇偉）</h4><table>
+<thead>
+<tr>
+<th>議題</th>
+<th>主要論點</th>
+<th>數據支持</th>
+<th>分析評價</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>不缺電</strong></td>
+<td>核三除役後供電穩定</td>
+<td>備轉容量97% &gt;10%，最低6.2%</td>
+<td>✓ <strong>短期數據正確</strong></td>
+</tr>
+<tr>
+<td><strong>節電成效</strong></td>
+<td>節電計劃超越核三發電量</td>
+<td>2027省206億度 &gt; 核三178億度/年</td>
+<td>✓ <strong>數據合理</strong></td>
+</tr>
+<tr>
+<td><strong>事故歷史</strong></td>
+<td>核三老舊事故頻發</td>
+<td>1985氫氣火災、1993輻射廢水、2001 SBO全黑2小時</td>
+<td>✓ <strong>事故記錄正確</strong></td>
+</tr>
+<tr>
+<td><strong>老化風險</strong></td>
+<td>浴缸曲線：老化故障率升</td>
+<td>40年第二代設備</td>
+<td>✓ <strong>工程理論正確</strong></td>
+</tr>
+<tr>
+<td><strong>地質風險</strong></td>
+<td>恆春斷層活動，廠區下方簡列帶</td>
+<td>3300年前活動，地震可撕裂廠房</td>
+<td>✓ <strong>地質科學正確</strong></td>
+</tr>
+<tr>
+<td><strong>耐震不足</strong></td>
+<td>耐震僅0.72G，撐不住1.384G峰值</td>
+<td>類似2018花蓮地震損毀建築</td>
+<td>✓ <strong>數據正確</strong></td>
+</tr>
+<tr>
+<td><strong>核廢問題</strong></td>
+<td>無最終處置廠</td>
+<td>蘭嶼滿載，不符歐盟條件</td>
+<td>✓ <strong>現況正確</strong></td>
+</tr>
+<tr>
+<td><strong>全球趨勢</strong></td>
+<td>非中國地區核電減少</td>
+<td>2004-2023啟用53、關閉104</td>
+<td>✓ <strong>趨勢數據正確</strong></td>
+</tr>
+<tr>
+<td><strong>重啟成本</strong></td>
+<td>重啟成本高昂</td>
+<td>加州魔鬼谷延役5年2500-3900億台幣</td>
+<td>✓ <strong>成本參考合理</strong></td>
+</tr>
+<tr>
+<td><strong>戰時風險</strong></td>
+<td>核廠易成攻擊目標</td>
+<td>烏克蘭札波羅熱例</td>
+<td>✓ <strong>風險實例正確</strong></td>
+</tr>
+</tbody></table>
+<p><strong>主要缺漏（分析補充）</strong>：</p>
+<ul>
+<li>忽略未來需求增長（AI工廠）</li>
+<li>未提核能減碳貢獻</li>
+<li>全球趨勢忽略中國貢獻</li>
+</ul>
+<hr>
+<h3 id="綜合分析總結"><a href="#綜合分析總結" class="headerlink" title="綜合分析總結"></a>綜合分析總結</h3><h4 id="數據準確度比較"><a href="#數據準確度比較" class="headerlink" title="數據準確度比較"></a>數據準確度比較</h4><table>
+<thead>
+<tr>
+<th>發表人</th>
+<th>主要正確數據</th>
+<th>主要錯誤/缺漏</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>葉宗洸</strong></td>
+<td>能源進口比例、燃料存量、耐震數據、Palisades案例</td>
+<td>國際建議缺出處、福島事故簡化</td>
+</tr>
+<tr>
+<td><strong>曾文生</strong></td>
+<td>備轉容量率、空污減少、立法修法</td>
+<td>安全審查細節不足、核廢進展模糊</td>
+</tr>
+<tr>
+<td><strong>翁曉玲</strong></td>
+<td>德國比較、民意調查、延役趨勢</td>
+<td>肺癌數據、耶魯排名、能源進口比例</td>
+</tr>
+<tr>
+<td><strong>林子綸</strong></td>
+<td>全球趨勢、IEA預測、空污改善</td>
+<td>再生間歇性、成本爭議、民意回應</td>
+</tr>
+<tr>
+<td><strong>黃士修</strong></td>
+<td>福島澄清、煤電依賴、經濟計算</td>
+<td>耐震數據、重啟時間、歐盟條件</td>
+</tr>
+<tr>
+<td><strong>甘崇偉</strong></td>
+<td>事故歷史、地質風險、全球趨勢</td>
+<td>未來需求、減碳貢獻、中國影響</td>
+</tr>
+</tbody></table>
+<h3 id="核心爭議焦點"><a href="#核心爭議焦點" class="headerlink" title="核心爭議焦點"></a>核心爭議焦點</h3><ol>
+<li><strong>安全性</strong>：正方強調運轉紀錄與國際案例；反方強調老舊風險與地質威脅</li>
+<li><strong>經濟性</strong>：正方強調低成本與節省效益；反方強調重啟成本與廢料負擔</li>
+<li><strong>必要性</strong>：正方強調缺電風險與減煤需求；反方強調供電穩定與節能成效</li>
+<li><strong>國際趨勢</strong>：正方強調延役趨勢與美國支持；反方強調再生主流與歐盟條件</li>
+</ol>
+<p><strong>分析補充</strong>：雙方論述各有強弱，核心分歧在於風險評估與優先順序。正方偏重經濟與地緣考量，反方偏重安全與環境轉型，反映台灣社會對能源政策的根本分歧。</p>
+<hr>
+<h2 id="檢視闕漏與數據"><a href="#檢視闕漏與數據" class="headerlink" title="檢視闕漏與數據"></a>檢視闕漏與數據</h2><p><strong>(待編輯)</strong></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="https://withoutdirection.github.io">烏鴉先生</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="http://withoutdirection.github.io/Referendum-21-Press-conference/">http://withoutdirection.github.io/Referendum-21-Press-conference/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles on this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless otherwise stated.</span></div></div><div class="tag_share"><div class="post-share"><div class="social-share" data-image="/img/crow.webp" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer=""></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width" href="/Mitre-ATT-CK-Techniues-note/" title="MITRE ATT&amp;CK 技術筆記"><div class="cover" style="background: 縮略圖"></div><div class="info"><div class="info-1"><div class="info-item-1">Previous</div><div class="info-item-2">MITRE ATT&amp;CK 技術筆記</div></div><div class="info-2"><div class="info-item-1">本文總結了MITRE ATT&amp;CK框架中的各種技術，包括權限提升、存取權杖操控、自動啟動執行等，並提供了相關的實作步驟和範例。,待更新</div></div></div></a></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/crow.webp" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"></div><div class="author-info-name">烏鴉先生</div><div class="author-info-description">隨手寫東西</div><div class="site-data"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">8</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">10</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">1</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/WithoutDirection"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A0%B8%E8%83%BD%E7%99%BC%E9%9B%BB%E5%BB%A0%E9%87%8D%E5%95%9F%E5%85%AC%E6%8A%95%E6%84%8F%E8%A6%8B%E7%99%BC%E8%A1%A8%E6%9C%83%E5%88%86%E6%9E%90"><span class="toc-number">1.</span> <span class="toc-text">核能發電廠重啟公投意見發表會分析</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95"><span class="toc-number">1.1.</span> <span class="toc-text">分析方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E5%A0%B4%E7%99%BC%E8%A1%A8%E6%9C%83"><span class="toc-number">1.2.</span> <span class="toc-text">第一場發表會</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A3%E6%96%B9%EF%BC%88%E8%91%89%E5%AE%97%E6%B4%B8%EF%BC%89%E8%AB%96%E9%BB%9E%E5%88%86%E6%9E%90"><span class="toc-number">1.2.1.</span> <span class="toc-text">正方（葉宗洸）論點分析</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%BB%E8%A6%81%E8%AB%96%E9%BB%9E"><span class="toc-number">1.2.1.1.</span> <span class="toc-text">主要論點</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B8%E6%93%9A%E8%88%87%E9%82%8F%E8%BC%AF%E6%AA%A2%E8%A6%96"><span class="toc-number">1.2.1.2.</span> <span class="toc-text">數據與邏輯檢視</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8D%E6%96%B9%EF%BC%88%E6%9B%BE%E6%96%87%E7%94%9F%EF%BC%89%E8%AB%96%E9%BB%9E%E5%88%86%E6%9E%90"><span class="toc-number">1.2.2.</span> <span class="toc-text">反方（曾文生）論點分析</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%BB%E8%A6%81%E8%AB%96%E9%BB%9E-1"><span class="toc-number">1.2.2.1.</span> <span class="toc-text">主要論點</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B8%E6%93%9A%E8%88%87%E9%82%8F%E8%BC%AF%E6%AA%A2%E8%A6%96-1"><span class="toc-number">1.2.2.2.</span> <span class="toc-text">數據與邏輯檢視</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9B%99%E6%96%B9%E6%AF%94%E8%BC%83%E8%88%87%E7%B8%BD%E7%B5%90"><span class="toc-number">1.2.3.</span> <span class="toc-text">雙方比較與總結</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B8%E6%93%9A%E6%AD%A3%E7%A2%BA%E6%80%A7"><span class="toc-number">1.2.3.1.</span> <span class="toc-text">數據正確性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%82%8F%E8%BC%AF%E7%BC%BA%E6%BC%8F"><span class="toc-number">1.2.3.2.</span> <span class="toc-text">邏輯缺漏</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%83%8C%E6%99%AF%E7%9F%A5%E8%AD%98%E8%A3%9C%E5%85%85"><span class="toc-number">1.2.3.3.</span> <span class="toc-text">背景知識補充</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E5%A0%B4%E7%99%BC%E8%A1%A8%E6%9C%83"><span class="toc-number">1.3.</span> <span class="toc-text">第二場發表會</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BE%AF%E8%AB%96%E8%83%8C%E6%99%AF%E7%B0%A1%E8%BF%B0"><span class="toc-number">1.3.1.</span> <span class="toc-text">辯論背景簡述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A3%E6%96%B9%E8%AB%96%E9%BB%9E%E5%88%86%E6%9E%90"><span class="toc-number">1.3.2.</span> <span class="toc-text">正方論點分析</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%BB%E8%A6%81%E8%AB%96%E9%BB%9E-2"><span class="toc-number">1.3.2.1.</span> <span class="toc-text">主要論點</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B8%E6%93%9A%E9%8C%AF%E8%AA%A4%E8%88%87%E7%BC%BA%E6%BC%8F"><span class="toc-number">1.3.2.2.</span> <span class="toc-text">數據錯誤與缺漏</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8D%E6%96%B9%E8%AB%96%E9%BB%9E%E5%88%86%E6%9E%90"><span class="toc-number">1.3.3.</span> <span class="toc-text">反方論點分析</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%BB%E8%A6%81%E8%AB%96%E9%BB%9E-3"><span class="toc-number">1.3.3.1.</span> <span class="toc-text">主要論點</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B8%E6%93%9A%E9%8C%AF%E8%AA%A4%E8%88%87%E7%BC%BA%E6%BC%8F-1"><span class="toc-number">1.3.3.2.</span> <span class="toc-text">數據錯誤與缺漏</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E5%A0%B4%E7%99%BC%E8%A1%A8%E6%9C%83"><span class="toc-number">1.4.</span> <span class="toc-text">第三場發表會</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%83%8C%E6%99%AF%E4%BB%8B%E7%B4%B9"><span class="toc-number">1.4.1.</span> <span class="toc-text">背景介紹</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A3%E6%96%B9%E8%AB%96%E9%BB%9E%E5%88%86%E6%9E%90%EF%BC%88%E9%BB%83%E5%A3%AB%E4%BF%AE%EF%BC%8C%E6%94%AF%E6%8C%81%E9%87%8D%E5%95%9F%EF%BC%89"><span class="toc-number">1.4.2.</span> <span class="toc-text">正方論點分析（黃士修，支持重啟）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%BB%E8%A6%81%E8%AB%96%E9%BB%9E%EF%BC%9A"><span class="toc-number">1.4.2.1.</span> <span class="toc-text">主要論點：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BC%B7%E9%BB%9E%EF%BC%9A"><span class="toc-number">1.4.2.2.</span> <span class="toc-text">強點：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B8%E6%93%9A%E9%8C%AF%E8%AA%A4%E6%88%96%E7%BC%BA%E6%BC%8F%EF%BC%9A"><span class="toc-number">1.4.2.3.</span> <span class="toc-text">數據錯誤或缺漏：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8D%E6%96%B9%E8%AB%96%E9%BB%9E%E5%88%86%E6%9E%90%EF%BC%88%E7%94%98%E5%B4%87%E5%81%89%EF%BC%8C%E5%8F%8D%E5%B0%8D%E9%87%8D%E5%95%9F%EF%BC%89"><span class="toc-number">1.4.3.</span> <span class="toc-text">反方論點分析（甘崇偉，反對重啟）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%BB%E8%A6%81%E8%AB%96%E9%BB%9E%EF%BC%9A-1"><span class="toc-number">1.4.3.1.</span> <span class="toc-text">主要論點：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BC%B7%E9%BB%9E%EF%BC%9A-1"><span class="toc-number">1.4.3.2.</span> <span class="toc-text">強點：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B8%E6%93%9A%E9%8C%AF%E8%AA%A4%E6%88%96%E7%BC%BA%E6%BC%8F%EF%BC%9A-1"><span class="toc-number">1.4.3.3.</span> <span class="toc-text">數據錯誤或缺漏：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9B%99%E6%96%B9%E6%AF%94%E8%BC%83%E8%88%87%E6%95%B4%E9%AB%94%E8%A9%95%E4%BC%B0"><span class="toc-number">1.4.4.</span> <span class="toc-text">雙方比較與整體評估</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AC%E6%8A%95%E8%BE%AF%E8%AB%96%E6%9C%83%E6%95%B4%E5%90%88%E5%88%86%E6%9E%90%E8%A1%A8"><span class="toc-number">1.5.</span> <span class="toc-text">公投辯論會整合分析表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E5%A0%B4%E7%99%BC%E8%A1%A8%E6%9C%83%EF%BC%88%E8%91%89%E5%AE%97%E6%B4%B8-vs-%E6%9B%BE%E6%96%87%E7%94%9F%EF%BC%89"><span class="toc-number">1.5.1.</span> <span class="toc-text">第一場發表會（葉宗洸 vs 曾文生）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AD%A3%E6%96%B9%E8%AB%96%E9%BB%9E%EF%BC%88%E8%91%89%E5%AE%97%E6%B4%B8%E6%95%99%E6%8E%88%EF%BC%89"><span class="toc-number">1.5.1.1.</span> <span class="toc-text">正方論點（葉宗洸教授）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%8D%E6%96%B9%E8%AB%96%E9%BB%9E%EF%BC%88%E6%9B%BE%E6%96%87%E7%94%9F%EF%BC%89"><span class="toc-number">1.5.1.2.</span> <span class="toc-text">反方論點（曾文生）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E5%A0%B4%E7%99%BC%E8%A1%A8%E6%9C%83%EF%BC%88%E7%BF%81%E6%9B%89%E7%8E%B2-vs-%E6%9E%97%E5%AD%90%E7%B6%B8%EF%BC%89"><span class="toc-number">1.5.2.</span> <span class="toc-text">第二場發表會（翁曉玲 vs 林子綸）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AD%A3%E6%96%B9%E8%AB%96%E9%BB%9E%EF%BC%88%E7%BF%81%E6%9B%89%E7%8E%B2%E7%AB%8B%E6%B3%95%E5%A7%94%E5%93%A1%EF%BC%89"><span class="toc-number">1.5.2.1.</span> <span class="toc-text">正方論點（翁曉玲立法委員）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%8D%E6%96%B9%E8%AB%96%E9%BB%9E%EF%BC%88%E6%9E%97%E5%AD%90%E7%B6%B8%E6%95%99%E6%8E%88%EF%BC%89"><span class="toc-number">1.5.2.2.</span> <span class="toc-text">反方論點（林子綸教授）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E5%A0%B4%E7%99%BC%E8%A1%A8%E6%9C%83%EF%BC%88%E9%BB%83%E5%A3%AB%E4%BF%AE-vs-%E7%94%98%E5%B4%87%E5%81%89%EF%BC%89"><span class="toc-number">1.5.3.</span> <span class="toc-text">第三場發表會（黃士修 vs 甘崇偉）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AD%A3%E6%96%B9%E8%AB%96%E9%BB%9E%EF%BC%88%E9%BB%83%E5%A3%AB%E4%BF%AE%EF%BC%89"><span class="toc-number">1.5.3.1.</span> <span class="toc-text">正方論點（黃士修）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%8D%E6%96%B9%E8%AB%96%E9%BB%9E%EF%BC%88%E7%94%98%E5%B4%87%E5%81%89%EF%BC%89"><span class="toc-number">1.5.3.2.</span> <span class="toc-text">反方論點（甘崇偉）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B6%9C%E5%90%88%E5%88%86%E6%9E%90%E7%B8%BD%E7%B5%90"><span class="toc-number">1.5.4.</span> <span class="toc-text">綜合分析總結</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B8%E6%93%9A%E6%BA%96%E7%A2%BA%E5%BA%A6%E6%AF%94%E8%BC%83"><span class="toc-number">1.5.4.1.</span> <span class="toc-text">數據準確度比較</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%B8%E5%BF%83%E7%88%AD%E8%AD%B0%E7%84%A6%E9%BB%9E"><span class="toc-number">1.5.5.</span> <span class="toc-text">核心爭議焦點</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AA%A2%E8%A6%96%E9%97%95%E6%BC%8F%E8%88%87%E6%95%B8%E6%93%9A"><span class="toc-number">1.6.</span> <span class="toc-text">檢視闕漏與數據</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Posts</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/Referendum-21-Press-conference/" title="Untitled">Untitled</a><time datetime="2025-08-12T04:10:09.623Z" title="Created 2025-08-12 12:10:09">2025-08-12</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/Mitre-ATT-CK-Techniues-note/" title="MITRE ATT&amp;CK 技術筆記">MITRE ATT&amp;CK 技術筆記</a><time datetime="2025-07-03T16:00:00.000Z" title="Created 2025-07-04 00:00:00">2025-07-04</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/sinica-cs-summer-internship/" title="中研院資訊所暑期實習">中研院資訊所暑期實習</a><time datetime="2025-06-30T16:00:00.000Z" title="Created 2025-07-01 00:00:00">2025-07-01</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/Computer-security-self-study/" title="自學電安的52周">自學電安的52周</a><time datetime="2025-06-05T11:01:23.631Z" title="Created 2025-06-05 19:01:23">2025-06-05</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/CSC-final/" title="電腦安全總整與實作期末筆記">電腦安全總整與實作期末筆記</a><time datetime="2025-05-29T16:00:00.000Z" title="Created 2025-05-30 00:00:00">2025-05-30</time></div></div></div></div></div></div></main><footer id="footer" style="background: transparent;"><div id="footer-wrap"><div class="copyright">©2019 - 2025 By 烏鴉先生</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Reading Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light and Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle Between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Settings"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back to Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async="" data-pjax="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
