@@ -1,17 +1,41 @@
-# Welcome to MkDocs
+---
+title: 首頁
+---
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+# 從零開始的研究生活
 
-## Commands
+> 碩士生的長期學習筆記：研究、課程、紀錄生活可愛之處。
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+[開始閱讀課程](course/Deep%20Reinforcement%20Learning.md){ .md-button .md-button--primary }
+[進入部落格](blog/index.md){ .md-button }
 
-## Project layout
+## 這個網站在記錄什麼
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+<div class="grid cards" markdown>
+
+-   :material-flask-outline: __研究學習__
+
+    論文閱讀、自身研究經驗。
+
+-   :material-school-outline: __課程整理__
+
+    整理我的課程內容與作業、專題。
+
+-   :material-notebook-edit-outline: __部落格文章__
+
+    一些在學習與工作之外的烏鴉囈語。
+
+</div>
+
+---
+
+## About Me
+- A master student currently study in NTU
+- An alcoholic and a coffeeholic
+- Traveler but lack of time to travel
+
+## Recent Life
+1. Intern of Sinica CITI
+2. Struggle in new life of NTU
+3. Enhance English skill in my profession and advanced domain
+4. Be fimilar with MoE and SLM

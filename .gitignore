@@ -37,6 +37,6 @@ Thumbs.db
 
 # Local notes and generated/internal docs
 docs/mkdocs-settings.md
-docs/tags.md
+# docs/tags.md
 assests/*
 !assests/.gitkeep

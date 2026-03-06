@@ -4,8 +4,7 @@ site_author: WeiTa Chen
 
 nav:
   - 首頁: index.md
-  - 課程:
-    - 深度強化學習: course/Deep Reinforcement Learning.md
+  - 課程: course/index.md
   - 部落格: blog/index.md
   - 標籤: tags.md
   # - 設定說明: mkdocs-settings.md
@@ -28,7 +27,7 @@ theme:
     - toc.integrate
     - announce.dismiss #呈現可標記為由使用者讀取的臨時公告，可包含一個用於關閉目前公告的按鈕
     # - navigation.instant
-    #- header.autohide  #自動隱藏
+    - header.autohide  #自動隱藏
     - navigation.tracking #位址列中的 URL 將自動更新為在目錄中醒目顯示的作用中錨點
     - navigation.tabs #頂層區段將呈現在上方視窗標題下方的選單層中，但在行動裝置上維持原樣
     # - navigation.tabs.sticky  #啟用黏性分頁後，導覽分頁將固定在標題下方，並在向下捲動時始終保持可見
