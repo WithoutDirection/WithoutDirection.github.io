@@ -1,4 +1,42 @@
+# Python virtual environments
+.venv/
 venv/
+env/
+
+# MkDocs build output and cache
 site/
 .cache/
+
+# Python cache/bytecode
 __pycache__/
+*.py[cod]
+*.pyo
+
+# Local environment and secrets
+.env
+.env.*
+!.env.example
+*.local
+*.secret
+secrets.*
+
+# Common key/certificate files
+*.pem
+*.key
+*.p12
+*.pfx
+*.crt
+*.cer
+
+# IDE/OS files
+.vscode/
+.idea/
+*.swp
+Thumbs.db
+.DS_Store
+
+# Local notes and generated/internal docs
+docs/mkdocs-settings.md
+docs/tags.md
+assests/*
+!assests/.gitkeep

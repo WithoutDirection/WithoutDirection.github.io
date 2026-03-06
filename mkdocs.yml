@@ -1,20 +1,120 @@
 site_name: 從零開始的研究生活
 site_url: https://WithoutDirection.github.io/
+site_author: WeiTa Chen
+
+nav:
+  - 首頁: index.md
+  - 課程:
+    - 深度強化學習: course/Deep Reinforcement Learning.md
+  - 部落格: blog/index.md
+  - 標籤: tags.md
+  # - 設定說明: mkdocs-settings.md
+
 theme:
   name: material
+  palette: 
+    # Palette toggle for light mode
+    - scheme: default
+      toggle:
+        icon: material/brightness-7 
+        name: Switch to dark mode
+ 
+    # Palette toggle for dark mode
+    - scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
   features:
-    - navigation.tabs
-    - navigation.sections
     - toc.integrate
+    - announce.dismiss #呈現可標記為由使用者讀取的臨時公告，可包含一個用於關閉目前公告的按鈕
+    # - navigation.instant
+    #- header.autohide  #自動隱藏
+    - navigation.tracking #位址列中的 URL 將自動更新為在目錄中醒目顯示的作用中錨點
+    - navigation.tabs #頂層區段將呈現在上方視窗標題下方的選單層中，但在行動裝置上維持原樣
+    # - navigation.tabs.sticky  #啟用黏性分頁後，導覽分頁將固定在標題下方，並在向下捲動時始終保持可見
+    - navigation.sections #啟用區段後，頂層區段會在邊欄中呈現為 1220px 以上視窗的群組，但在行動裝置上維持原樣
+    - navigation.top # 返回頂部的按鈕會在上滑時出現
+    - navigation.footer #頁尾將呈現在邊欄中，但在行動裝置上維持原樣
+    - search.suggest # 搜尋輸入部分字母時會建議補全整個單字
+    - search.highlight # 搜尋結果中的文章關鍵字會高亮顯示
+    - search.share #搜尋分享按鈕
+    - navigation.expand # 開啟 Tab 時左側目錄全部展開
+    - navigation.indexes #啟用章節索引頁後，可以將文件直接附加到章節
+    - content.tabs.link
+    - content.tooltips
+    - content.code.copy #程式碼複製
+    - content.action.edit
+    - content.action.view
+    - content.code.annotate
+  language: zh-TW
 
 markdown_extensions:
-  - pymdownx.arithmatex:
-      generic: true
-  - pymdownx.highlight:
-      anchor_linenums: true
   - pymdownx.superfences
+  - abbr
+  - attr_list
+  - admonition
+  - def_list
+  - footnotes
+  - md_in_html
+  - meta # 允許在 Markdown 文件中使用 YAML 樣式的元數據區塊
+  - pymdownx.caret
+  - pymdownx.betterem
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.snippets
+  - pymdownx.smartsymbols
+  - pymdownx.tilde
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format:
+            !!python/name:pymdownx.superfences.fence_code_format # 格式化程式碼區塊
+  - pymdownx.arithmatex: # 啟用latex
+      generic: true
+  - toc:
+      permalink: true # 
+  - pymdownx.highlight: # 將程式碼hightlighted
+      anchor_linenums: true
+      linenums: true # 顯示行號
+      auto_title: true # 顯示程式語言
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
 
+
+extra:
+  generator: false #刪除 footer 提示: "Made with Material for MkDocs"
 extra_javascript:
   - javascripts/mathjax.js
   - https://polyfill.io/v3/polyfill.min.js?features=es6
-  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js #Latex
+  - https://polyfill.io/v3/polyfill.min.js?features=es6 #Latex
+extra_css:
+  - stylesheets/extra.css
+  - stylesheets/link.css # 連結樣式
+  - stylesheets/customize.css # 自訂樣式
+
+plugins:
+  - search
+  - blog: #可以在 docs/blog/posts 直接撰寫 md 檔案（不需要透過 nav 編輯路徑），並且會自動產生 blog 頁面
+      post_date_format: full #日期格式
+      draft: true
+      draft_if_future_date: true #如果 post 日期在未來，則視為草稿
+      post_readtime: true
+      post_readtime_words_per_minute: 265 #每分鐘閱讀的單字數量
+      post_url_format: "{date}/{slug}"
+      # categories_slugify: !!python/object/apply:pymdownx.slugs.slugify
+      #   kwds:
+      #     case: lower
+      pagination_url_format: "page/{page}"
+      authors_file: "{blog}/.authors.yml" #作者資訊
+  - tags
+  
