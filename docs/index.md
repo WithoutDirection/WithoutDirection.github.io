@@ -6,7 +6,7 @@ title: 首頁
 
 > 碩士生的長期學習筆記：研究、課程、紀錄生活可愛之處。
 
-[開始閱讀課程](course/Deep%20Reinforcement%20Learning.md){ .md-button .md-button--primary }
+[開始閱讀課程](course/index.md){ .md-button .md-button--primary }
 [進入部落格](blog/index.md){ .md-button }
 
 ## 這個網站在記錄什麼
