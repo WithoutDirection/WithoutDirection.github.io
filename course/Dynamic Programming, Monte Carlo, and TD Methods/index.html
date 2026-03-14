@@ -1,0 +1,1004 @@
+
+<!doctype html>
+<html lang="zh-TW" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="WeiTa Chen">
+      
+      
+        <link rel="canonical" href="https://WithoutDirection.github.io/course/Dynamic%20Programming%2C%20Monte%20Carlo%2C%20and%20TD%20Methods/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+    
+    
+      
+        <title>Dynamic Programming, Monte Carlo, and TD Methods - 從零開始的研究生活</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/link.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/customize.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#dynamic-programming-monte-carlo-and-td-methods" class="md-skip">
+          跳轉到
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="頁首">
+    <a href="../.." title="從零開始的研究生活" class="md-header__button md-logo" aria-label="從零開始的研究生活" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            從零開始的研究生活
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Dynamic Programming, Monte Carlo, and TD Methods
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜尋" placeholder="搜尋" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="搜尋">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="清除" aria-label="清除" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜尋引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="標籤" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  首頁
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../" class="md-tabs__link">
+        
+  
+  
+    
+  
+  課程
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../blog/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Blog
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../tags/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  標籤
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="導覽列" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="從零開始的研究生活" class="md-nav__button md-logo" aria-label="從零開始的研究生活" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    從零開始的研究生活
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首頁
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    課程
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../blog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Blog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tags/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    標籤
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="dynamic-programming-monte-carlo-and-td-methods">Dynamic Programming, Monte Carlo, and TD Methods<a class="headerlink" href="#dynamic-programming-monte-carlo-and-td-methods" title="Permanent link">&para;</a></h1>
+<h2 id="table-of-contents">Table of Contents<a class="headerlink" href="#table-of-contents" title="Permanent link">&para;</a></h2>
+<h2 id="find-the-best-policy-in-mdp">Find the best policy in MDP<a class="headerlink" href="#find-the-best-policy-in-mdp" title="Permanent link">&para;</a></h2>
+<h3 id="recap-what-is-mdp">Recap: what is MDP<a class="headerlink" href="#recap-what-is-mdp" title="Permanent link">&para;</a></h3>
+<ul>
+<li>一言以蔽之: state的轉換機率只與當前state和action有關，與過去的state和action無關。</li>
+<li>MDP = {S(state), P(transition probability), R(reward), A}</li>
+<li>在MDP中，目標是找到最好的policy <span class="arithmatex">\(\pi^*\)</span>，使得在該policy下的value function <span class="arithmatex">\(V_{\pi}(s)\)</span>最大化。</li>
+<li>通常利用求解value function(<em>Bellman Optimality Equation</em>)找到每個狀態的最優價值函數 <span class="arithmatex">\(V^*(s)\)</span>，進而推導出最佳策略</li>
+</ul>
+<blockquote>
+<p>Bellman Equation: <span class="arithmatex">\(V(s) = \sum\limits_{s',r} p(s',r | s, a)[r + \gamma V(s')]\)</span><br />
+現在的價值 = 動作(a)後立刻得到的好處 + 折扣過後(<span class="arithmatex">\(\gamma\)</span>)未來的好處(V(s'))</p>
+</blockquote>
+<h3 id="know-the-whole-model-vs-istead">Know the whole model vs. Istead<a class="headerlink" href="#know-the-whole-model-vs-istead" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>MDP完全可知 = 知道所有<em>State</em> + 知道 state之間的<em>轉換機率</em>  + State的轉換<em>Reward</em> + 可行的<em>動作集合</em></p>
+</li>
+<li>
+<p>當MDP為可知時(通常針對<strong>P- 狀態之間的轉換機率</strong>)，可以透過<strong>Dynamic Programming</strong> 求得最好的value，進而求得最好的policy</p>
+</li>
+<li>反之，當MDP不完全可知時，之能透過<em>Model free function</em><strong>學習</strong>出最佳策略</li>
+</ul>
+<h2 id="use-dynamic-programming-solve-mdp">Use Dynamic Programming solve MDP<a class="headerlink" href="#use-dynamic-programming-solve-mdp" title="Permanent link">&para;</a></h2>
+<h3 id="dp">DP要素<a class="headerlink" href="#dp" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>Value function(i.e. <em>Bellman Equation</em>)滿足以下條件</p>
+</li>
+<li>
+<p>Optimal Substructure</p>
+</li>
+<li>在MDP中，最佳策略的子策略也是最佳的。</li>
+<li>也就是說，如果一個策略在某個狀態下是最佳的，那麼在該狀態下採取的行動也是最佳的。</li>
+<li>Overlapping Subproblems</li>
+<li>在MDP中，不同的狀態之間可能存在重疊的子問題，這使得動態規劃方法能夠有效地解決。</li>
+<li>DP方法的核心思想是利用這些特性，通過遞歸地求解子問題來找到整體問題的最佳解。</li>
+</ul>
+<h3 id="dp_1">DP步驟<a class="headerlink" href="#dp_1" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Decomposition by Bellman equation<ul>
+<li>每個狀態的最佳價值取決於其未來的最佳價值</li>
+</ul>
+</li>
+<li>Computed state values can be stored and reused<ul>
+<li>將計算而得的state value存起來讓計算在其之前的狀態時可以直接使用</li>
+</ul>
+</li>
+</ol>
+<h3 id="dpbest-policy">DP如何求得Best Policy<a class="headerlink" href="#dpbest-policy" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Policy Evaluation</li>
+<li>衡量當前policy的價值: 計算出當前策略在每個狀態下的預期回報</li>
+<li><strong>遞迴計算直到數值收斂</strong></li>
+<li>建立一張完整的價值地圖（value map）-當前policy的優劣</li>
+<li>Policy Improvement</li>
+<li>因為<em>policy evaluation</em>，可以知道當前策略最好的下一步是甚麼</li>
+<li>採取<em>Greedy principle</em>，在每一個<em>state</em>下根據第一步得到的<strong>value mao</strong>，直接選擇能通往「下一步最高價值」的action來取代舊有行為</li>
+<li>因為<em>greedy principle</em>，其保證直接選擇最大value的action一定比目前的策略好或是至少一樣好 </li>
+<li>根據上述<strong>1.</strong>, <strong>2.</strong>交替進行evlaute與imporve(greedy choice)，最後求得的value必為最大值<blockquote>
+<p>Procedure: <span class="arithmatex">\(\pi_0 \xRightarrow{evaluate} V_{\pi0} \xRightarrow{imporve} \pi_1 \xRightarrow{evaluate} V_{\pi1} \text{\dots} \xRightarrow{imporve} \pi^* \xRightarrow{evaluate} V^*\)</span> </p>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<p>Recap: 用Bellman equation衡量policy價值<br />
+<span class="arithmatex">\(V_{k+1}(s) \leftarrow \mathbb{E}[r_t + \gamma V_k(s_{t+1})| s_t = s] = \sum\limits_a \pi(a|s) \sum\limits_{s'}p(s'|s,a)[r(s,a,s') + \gamma V_k(s')]\)</span>
+That the value of being in state is: 
+1. 立刻得到的獎勵 - <span class="arithmatex">\(r(s,a,s')\)</span>
+2. 折扣後的未來獎勵 <span class="arithmatex">\(\gamma V_k(s')\)</span>
+3. 給定狀態 <span class="arithmatex">\(s\)</span> 下所有可能行動 <span class="arithmatex">\(a\)</span>  - <span class="arithmatex">\(\sum_a \pi(a|s)\)</span>
+4. 所有可能的未來狀態 - <span class="arithmatex">\(\sum_{s'} p(s'|s, a)\)</span></p>
+</blockquote>
+<h2 id="model-free-method">Model Free Method<a class="headerlink" href="#model-free-method" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>Recap: <em>Model Free</em> = 不知道完整的模型樣貌。 E.g. 不知道 S中所有的state</p>
+</blockquote>
+<ul>
+<li>Learn from <em>experience</em>: sequence of <span class="arithmatex">\((s_t, a_t, r_t, s_{t+1})\)</span></li>
+<li>因為無法得知完整的模型，不再能夠用<strong>Bellman Equation</strong>衡量<em>state</em>或是 <em>policy</em>的 value</li>
+<li>需要從經驗中學習:</li>
+<li>Model-Free Prediction: 如何在未知中評估現狀</li>
+<li>Model-Free Control: 如何在未知中尋找最佳策略</li>
+</ul>
+<h3 id="model-free-prediction">Model-Free prediction<a class="headerlink" href="#model-free-prediction" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Understanding the environment's patterns</li>
+<li>Estimate value functions of unknown MDPs through direct experience</li>
+<li>Answer the question: <code>How good is this situation if I follow my current strategy?</code></li>
+<li>Approaches: <em>Monte Carlo (MC) methods</em>, <em>Temporal-Difference (TD) learning</em></li>
+<li><strong>Mathematical goal:</strong> <span class="arithmatex">\(\text{Approximate} V_{\pi}(s) \text{or } Q_{\pi}(s,a) \text{without knowing } p(s'|s,a)\)</span></li>
+</ul>
+<h3 id="model-free-control">Model-Free Control<a class="headerlink" href="#model-free-control" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Mastering optimal behavior</li>
+<li>Discover optimal policies without transition or reward models</li>
+<li>Address the challenge: <code>What's the best possible strategy in this unknown environment?</code></li>
+<li>Approached: <em>Q-learning</em>, <em>SARSA</em>, and <em>policy gradient methods</em></li>
+<li>Mathematical goal: <span class="arithmatex">\(\text{Find }\pi^*(s) = \arg\max Q^*(s,a)\text{ through interactions}\)</span></li>
+</ul>
+<h2 id="model-free-prediction_1">Model-Free prediction<a class="headerlink" href="#model-free-prediction_1" title="Permanent link">&para;</a></h2>
+<h3 id="monte-carlo-mc-prediction">Monte Carlo (MC) Prediction<a class="headerlink" href="#monte-carlo-mc-prediction" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Episodic Learning Focus: 要有<strong>開始</strong>與<strong>結束</strong>的明確定義</li>
+<li>Experience-Driven Valuation: 評估函數為將觀察到的<strong>return value</strong> 平均而得</li>
+<li>i.e. 完全不依賴自己推測、預估，完全從經驗推得</li>
+<li>Complete Trajectory Sampling: 收集<strong>完整的</strong>互動回合並將其作為該策略的<em>return</em></li>
+<li><span class="arithmatex">\(\text{Return Calculation} = G_t = \sum\limits_{i=t}^T \gamma^{i-t}R_i \\ \text{T is the terminal step of an }\bold{episode}\)</span></li>
+</ul>
+<h4 id="algo-detail-of-first-visit-monte-carlo">Algo Detail of First-Visit Monte Carlo<a class="headerlink" href="#algo-detail-of-first-visit-monte-carlo" title="Permanent link">&para;</a></h4>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">C</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-0-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-0-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-0-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-0-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-0-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-0-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-0-10">10</a></span>
+<span class="normal"><a href="#__codelineno-0-11">11</a></span>
+<span class="normal"><a href="#__codelineno-0-12">12</a></span>
+<span class="normal"><a href="#__codelineno-0-13">13</a></span>
+<span class="normal"><a href="#__codelineno-0-14">14</a></span>
+<span class="normal"><a href="#__codelineno-0-15">15</a></span>
+<span class="normal"><a href="#__codelineno-0-16">16</a></span>
+<span class="normal"><a href="#__codelineno-0-17">17</a></span>
+<span class="normal"><a href="#__codelineno-0-18">18</a></span>
+<span class="normal"><a href="#__codelineno-0-19">19</a></span>
+<span class="normal"><a href="#__codelineno-0-20">20</a></span>
+<span class="normal"><a href="#__codelineno-0-21">21</a></span>
+<span class="normal"><a href="#__codelineno-0-22">22</a></span>
+<span class="normal"><a href="#__codelineno-0-23">23</a></span>
+<span class="normal"><a href="#__codelineno-0-24">24</a></span>
+<span class="normal"><a href="#__codelineno-0-25">25</a></span>
+<span class="normal"><a href="#__codelineno-0-26">26</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nl">Algorithm</span><span class="p">:</span><span class="w"> </span><span class="n">Monte</span><span class="w"> </span><span class="n">Carlo</span><span class="w"> </span><span class="n">Prediction</span><span class="w"> </span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="nl">Require</span><span class="p">:</span><span class="w"> </span><span class="n">Policy</span><span class="w"> </span><span class="n">π</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">evaluated</span><span class="w">   </span><span class="c1">// 待評估的策略 $\pi$ (Policy)</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="nl">Ensure</span><span class="p">:</span><span class="w"> </span><span class="n">Value</span><span class="w"> </span><span class="n">function</span><span class="w"> </span><span class="n">V</span><span class="w"> </span><span class="err">≈</span><span class="w"> </span><span class="n">v_π</span><span class="w">   </span><span class="c1">// 價值函數 V:該策略下各狀態的估計價值</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a>
+<a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="c1">// Step 1. 初始化價值：對所有狀態s設定V(s)為任意值（通常設為 0）。</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="n">Initialize</span><span class="w"> </span><span class="n">V</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="n">arbitrarily</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="err">∈</span><span class="w"> </span><span class="n">S</span><span class="w"> </span><span class="p">{</span><span class="n">Often</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">zero</span><span class="p">}</span><span class="w"> </span>
+<a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="c1">// Step 2. 建立紀錄表：初始化一個空列表Returns(s)，用來存放每個狀態以後觀察到的所有回報。</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="n">Initialize</span><span class="w"> </span><span class="n">Returns</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="err">←</span><span class="w"> </span><span class="n">empty</span><span class="w"> </span><span class="n">list</span><span class="p">,</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="err">∈</span><span class="w"> </span><span class="n">S</span><span class="w"> </span><span class="p">{</span><span class="n">Track</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">returns</span><span class="w"> </span><span class="n">observed</span><span class="p">}</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10"></a>
+<a id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="c1">// Step 3. 根據經驗逐漸逼近</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="n">repeat</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="w">   </span><span class="n">Generate</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">episode</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="n">π</span><span class="o">:</span><span class="w"> </span><span class="c1">//Step 3.1 根據策略產生一個完整的回合 (Episode)：</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="w">   </span><span class="n">s0</span><span class="p">,</span><span class="w"> </span><span class="n">a0</span><span class="p">,</span><span class="w"> </span><span class="n">r1</span><span class="p">,</span><span class="w"> </span><span class="n">s1</span><span class="p">,</span><span class="w"> </span><span class="n">a1</span><span class="p">,</span><span class="w"> </span><span class="p">...,</span><span class="w"> </span><span class="n">rT</span><span class="w"> </span><span class="p">{</span><span class="n">Complete</span><span class="w"> </span><span class="n">trajectory</span><span class="p">}</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="w">   </span><span class="n">G</span><span class="w"> </span><span class="err">←</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">{</span><span class="n">Initialize</span><span class="w"> </span><span class="k">return</span><span class="p">}</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16"></a><span class="w">   </span><span class="c1">// Step 3.2 從回合最後一刻倒著算回去 t = T-1, T-2, ..., 0)</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17"></a><span class="w">   </span><span class="k">for</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">T</span><span class="err">−</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="err">−</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="p">...,</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">do</span><span class="w"> </span>
+<a id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="w">      </span><span class="c1">// 逐漸更新總回報：G &lt;- γG + r_{t+1}（考慮折扣因子 γ）</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="w">      </span><span class="n">G</span><span class="w"> </span><span class="err">←</span><span class="w"> </span><span class="n">γG</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">r_</span><span class="p">{</span><span class="n">t</span><span class="o">+</span><span class="mi">1</span><span class="p">}</span><span class="w"> </span><span class="p">{</span><span class="n">Update</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">with</span><span class="w"> </span><span class="n">discount</span><span class="p">}</span><span class="w"> </span>
+<a id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="w">      </span><span class="c1">// 如果狀態 $s_t$ 在此時間點之前: 將本次算出的 $G$ 加入到 $Returns(s_t)$ 列表中。並且計算平均值：V(s_t) ← average(Returns(s_t))。</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="n">s_t</span><span class="w"> </span><span class="err">∉</span><span class="w"> </span><span class="p">{</span><span class="n">s0</span><span class="p">,</span><span class="w"> </span><span class="n">s1</span><span class="p">,</span><span class="w"> </span><span class="p">...,</span><span class="w"> </span><span class="n">s_</span><span class="p">{</span><span class="n">t</span><span class="err">−</span><span class="mi">1</span><span class="p">}}</span><span class="w"> </span><span class="n">then</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22"></a><span class="w">         </span><span class="n">Append</span><span class="w"> </span><span class="n">G</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">Returns</span><span class="p">(</span><span class="n">s_t</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="n">Store</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">state</span><span class="p">}</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23"></a><span class="w">         </span><span class="n">V</span><span class="p">(</span><span class="n">s_t</span><span class="p">)</span><span class="w"> </span><span class="err">←</span><span class="w"> </span><span class="n">average</span><span class="p">(</span><span class="n">Returns</span><span class="p">(</span><span class="n">s_t</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="n">Update</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">estimate</span><span class="p">}</span>
+<a id="__codelineno-0-24" name="__codelineno-0-24"></a><span class="w">      </span><span class="n">end</span><span class="w"> </span><span class="k">if</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25"></a><span class="w">   </span><span class="n">end</span><span class="w"> </span><span class="k">for</span>
+<a id="__codelineno-0-26" name="__codelineno-0-26"></a><span class="n">until</span><span class="w"> </span><span class="n">sufficient</span><span class="w"> </span><span class="n">sampling</span>
+</code></pre></div></td></tr></table></div>
+<ul>
+<li>為什麼要檢查「第一次遇到」 (Step 8)？</li>
+<li>這稱為 First-visit MC。</li>
+<li>如果在一個回合內兩次經過同一個格子（例如：繞了一圈），只記錄第一次進入該格子的總分數。</li>
+<li><strong>這樣可以確保數據的統計特性更純粹，避免同一個事件被重複加權。</strong></li>
+</ul>
+<h4 id="incremental-monte-carlo-update">Incremental Monte Carlo Update<a class="headerlink" href="#incremental-monte-carlo-update" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>Traditional MC: 完成很多次回合後再算平均</p>
+</blockquote>
+<ul>
+<li>Incremental Monte Carlo Update: 每完成一個回合，就立刻<strong>根據新看到的分數來「微調」目前的價值估計</strong>，
+   Advantage: 不需要儲存龐大的分數列表。</li>
+<li>對於一個狀態 <span class="arithmatex">\(s\)</span>，當我們完成一個回合並得到回報 <span class="arithmatex">\(G_t\)</span> 時，更新公式如下: <span class="arithmatex">\(V(s) \leftarrow V(s) + \alpha (G_t - V(s))\)</span></li>
+<li><span class="arithmatex">\(V(s)\)</span>：舊的價值估計</li>
+<li><span class="arithmatex">\(G_t\)</span>：新看到的回報</li>
+<li><span class="arithmatex">\(\alpha\)</span>：學習率（步長）</li>
+<li><span class="arithmatex">\((G_t - V(s))\)</span>：預測誤差 (Estimation Error)</li>
+</ul>
+<blockquote>
+<p><strong>公式推導</strong>: <span class="arithmatex">\(\\\text{Traditional MC} = \mu_k \\= \frac{1}{k}\sum\limits_{i = 1}^k x_i \\= \frac{1}{k}(x_k + \sum\limits_{i = 1}^{k - 1}) \\= \frac{1}{k}(x_k + (k - 1)\mu_{k-1}) \\= \mu_{k-1} + \frac{1}{k}(x_k - \mu_{k-1}) = \text{Incremental MC Update}\)</span><br />
+其中，<span class="arithmatex">\(\bold{x_k - \mu_{k-1}}\text{為 prediction error}\)</span></p>
+</blockquote>
+<ul>
+<li>For each <span class="arithmatex">\(s_t\)</span> visited in an episode with <span class="arithmatex">\(G_t\)</span></li>
+<li><span class="arithmatex">\(N(s_t) \leftarrow N(s_t) + 1\)</span> <code>這個狀態 $s_t$ 又被訪問了一次，累計起來</code></li>
+<li><span class="arithmatex">\(V(s_t) \leftarrow V(s_t) + \frac{1}{N(s_t)}(G_t - V(s_t))\)</span> <code>就是上面公式換個寫法-moving average</code></li>
+<li>當面對非平穩問題 <code>(Non-stationary problems: 環境規則會隨時間改變時，舊的經驗可能不再可靠)</code>時，把原本的 <span class="arithmatex">\(\frac{1}{N}\)</span> 換成一個固定的常數 <span class="arithmatex">\(\alpha\)</span>。<ul>
+<li><em>learning rate <span class="arithmatex">\(\alpha \text{ 取代 } \frac{1}{N(s_t)}\)</span></em> - 讓 Agent 逐漸「遺忘」很久以前的舊經驗，而更重視最近學到的新東西。</li>
+</ul>
+</li>
+</ul>
+<h3 id="temporal-difference-td-prediction">Temporal Difference (TD) Prediction<a class="headerlink" href="#temporal-difference-td-prediction" title="Permanent link">&para;</a></h3>
+<ul>
+<li>TD 與 MC 的核心差異: <strong>No need to wait for any final outcomes</strong></li>
+<li>可以用在continuous task(沒有明確的回合)</li>
+<li>
+<p>Bootstrapping: 從預估中進行預估</p>
+</li>
+<li>
+<p>具體方法:</p>
+</li>
+<li>TD 在每走一步後，會利用「立即獲得的獎勵加上打折後的下一步預估價值」作為「TD Target（<span class="arithmatex">\(r_{t+1} + \gamma V(s_{t+1})\)</span>）」，以此來取代實際的總回報進行更新</li>
+<li>之後再計算TD 目標與當前預估值之間的落差，稱為「TD Error (<span class="arithmatex">\(r_{t+1} + \gamma V(s_{t+1} )−V(s_t)\)</span>）」，並據此進行「逐步備份（step-by-step backup）」的價值更新</li>
+</ul>
+<blockquote>
+<p>也就是說: 
+- <span class="arithmatex">\(V(s_t)\text{不是被完整的 }G_t (\text{回合總回報平均})\text{所推得、更新出來的}\)</span><br />
+- 在TD，<span class="arithmatex">\(V(s_t)\text{是被 }R_t + \gamma V(s_{t+1})\bold{的預估}\text{逐漸更新、推得}\)</span><br />
+公式:<span class="arithmatex">\(V(s_t) \leftarrow V(s_t) + \alpha \big[\overbrace{\underbrace{r_{t+1} + \gamma V(s_{t+1})}_{\text{TD target}} - V(s_t)]}^{\text{TD error}}\)</span></p>
+</blockquote>
+<h3 id="algo-detail-of-temporal-difference">Algo detail of Temporal Difference<a class="headerlink" href="#algo-detail-of-temporal-difference" title="Permanent link">&para;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">C</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-1-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-1-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-1-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-1-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-1-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-1-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-1-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-1-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-1-10">10</a></span>
+<span class="normal"><a href="#__codelineno-1-11">11</a></span>
+<span class="normal"><a href="#__codelineno-1-12">12</a></span>
+<span class="normal"><a href="#__codelineno-1-13">13</a></span>
+<span class="normal"><a href="#__codelineno-1-14">14</a></span>
+<span class="normal"><a href="#__codelineno-1-15">15</a></span>
+<span class="normal"><a href="#__codelineno-1-16">16</a></span>
+<span class="normal"><a href="#__codelineno-1-17">17</a></span>
+<span class="normal"><a href="#__codelineno-1-18">18</a></span>
+<span class="normal"><a href="#__codelineno-1-19">19</a></span>
+<span class="normal"><a href="#__codelineno-1-20">20</a></span>
+<span class="normal"><a href="#__codelineno-1-21">21</a></span>
+<span class="normal"><a href="#__codelineno-1-22">22</a></span>
+<span class="normal"><a href="#__codelineno-1-23">23</a></span>
+<span class="normal"><a href="#__codelineno-1-24">24</a></span>
+<span class="normal"><a href="#__codelineno-1-25">25</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="nl">Algorithm</span><span class="p">:</span><span class="w"> </span><span class="n">Tabular</span><span class="w"> </span><span class="n">TD</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">Estimating</span><span class="w"> </span><span class="n">vπ</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="c1">// 目的： 在已知 policy π 的情況下，透過與環境互動逐步估計每個 state 的 value V(s)</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a>
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="nl">Require</span><span class="p">:</span><span class="w"> </span><span class="c1">// 輸入: 一個policy π</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="w">   </span><span class="n">π</span><span class="w">  </span><span class="err">→</span><span class="w"> </span><span class="n">已經存在的</span><span class="w"> </span><span class="n">policy</span><span class="err">（</span><span class="n">state</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="n">action</span><span class="w"> </span><span class="n">的機率分布</span><span class="err">）</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6"></a>
+<a id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="nl">Ensure</span><span class="p">:</span><span class="w"> </span><span class="c1">// 輸出: value finction V(s) 會逐漸逼近在 policy π 下的真實 state value</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="w">   </span><span class="n">V</span><span class="w"> </span><span class="err">≈</span><span class="w"> </span><span class="n">vπ</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9"></a>
+<a id="__codelineno-1-10" name="__codelineno-1-10"></a>
+<a id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="n">Initialize</span><span class="w"> </span><span class="n">V</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="n">arbitrarily</span><span class="w"> </span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">g</span><span class="p">.,</span><span class="w"> </span><span class="n">V</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="err">∀</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="err">∈</span><span class="w"> </span><span class="n">S</span><span class="p">)</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12"></a><span class="w">   </span><span class="c1">// 為所有 state 初始化 value table, 最常見做法是全部設為 0</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13"></a>
+<a id="__codelineno-1-14" name="__codelineno-1-14"></a><span class="n">repeat</span><span class="w">  </span><span class="c1">// 開始進行多個 episode，每個 episode 是一次完整遊戲或一次完整環境互動</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15"></a>
+<a id="__codelineno-1-16" name="__codelineno-1-16"></a><span class="w">   </span><span class="n">Initialize</span><span class="w"> </span><span class="n">state</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="c1">// 開始新的回合: 重置環境 + 取得起始 state</span>
+<a id="__codelineno-1-17" name="__codelineno-1-17"></a><span class="w">   </span><span class="n">repeat</span><span class="w"> </span><span class="c1">//在此 episode 中持續互動直到 terminal state</span>
+<a id="__codelineno-1-18" name="__codelineno-1-18"></a><span class="w">      </span><span class="n">Select</span><span class="w"> </span><span class="n">action</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">π</span><span class="p">(</span><span class="n">a</span><span class="o">|</span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="c1">// 根據 policy π 選擇 action. π(a|s) 表示在 state s 選 action a 的機率</span>
+<a id="__codelineno-1-19" name="__codelineno-1-19"></a><span class="w">      </span><span class="n">Take</span><span class="w"> </span><span class="n">action</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">observe</span><span class="w"> </span><span class="n">reward</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="n">and</span><span class="w"> </span><span class="n">next</span><span class="w"> </span><span class="n">state</span><span class="w"> </span><span class="n">s</span><span class="err">&#39;&#39;</span><span class="w"> </span><span class="c1">// 與環境互動- 執行 action a 並得到： reward 與 s&#39; → 下一個 state</span>
+<a id="__codelineno-1-20" name="__codelineno-1-20"></a><span class="w">      </span><span class="n">V</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="err">←</span><span class="w"> </span><span class="n">V</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">α</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">γV</span><span class="p">(</span><span class="n">s</span><span class="err">&#39;&#39;</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="err">−</span><span class="w"> </span><span class="n">V</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="c1">// TD(Temporal Difference) 更新公式</span>
+<a id="__codelineno-1-21" name="__codelineno-1-21"></a><span class="w">      </span><span class="n">s</span><span class="w"> </span><span class="err">←</span><span class="w"> </span><span class="n">s</span><span class="err">&#39;&#39;</span><span class="w"> </span><span class="c1">// 將 state 更新為下一個 state，agent 會繼續從新 state 行動</span>
+<a id="__codelineno-1-22" name="__codelineno-1-22"></a>
+<a id="__codelineno-1-23" name="__codelineno-1-23"></a><span class="w">   </span><span class="n">until</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">terminal</span><span class="w"> </span><span class="c1">//若到達終止 state (terminal state)，則 episode 結束</span>
+<a id="__codelineno-1-24" name="__codelineno-1-24"></a>
+<a id="__codelineno-1-25" name="__codelineno-1-25"></a><span class="n">until</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">estimates</span><span class="w"> </span><span class="n">converge</span><span class="w"> </span><span class="c1">//不斷重複多個 episode ，直到 V(s) 不再顯著改變</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="comparison-between-md-td">Comparison between MD &amp; TD<a class="headerlink" href="#comparison-between-md-td" title="Permanent link">&para;</a></h3>
+<ul>
+<li>MC method</li>
+<li><span class="arithmatex">\(G_t\)</span> is obtained based on the actual returns - <strong>unbaised</strong></li>
+<li><span class="arithmatex">\(G_t\)</span> depends on many <span class="arithmatex">\((s,a,r)\)</span> pairs - <strong>higher variance</strong></li>
+<li>TD method</li>
+<li>TD target <span class="arithmatex">\(V(s)\)</span> is based on estimated values - <strong>biased</strong></li>
+<li>TD target <span class="arithmatex">\(V(s)\)</span> depends on one <span class="arithmatex">\((s,a,r)\)</span> pair - <strong>lower varianced</strong></li>
+</ul>
+<h3 id="multi-step-td-method">Multi-Step TD method<a class="headerlink" href="#multi-step-td-method" title="Permanent link">&para;</a></h3>
+<ul>
+<li>除了每做一步就估計一次 value function, 也可以 <strong>多做幾步再做估計</strong></li>
+<li>用 n-step 的return 作為 TD target<blockquote>
+<p>考慮 <span class="arithmatex">\(n\)</span> 步做一次計算:<br />
+<span class="arithmatex">\(\text{N-step return: } G_t^n = \sum\limits_{j = 0}^{n}\gamma^nV(S_{t+n})\)</span> <br />
+E.g. <em>3-step return:</em> <span class="arithmatex">\(r_t + \gamma r_{t+1} + \gamma^2r_{t+2} + \gamma^3 r_{t+3}\)</span><br />
+E.g. <em><span class="arithmatex">\(\infty\text{-step return: }\)</span></em><span class="arithmatex">\(G_t^{\infty} = r_t + \gamma r_{t+1} + \gamma^2 r_{t+2}+ \dots + \gamma^T r_{t+T} = \textbf{MC return}\)</span></p>
+</blockquote>
+</li>
+</ul>
+<h3 id="lambda-return"><span class="arithmatex">\(\lambda\)</span>-Return<a class="headerlink" href="#lambda-return" title="Permanent link">&para;</a></h3>
+<ul>
+<li>有時候，我們可以同時考慮多種不同步數 <em>multi-step return</em></li>
+<li>利用 <em>指數加權</em>，將所有可能的 <span class="arithmatex">\(n\)</span> 步回報進行加權平均<blockquote>
+<p>公式: <span class="arithmatex">\(G_t^\lambda = (1 - \lambda) \sum_{n=1}^{\infty} \lambda^{n-1} G_t^n\)</span><br />
+<span class="arithmatex">\(\lambda\text{(衰減因子): 決定給予}\textbf{遠期回報}\text{多少權重}\)</span><br />
+更新機制: <span class="arithmatex">\(V(s_t) \leftarrow V(s_t) + \alpha(G_t^\lambda - V(s_t))\)</span></p>
+</blockquote>
+</li>
+</ul>
+<h2 id="model-free-control_1">Model-Free Control<a class="headerlink" href="#model-free-control_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li>目標: 在完全未知的環境中，單憑<strong>互動經驗</strong>來找出最佳策略<span class="arithmatex">\(\pi^*\)</span></li>
+</ul>
+<blockquote>
+<dl>
+<dt>Recap: 在模型可知的環境中，我們利用DP求算<em>value function</em> 並且透過<em>greedy principle</em>每次選擇最有價值的action做為策略改動。</dt>
+<dt>上述的計算價值(<em>evaluation</em>)、選擇動作(<em>improvement</em>)、計算價值、更新動作 ...稱為<strong>策略迭代(Policy Iteration)</strong></dt>
+<dd><span class="arithmatex">\(\pi_0 \rightarrow Q_{\pi0} \rightarrow \pi_1 \rightarrow Q_{\pi1} \rightarrow \dots \pi_* \rightarrow Q^*\)</span></dd>
+</dl>
+</blockquote>
+<h3 id="monte-carlo-control">Monte-Carlo Control<a class="headerlink" href="#monte-carlo-control" title="Permanent link">&para;</a></h3>
+<ul>
+<li>在一個 <em>Monte-Carlo Prediction</em>回合後，我們可以得到策略中採取的一個回合行動軌跡的return，作為其action value 的 <strong>估算</strong></li>
+<li>
+<p>但是，如果使用<em>greedy principle</em>會導致agent陷入local optimal而沒有察覺到更佳解<br />
+<code>也就是說，agent 每次都會選擇已經探勘、知曉action value的action而不選擇其他在policy但尚未知道value的action</code></p>
+</li>
+<li>
+<p>原因: <em>model-free</em>無法知道所有action/states的 value，需要有<strong>挖掘新action的設計</strong></p>
+</li>
+<li>Solution: <span class="arithmatex">\(\epsilon\text{-Greedy Policy} \rightarrow \text{引入一點隨機性}\)</span></li>
+</ul>
+<h4 id="epsilon-greedy-exploration"><span class="arithmatex">\(\epsilon\)</span>-Greedy Exploration<a class="headerlink" href="#epsilon-greedy-exploration" title="Permanent link">&para;</a></h4>
+<ul>
+<li>有 <span class="arithmatex">\(1 - \epsilon\)</span> 的機率選擇當前最好的<span class="arithmatex">\(\text{action }a^*\)</span></li>
+<li>有 <span class="arithmatex">\(\epsilon\)</span> 的機率<strong>隨機</strong>sample action a</li>
+</ul>
+<blockquote>
+<div class="arithmatex">\[\text{policy } \pi = \left\{ \begin{aligned}
+1-\lambda &amp; &amp;\text{if } a^* = greedy(Q(s,a)) \\
+\lambda &amp; &amp; \text{otherwise}
+\end{aligned}\right.\]</div>
+</blockquote>
+<h3 id="temporal-differencetd-control">Temporal Difference(TD) Control<a class="headerlink" href="#temporal-differencetd-control" title="Permanent link">&para;</a></h3>
+<ul>
+<li>在 <strong><span class="arithmatex">\(\epsilon\)</span>-greedy policy</strong>的前提下，TD prediction可以有兩種方式進行<em>policy improvement</em> :</li>
+<li>On-policy(在線策略): <ul>
+<li>Agent 遵循目前的策略 <span class="arithmatex">\(\pi\)</span> 進行探索，並直接根據這些實際經歷來優化該策略。</li>
+<li>
+<blockquote>
+<p>邊做邊學，學的就是當前正在做的這套動作。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>Off-policy (離線策略)：<ul>
+<li>Agent 擁有一套用於探索環境的「行為策略」<em>（較具隨機性）</em>，但它學習的是另一套「目標策略」<em>（理論上的最優策略）</em>。</li>
+<li>
+<blockquote>
+<p>參考別人的做法或想像最完美的做法來學習，而不一定要親自執行該最優動作。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="on-policy-vs-off-policy">On-Policy v.s. Off-Policy<a class="headerlink" href="#on-policy-vs-off-policy" title="Permanent link">&para;</a></h3>
+<p>在TD control的情況下，有兩種policy:
+1. <strong>Target Policy <span class="arithmatex">\(\pi\)</span></strong> : 當前agent正在採取的策略 - <code>「正在學習、評估，並試圖最佳化」的策略</code>
+2. <strong>Behavior Policy <span class="arithmatex">\(\mu\)</span></strong>: Agent用來選擇action的策略 - <code>用來「產生互動經驗」的策略</code></p>
+<blockquote>
+<ul>
+<li>On-policy learning : <span class="arithmatex">\(\pi = \mu\)</span></li>
+<li>Off-policy learning: <span class="arithmatex">\(\pi \not ={\mu}\)</span></li>
+</ul>
+</blockquote>
+<ul>
+<li>Off-policy的優點:</li>
+<li>可以重複利用舊有的、或是純粹用於隨機探索的歷史經驗數據來學習</li>
+<li>可以學習人類的遊玩紀錄（Human replay data）</li>
+<li>能夠利用專家示範（Expert demonstrations），這能大幅加速Agent在複雜環境中的學習速度</li>
+<li>Off-policy需要面對的問題: <strong>Importance Sampling</strong></li>
+<li>因為選擇策略與學習策略不同不能直接拿 μ 的經驗來更新 π，需要考慮<strong>在一個策略之下，另外一個策略的動作有多少價值</strong> (<code>Estimating the expected values of distribution p by samples from distribution q</code>)</li>
+<li>
+<blockquote>
+<p><span class="arithmatex">\(\text{令}p(x)\text{為目標學習策略}\pi\text{之下某個action x 的機率 ;} q(x) \text{為選擇策略 之下 action x 的機率}\)</span></p>
+</blockquote>
+</li>
+<li>
+<blockquote>
+<p><span class="arithmatex">\(\text{令}f(x)\text{為該action的 return}\)</span></p>
+</blockquote>
+</li>
+<li>
+<blockquote>
+<p>可推導公式: <span class="arithmatex">\(\begin{aligned}\mathbb{E}_{x\sim p}[f(x)] &amp;= \sum p(x)f(x) \\ &amp; =\sum q(x)\frac{p(x)}{q(x)}f(x) \\ &amp; =\mathbb{E}_{x\sim q}[\frac{p(x)}{q(x)}f(x)]\end{aligned}\)</span></p>
+</blockquote>
+</li>
+<li>
+<blockquote>
+<p>其中 $ <span class="arithmatex">\(\frac{p(x)}{q(x)}\)</span>$被稱為<em>重要性權重</em> 或 <em>似然比（Likelihood Ratio</em>):<li> 權重&gt; 1：代表行為策略很少執行的動作，但在目標策略中非常重要。此時必須放大該樣本的回報貢獻。</li><li>權重 &lt; 1：代表行為策略頻繁執行，但在目標策略中並不常見的動作。此時必須縮小該樣本的影響</li><li>權重 = 0：若行為策略執行了目標策略完全不會採取的動作，則該樣本對評估目標策略沒有貢獻。</li></p>
+</blockquote>
+</li>
+</ul>
+<h4 id="importance-sampling-for-off-policy-learning">Importance Sampling for Off-Policy Learning<a class="headerlink" href="#importance-sampling-for-off-policy-learning" title="Permanent link">&para;</a></h4>
+<ol>
+<li>Monte Carlo Target</li>
+<li>MC 方法是基於走完完整回合的真實總回報（<span class="arithmatex">\(G_t\)</span>）來進行評估。</li>
+<li>因此，為了將 μ 產生的回報轉換為 π 的預期回報，必須將從當前時間點 t 一直到回合結束 T 之間，「<strong>每一個步驟的動作機率比值」全部連乘起來</strong></li>
+<li>
+<blockquote>
+<p>修正公式: <span class="arithmatex">\(G_t^{\pi/\mu} = \frac{\pi(a_t|s_t)}{\mu(a_t|s_t)}\frac{\pi(a_{t+1}|s_{t+1})}{\mu(a_{t+1}| s_{t+1})}\dots \frac{\pi(a_T|s_T)}{\mu(a_T|s_T)}G_t\)</span></p>
+</blockquote>
+</li>
+<li>
+<blockquote>
+<p>修正公式: <span class="arithmatex">\(V(s_t)\leftarrow V(s_t) + \alpha(G_t^{\pi/\mu}-V(s_t))\)</span></p>
+</blockquote>
+</li>
+<li><strong>問題:</strong> 如果行為策略 μ 與目標策略 π 差異很大，這些機率比值的連乘效應會使重要性權重變得極端巨大。 <span class="arithmatex">\(\Rightarrow\)</span> <strong>少數極端的樣本會獲得極高的權重</strong>，導致學習過程的<em>變異數（Variance</em>暴增，造成價值更新劇烈震盪且收斂速度變得非常緩慢</li>
+<li>TD Target</li>
+<li>因為TD 採用了Bootstrapping(走一步算一步)，其原本的更新目標僅依賴 <strong>「當下的獎勵加上下一步的預估價值」</strong> (<em>i.e. <span class="arithmatex">\(r_t + \gamma V(s_{t+1})\)</span></em>)，所以修正也只需要<strong>針對「當下這單一個步驟」的動作機率進行重要性採樣校正</strong></li>
+<li>
+<blockquote>
+<p>修正公式: <span class="arithmatex">\(\text{TD}_{\text{target}} = \frac{\pi(a_t|s_t)}{\mu(a_t|s_t)}(r_t + \gamma V(s_{t+1}))\)</span></p>
+</blockquote>
+</li>
+<li>
+<blockquote>
+<p>修正公式: <span class="arithmatex">\(V(s_t)\leftarrow V(s_t) + \alpha(\text{TD}_\text{target} - V(s_t))\)</span></p>
+</blockquote>
+</li>
+<li>變異數顯著小於MC target</li>
+</ol>
+<h3 id="sarsa">Sarsa<a class="headerlink" href="#sarsa" title="Permanent link">&para;</a></h3>
+<p><strong>On-Policy</strong></p>
+<h4 id="mechanism">Mechanism<a class="headerlink" href="#mechanism" title="Permanent link">&para;</a></h4>
+<ol>
+<li>Agent 在狀態 <span class="arithmatex">\(s\)</span> 執行動作 <span class="arithmatex">\(a\)</span>。</li>
+<li>觀察到獎勵 <span class="arithmatex">\(r\)</span> 並進入新狀態 <span class="arithmatex">\(s'\)</span>。</li>
+<li><strong>Agent 根據「目前的策略」預先決定在 <span class="arithmatex">\(s'\)</span> 會採取的下一步動作 <span class="arithmatex">\(a'\)</span>。</strong></li>
+<li>使用 <span class="arithmatex">\(Q(s', a')\)</span> 作為 TD Target 來更新 <span class="arithmatex">\(Q(s, a)\)</span>。</li>
+</ol>
+<blockquote>
+<p>On-policy: 在更新value時，會考慮到自己接下來真的會去做的動作（包含可能的錯誤或探索）。</p>
+</blockquote>
+<h4 id="formula">Formula<a class="headerlink" href="#formula" title="Permanent link">&para;</a></h4>
+<p><strong>名稱由來: 每次更新考慮 <span class="arithmatex">\(\bold{(s_t,a_t,r_{t+1}, s_{t+1},a_{t+1})}\)</span></strong>
+$<span class="arithmatex">\(Q(s, a) \leftarrow Q(s, a) + \alpha [r + \gamma Q(s', a') - Q(s, a)]\)</span>$</p>
+<h3 id="q-learning">Q-learning<a class="headerlink" href="#q-learning" title="Permanent link">&para;</a></h3>
+<p><strong>Off-policy</strong></p>
+<h4 id="epsilon-greedy-decisionimportance-sampling">特點: 透過<span class="arithmatex">\(\epsilon\)</span>-greedy decision避開了importance sampling的修正問題<a class="headerlink" href="#epsilon-greedy-decisionimportance-sampling" title="Permanent link">&para;</a></h4>
+<h4 id="mechanism_1">Mechanism<a class="headerlink" href="#mechanism_1" title="Permanent link">&para;</a></h4>
+<ol>
+<li>Agent 在狀態 <span class="arithmatex">\(s\)</span> 執行動作 <span class="arithmatex">\(a\)</span>。</li>
+<li>觀察到獎勵 <span class="arithmatex">\(r\)</span> 並進入新狀態 <span class="arithmatex">\(s'\)</span>。</li>
+<li><strong>在更新時，它不關心自己下一步「實際」會做什麼，而是查找在 <span class="arithmatex">\(s'\)</span> 狀態下，所有可能動作中價值最高的那一個 <span class="arithmatex">\(\max_{a'} Q(s', a')\)</span>。</strong></li>
+<li>即使 Agent 下一步因為隨機探索而走錯路，它在更新 <span class="arithmatex">\(Q(s, a)\)</span> 時仍然假設自己會走最正確的那條路。</li>
+</ol>
+<h4 id="formula_1">Formula<a class="headerlink" href="#formula_1" title="Permanent link">&para;</a></h4>
+<div class="arithmatex">\[
+Q(s, a) \leftarrow Q(\underbrace{s, a}_{\text{From }\mu}) + \alpha [\underbrace{r}_{\text{From }\mu} + \gamma \max_{a'} Q(\underbrace{s'}_{\text{From }\mu}, \overbrace{a'}^{\text{from }\pi}) - Q(s, a)]
+\]</div>
+<h3 id="comparison-between-sarsa-q-learning">Comparison between SARSA &amp; Q-Learning<a class="headerlink" href="#comparison-between-sarsa-q-learning" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>特性</th>
+<th>SARSA (On-policy)</th>
+<th>Q-learning (Off-policy)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>更新依據</strong></td>
+<td>下一個實際執行的動作 <span class="arithmatex">\(a'\)</span></td>
+<td>下一個可能的最佳動作 <span class="arithmatex">\(\max a'\)</span></td>
+</tr>
+<tr>
+<td><strong>收斂目標</strong></td>
+<td>當前策略的價值</td>
+<td>最優策略的價值</td>
+</tr>
+<tr>
+<td><strong>風險偏好</strong></td>
+<td>較保守，會避開高風險路徑</td>
+<td>較激進，傾向尋找理論最短路徑</td>
+</tr>
+<tr>
+<td><strong>適用場景</strong></td>
+<td>在線學習，需考慮執行過程的安全</td>
+<td>離線學習，或尋找極致最優解</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到頂端
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["toc.integrate", "announce.dismiss", "header.autohide", "navigation.tracking", "navigation.tabs", "navigation.sections", "navigation.top", "navigation.footer", "search.suggest", "search.highlight", "search.share", "navigation.expand", "navigation.indexes", "content.tabs.link", "content.tooltips", "content.code.copy", "content.action.edit", "content.action.view", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u8907\u88fd", "clipboard.copy": "\u8907\u88fd", "search.result.more.one": "\u6b64\u9801\u5c1a\u6709 1 \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.more.other": "\u6b64\u9801\u5c1a\u6709 # \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.none": "\u6c92\u6709\u7b26\u5408\u7684\u9805\u76ee", "search.result.one": "\u627e\u5230 1 \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.other": "\u627e\u5230 # \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.placeholder": "\u6253\u5b57\u9032\u884c\u641c\u5c0b", "search.result.term.missing": "\u7f3a\u5c11\u5b57\u8a5e", "select.version": "\u9078\u64c7\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+    
+  </body>
+</html>

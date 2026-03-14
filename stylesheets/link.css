@@ -1,0 +1,5 @@
+/* Link styles loaded by mkdocs.yml */
+
+a {
+  text-underline-offset: 0.15em;
+}
